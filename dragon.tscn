@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwypl76l2ngfv"]
+
+[ext_resource type="Texture2D" uid="uid://qe2dc20d3ysu" path="res://Platinado_Dragon.png" id="1_4flbx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sh265"]
+radius = 16.0
+height = 52.0
+
+[node name="Dragon" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="PlatinadoDragon" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(1, 1)
+scale = Vector2(0.0430556, 0.0555556)
+texture = ExtResource("1_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_sh265")
