@@ -3,10 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dq6soy3hynloe" path="res://Boy&Girl-CharacterPack/Boy_Sheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cmu34405scpcs" path="res://player.gd" id="1_onrkg"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sh265"]
-radius = 12.0
-height = 38.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")
 region = Rect2(0, 138, 46, 46)
@@ -285,6 +281,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sh265"]
+radius = 3.9995072
+height = 18.029196
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
 
@@ -296,16 +296,18 @@ texture = ExtResource("1_4flbx")
 hframes = 8
 vframes = 6
 
-[node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -4)
-shape = SubResource("CapsuleShape2D_sh265")
-
 [node name="Animated" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1.0000001, -3.0000002)
 scale = Vector2(1, 0.9782609)
 sprite_frames = SubResource("SpriteFrames_khis8")
 animation = &"death"
 frame_progress = 0.98290724
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8.000001)
+rotation = 1.5865043
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_sh265")
 
 [node name="Visao" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
