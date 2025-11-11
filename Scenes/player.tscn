@@ -1,7 +1,7 @@
 [gd_scene load_steps=40 format=3 uid="uid://2bejjpwo38ik"]
 
 [ext_resource type="Texture2D" uid="uid://dq6soy3hynloe" path="res://Boy&Girl-CharacterPack/Boy_Sheet.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://cmu34405scpcs" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://cmu34405scpcs" path="res://Scripts/player.gd" id="1_onrkg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")

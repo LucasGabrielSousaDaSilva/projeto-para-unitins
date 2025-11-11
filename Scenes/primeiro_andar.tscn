@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://cgi4wrygo2uxu"]
 
 [ext_resource type="Texture2D" uid="uid://cj8bdprvjk7fh" path="res://kenney_roguelike-modern-city/Tilemap/tilemap_packed.png" id="1_sa6id"]
-[ext_resource type="PackedScene" uid="uid://2bejjpwo38ik" path="res://player.tscn" id="2_ob6u7"]
+[ext_resource type="PackedScene" uid="uid://2bejjpwo38ik" path="res://Scenes/player.tscn" id="2_ob6u7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ob6u7"]
 texture = ExtResource("1_sa6id")
