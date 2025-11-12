@@ -300,8 +300,8 @@ vframes = 6
 position = Vector2(-1.0000001, -3.0000002)
 scale = Vector2(1, 0.9782609)
 sprite_frames = SubResource("SpriteFrames_khis8")
-animation = &"death"
-frame_progress = 0.98290724
+animation = &"idle"
+flip_h = true
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8.000001)

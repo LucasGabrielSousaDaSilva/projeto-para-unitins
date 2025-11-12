@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://cgi4wrygo2uxu"]
+[gd_scene load_steps=10 format=4 uid="uid://cgi4wrygo2uxu"]
 
+[ext_resource type="Script" uid="uid://c4dk5wjsx74jo" path="res://Scripts/levels.gd" id="1_8llw3"]
 [ext_resource type="Texture2D" uid="uid://cj8bdprvjk7fh" path="res://kenney_roguelike-modern-city/Tilemap/tilemap_packed.png" id="1_sa6id"]
 [ext_resource type="PackedScene" uid="uid://2bejjpwo38ik" path="res://Scenes/player.tscn" id="2_ob6u7"]
+[ext_resource type="PackedScene" uid="uid://sny22dj70wyo" path="res://Scenes/Door.tscn" id="3_oby66"]
+[ext_resource type="PackedScene" uid="uid://b8ocr6hgedg1m" path="res://transition.tscn" id="5_41sea"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ob6u7"]
 texture = ExtResource("1_sa6id")
@@ -2150,6 +2153,7 @@ physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_aoedp")
 
 [node name="Primeiro_andar" type="Node2D"]
+script = ExtResource("1_8llw3")
 
 [node name="Textura" type="Sprite2D" parent="."]
 
@@ -2162,4 +2166,16 @@ tile_map_data = PackedByteArray("AAAWAOX/AAAWABIAAFAXAOX/AAAWABIAAFAYAOX/AAAWABI
 tile_set = SubResource("TileSet_ob6u7")
 
 [node name="Player" parent="." instance=ExtResource("2_ob6u7")]
-position = Vector2(232, 165)
+position = Vector2(250, 159)
+
+[node name="escada_bloco" parent="." node_paths=PackedStringArray("transition_controller") instance=ExtResource("3_oby66")]
+position = Vector2(176.00002, 169.00002)
+scale = Vector2(1.1951376, 1.3649517)
+next_level = "res://Scenes/bloco_b.tscn"
+transition_controller = NodePath("../transition")
+
+[node name="bloco_b" type="Marker2D" parent="."]
+position = Vector2(227, 169)
+rotation = -1.5475566
+
+[node name="transition" parent="." instance=ExtResource("5_41sea")]

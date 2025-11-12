@@ -7,3 +7,5 @@ func _ready() -> void:
 		var point = get_node(Global.destination_level)
 		if point:
 			player.global_position = point.global_position
+		else:
+			print("⚠️ Ponto de destino não encontrado:", Global.destination_point)

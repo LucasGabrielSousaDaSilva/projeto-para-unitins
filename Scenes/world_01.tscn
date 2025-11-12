@@ -2071,7 +2071,7 @@ texture = ExtResource("2_cujcs")
 [sub_resource type="TileSet" id="TileSet_c3k7x"]
 sources/1 = SubResource("TileSetAtlasSource_cujcs")
 
-[node name="World 01" type="Node2D"]
+[node name="world_01" type="Node2D"]
 
 [node name="Texture" type="Sprite2D" parent="."]
 position = Vector2(101, 309)

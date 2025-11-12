@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://br3ae7ec1w344"]
+[gd_scene load_steps=10 format=4 uid="uid://br3ae7ec1w344"]
 
 [ext_resource type="Script" uid="uid://c4dk5wjsx74jo" path="res://Scripts/levels.gd" id="1_aofy2"]
 [ext_resource type="Texture2D" uid="uid://cj8bdprvjk7fh" path="res://kenney_roguelike-modern-city/Tilemap/tilemap_packed.png" id="2_y00hg"]
 [ext_resource type="PackedScene" uid="uid://2bejjpwo38ik" path="res://Scenes/player.tscn" id="3_442ki"]
 [ext_resource type="PackedScene" uid="uid://sny22dj70wyo" path="res://Scenes/Door.tscn" id="4_y71cq"]
+[ext_resource type="PackedScene" uid="uid://b8ocr6hgedg1m" path="res://transition.tscn" id="5_y00hg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ffqs"]
 texture = ExtResource("2_y00hg")
@@ -2143,7 +2144,7 @@ texture = ExtResource("2_y00hg")
 [sub_resource type="TileSet" id="TileSet_bvfl5"]
 sources/0 = SubResource("TileSetAtlasSource_l5882")
 
-[node name="Laboratorio_Menor" type="Node2D"]
+[node name="laboratorio_menor" type="Node2D"]
 script = ExtResource("1_aofy2")
 
 [node name="Cenario" type="Sprite2D" parent="."]
@@ -2167,9 +2168,13 @@ tile_set = SubResource("TileSet_bvfl5")
 [node name="Player" parent="." instance=ExtResource("3_442ki")]
 position = Vector2(1025, 520)
 
-[node name="Area2D" parent="." instance=ExtResource("4_y71cq")]
-position = Vector2(1024, 559)
+[node name="Door" parent="." node_paths=PackedStringArray("transition_controller") instance=ExtResource("4_y71cq")]
+position = Vector2(1024, 562)
+scale = Vector2(1.8, 1.1200098)
 next_level = "res://Scenes/bloco_b.tscn"
+transition_controller = NodePath("../transition")
 
 [node name="bloco_b" type="Marker2D" parent="."]
-position = Vector2(1024, 530)
+position = Vector2(1024, 520)
+
+[node name="transition" parent="." instance=ExtResource("5_y00hg")]

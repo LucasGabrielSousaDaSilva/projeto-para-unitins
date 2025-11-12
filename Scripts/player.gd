@@ -5,9 +5,9 @@ class_name Player
 @onready var animate: AnimatedSprite2D = $Animated
 
 
-const speed = 300.0
+const speed = 200.0
 var is_dead = false
-	
+var direction := "up"
 
 func _physics_process(_delta: float) -> void:
 	if is_dead:
@@ -24,12 +24,16 @@ func read_input() -> void:
 	
 	if Input.is_action_pressed("move_up"):
 		input_vector.y -= 1
+		direction = "up"
 	if Input.is_action_pressed("move_down"):
 		input_vector.y += 1
+		direction = "down"
 	if Input.is_action_pressed("move_left"):
 		input_vector.x -= 1
+		direction = "left"
 	if Input.is_action_pressed("move_right"):
 		input_vector.x += 1
+		direction = "right"
 	
 	input_vector = input_vector.normalized()
 	velocity = input_vector * speed
