@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ksvisq7n15we"
-path="res://.godot/imported/UI_TravelBook_Cursor01c.png-62972f991fe83e62f04b6794c88b6007.ctex"
+path="res://.godot/imported/UI_TravelBook_Cursor01c.png-d9fa3cb3a20b641fbdaef3829c9805b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Complete_UI_Book_Styles_Pack_Free_v1.0/01_TravelBookLite/Sprites/UI_TravelBook_Cursor01c.png"
-dest_files=["res://.godot/imported/UI_TravelBook_Cursor01c.png-62972f991fe83e62f04b6794c88b6007.ctex"]
+source_file="res://UI_Book_Styles/01_TravelBookLite/Sprites/UI_TravelBook_Cursor01c.png"
+dest_files=["res://.godot/imported/UI_TravelBook_Cursor01c.png-d9fa3cb3a20b641fbdaef3829c9805b5.ctex"]
 
 [params]
 

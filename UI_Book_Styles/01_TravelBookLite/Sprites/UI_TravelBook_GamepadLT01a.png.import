@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cf1nyeeellkvv"
-path="res://.godot/imported/UI_TravelBook_GamepadLT01a.png-89c39317e323aada0e2f8d261dab5780.ctex"
+path="res://.godot/imported/UI_TravelBook_GamepadLT01a.png-4154054b124ddf43539740ccd4f76edc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Complete_UI_Book_Styles_Pack_Free_v1.0/01_TravelBookLite/Sprites/UI_TravelBook_GamepadLT01a.png"
-dest_files=["res://.godot/imported/UI_TravelBook_GamepadLT01a.png-89c39317e323aada0e2f8d261dab5780.ctex"]
+source_file="res://UI_Book_Styles/01_TravelBookLite/Sprites/UI_TravelBook_GamepadLT01a.png"
+dest_files=["res://.godot/imported/UI_TravelBook_GamepadLT01a.png-4154054b124ddf43539740ccd4f76edc.ctex"]
 
 [params]
 

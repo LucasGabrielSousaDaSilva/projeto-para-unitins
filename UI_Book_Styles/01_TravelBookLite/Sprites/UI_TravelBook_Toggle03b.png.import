@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5xnnp6hho18n"
-path="res://.godot/imported/UI_TravelBook_Toggle03b.png-31d09ca1660906f20d136c9d0d65732e.ctex"
+path="res://.godot/imported/UI_TravelBook_Toggle03b.png-2f87cb53d1d9fd26acef4050e00ee6ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Complete_UI_Book_Styles_Pack_Free_v1.0/01_TravelBookLite/Sprites/UI_TravelBook_Toggle03b.png"
-dest_files=["res://.godot/imported/UI_TravelBook_Toggle03b.png-31d09ca1660906f20d136c9d0d65732e.ctex"]
+source_file="res://UI_Book_Styles/01_TravelBookLite/Sprites/UI_TravelBook_Toggle03b.png"
+dest_files=["res://.godot/imported/UI_TravelBook_Toggle03b.png-2f87cb53d1d9fd26acef4050e00ee6ab.ctex"]
 
 [params]
 
