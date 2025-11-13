@@ -1,0 +1,151 @@
+[gd_scene load_steps=11 format=3 uid="uid://deh7a3vxnnyol"]
+
+[ext_resource type="Shader" uid="uid://5xt21j2cfs1k" path="res://blur_shader.gdshader" id="1_45vjg"]
+[ext_resource type="Script" uid="uid://5qwhvh5ydk87" path="res://pause.gd" id="1_aq7p1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aq7p1"]
+shader = ExtResource("1_45vjg")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Theme" id="Theme_eylr0"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_aq7p1"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_6eyaj"]
+events = [SubResource("InputEventAction_aq7p1")]
+
+[sub_resource type="Animation" id="Animation_45vjg"]
+resource_name = "pause_game"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("menu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.13333334, 0.5082042),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_aq7p1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("menu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6eyaj"]
+resource_name = "resume_game"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5019301),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("menu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.5082042),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8u653"]
+_data = {
+&"RESET": SubResource("Animation_aq7p1"),
+&"pause_game": SubResource("Animation_45vjg"),
+&"resume_game": SubResource("Animation_6eyaj")
+}
+
+[node name="pause" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_aq7p1")
+
+[node name="overlay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_aq7p1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="menu" type="VBoxContainer" parent="overlay"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 412.0
+offset_top = 230.0
+offset_right = 693.0
+offset_bottom = 442.0
+theme = SubResource("Theme_eylr0")
+
+[node name="resume_btn" type="Button" parent="overlay/menu"]
+layout_mode = 2
+size_flags_vertical = 3
+shortcut = SubResource("Shortcut_6eyaj")
+text = "Resume Game"
+
+[node name="option_btn" type="Button" parent="overlay/menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="quit_btn" type="Button" parent="overlay/menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit Game"
+
+[node name="animator" type="AnimationPlayer" parent="overlay"]
+libraries = {
+&"": SubResource("AnimationLibrary_8u653")
+}
+autoplay = "pause_game"
+
+[connection signal="pressed" from="overlay/menu/resume_btn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="overlay/menu/option_btn" to="." method="_on_option_btn_pressed"]
+[connection signal="pressed" from="overlay/menu/quit_btn" to="." method="_on_quit_btn_pressed"]

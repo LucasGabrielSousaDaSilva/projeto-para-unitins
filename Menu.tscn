@@ -1,4 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxit22jf3hinu"]
+[gd_scene load_steps=8 format=3 uid="uid://bxit22jf3hinu"]
+
+[ext_resource type="Script" uid="uid://c32sscampkgq6" path="res://Scripts/menu.gd" id="1_5yleq"]
+[ext_resource type="Texture2D" uid="uid://c0iwvn6nsa4bb" path="res://Unitins.jpeg" id="1_uubjt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5yleq"]
+texture = ExtResource("1_uubjt")
+modulate_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lthh4"]
 corner_radius_top_left = 16
@@ -7,15 +14,32 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 
-[node name="Control" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uubjt"]
+bg_color = Color(0.22490698, 0.4942488, 0.6698226, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yleq"]
+bg_color = Color(0.49803922, 0.75686276, 0.75686276, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ylpcl"]
+
+[node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5yleq")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,20 +47,82 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="Image" type="Panel" parent="Background"]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 650.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_5yleq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.814
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.814
-offset_left = -163.0
-offset_top = -51.471985
-offset_right = 168.5
-offset_bottom = 47.028015
+anchor_bottom = 1.0
+offset_left = -201.0
+offset_top = -315.0
+offset_right = 196.0
+offset_bottom = -79.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+
+[node name="Stard_Game" type="Button" parent="Background/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.017732333, 0.01773242, 0.017732358, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_lthh4")
-text = "Menu"
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uubjt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5yleq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ylpcl")
+text = "Start Game"
+
+[node name="Options" type="Button" parent="Background/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.017732333, 0.01773242, 0.017732358, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_lthh4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uubjt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5yleq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ylpcl")
+text = "Options"
+
+[node name="Exit" type="Button" parent="Background/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.017732333, 0.01773242, 0.017732358, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_lthh4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uubjt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5yleq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ylpcl")
+text = "Exit"
+
+[node name="Text_Principal" type="Label" parent="."]
+layout_mode = 0
+offset_left = 314.0
+offset_top = 78.0
+offset_right = 841.0
+offset_bottom = 218.0
+theme_override_colors/font_shadow_color = Color(0.05490196, 0.05490196, 0.05490196, 0.93333334)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 7
+theme_override_font_sizes/font_size = 60
+text = "Unitins Adventure"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Background/VBoxContainer/Stard_Game" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/Options" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

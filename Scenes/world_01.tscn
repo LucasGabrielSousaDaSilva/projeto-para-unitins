@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://bfj2cieh6r3rl"]
+[gd_scene load_steps=8 format=4 uid="uid://bfj2cieh6r3rl"]
 
 [ext_resource type="Texture2D" uid="uid://cj8bdprvjk7fh" path="res://kenney_roguelike-modern-city/Tilemap/tilemap_packed.png" id="2_cujcs"]
 [ext_resource type="PackedScene" uid="uid://2bejjpwo38ik" path="res://Scenes/player.tscn" id="2_ovq2m"]
+[ext_resource type="PackedScene" uid="uid://deh7a3vxnnyol" path="res://pause.tscn" id="3_1axfm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0yxgj"]
 texture = ExtResource("2_cujcs")
@@ -2097,3 +2098,5 @@ position = Vector2(737, 91)
 disable_mode = 1
 collision_layer = 2
 collision_mask = 5
+
+[node name="pause" parent="." instance=ExtResource("3_1axfm")]
