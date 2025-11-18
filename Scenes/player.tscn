@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://2bejjpwo38ik"]
+[gd_scene load_steps=41 format=3 uid="uid://2bejjpwo38ik"]
 
 [ext_resource type="Texture2D" uid="uid://dq6soy3hynloe" path="res://Boy&Girl-CharacterPack/Boy_Sheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cmu34405scpcs" path="res://Scripts/player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://puuw4l8dok6y" path="res://Prefabs/inventory.tscn" id="3_6t5aa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")
@@ -311,3 +312,5 @@ shape = SubResource("CapsuleShape2D_sh265")
 
 [node name="Visao" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="Inventory" parent="." instance=ExtResource("3_6t5aa")]

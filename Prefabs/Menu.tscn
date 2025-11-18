@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bxit22jf3hinu"]
 
-[ext_resource type="Script" uid="uid://c32sscampkgq6" path="res://Scripts/menu.gd" id="1_5yleq"]
-[ext_resource type="Texture2D" uid="uid://c0iwvn6nsa4bb" path="res://Unitins.jpeg" id="1_uubjt"]
+[ext_resource type="Script" uid="uid://c32sscampkgq6" path="res://Scripts/menu.gd" id="1_q2he7"]
+[ext_resource type="Texture2D" uid="uid://c0iwvn6nsa4bb" path="res://Unitins.jpeg" id="2_s0vro"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5yleq"]
-texture = ExtResource("1_uubjt")
+texture = ExtResource("2_s0vro")
 modulate_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lthh4"]
@@ -37,7 +37,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5yleq")
+script = ExtResource("1_q2he7")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1

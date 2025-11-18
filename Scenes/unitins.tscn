@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://c4dk5wjsx74jo" path="res://Scripts/levels.gd" id="1_njbdn"]
 [ext_resource type="PackedScene" uid="uid://2bejjpwo38ik" path="res://Scenes/player.tscn" id="2_vejha"]
 [ext_resource type="PackedScene" uid="uid://sny22dj70wyo" path="res://Scenes/Door.tscn" id="3_43gnk"]
-[ext_resource type="PackedScene" uid="uid://b8ocr6hgedg1m" path="res://transition.tscn" id="4_njbdn"]
-[ext_resource type="PackedScene" uid="uid://deh7a3vxnnyol" path="res://pause.tscn" id="6_jgn4s"]
+[ext_resource type="PackedScene" uid="uid://b8ocr6hgedg1m" path="res://Prefabs/transition.tscn" id="4_njbdn"]
+[ext_resource type="PackedScene" uid="uid://deh7a3vxnnyol" path="res://Prefabs/pause.tscn" id="6_jgn4s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dt28i"]
 texture = ExtResource("1_iw7t8")

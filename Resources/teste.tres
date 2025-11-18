@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cipo1woarch6p"]
+
+[ext_resource type="Texture2D" uid="uid://qe2dc20d3ysu" path="res://Platinado_Dragon.png" id="1_nbg4u"]
+[ext_resource type="Script" uid="uid://m33p3judkr4s" path="res://Item.gd" id="2_ehvbj"]
+
+[resource]
+script = ExtResource("2_ehvbj")
+title = "text"
+icon = ExtResource("1_nbg4u")
+description = "Dragon prateado"
+metadata/_custom_type_script = "uid://m33p3judkr4s"

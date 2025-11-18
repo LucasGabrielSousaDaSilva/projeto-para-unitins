@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://b7ty1dpxdnogf"]
+[gd_scene load_steps=11 format=4 uid="uid://b7ty1dpxdnogf"]
 
 [ext_resource type="Script" uid="uid://c4dk5wjsx74jo" path="res://Scripts/levels.gd" id="1_kkqps"]
 [ext_resource type="Texture2D" uid="uid://cj8bdprvjk7fh" path="res://kenney_roguelike-modern-city/Tilemap/tilemap_packed.png" id="2_u18dc"]
 [ext_resource type="PackedScene" uid="uid://2bejjpwo38ik" path="res://Scenes/player.tscn" id="3_4un60"]
 [ext_resource type="PackedScene" uid="uid://sny22dj70wyo" path="res://Scenes/Door.tscn" id="4_xlxdt"]
-[ext_resource type="PackedScene" uid="uid://b8ocr6hgedg1m" path="res://transition.tscn" id="5_u18dc"]
+[ext_resource type="PackedScene" uid="uid://b8ocr6hgedg1m" path="res://Prefabs/transition.tscn" id="5_u18dc"]
+[ext_resource type="PackedScene" uid="uid://deh7a3vxnnyol" path="res://Prefabs/pause.tscn" id="6_4un60"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_05ra4"]
 texture = ExtResource("2_u18dc")
@@ -2242,8 +2243,6 @@ transition_controller = NodePath("../transition")
 [node name="Primeiro_andar" type="Marker2D" parent="."]
 position = Vector2(166, 247)
 
-[node name="transition" parent="." instance=ExtResource("5_u18dc")]
-
 [node name="door_bloco" parent="." node_paths=PackedStringArray("transition_controller") instance=ExtResource("4_xlxdt")]
 position = Vector2(440.00003, 603)
 scale = Vector2(2.48, 1.1599902)
@@ -2255,3 +2254,7 @@ position = Vector2(439.00003, 565)
 rotation = 3.138542
 scale = Vector2(2.4799588, 1.1600783)
 skew = -0.010892987
+
+[node name="pause" parent="." instance=ExtResource("6_4un60")]
+
+[node name="transition" parent="." instance=ExtResource("5_u18dc")]

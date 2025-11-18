@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c73ggae4wcgl0"]
+
+[ext_resource type="Texture2D" uid="uid://4rju6d2ucslr" path="res://UI_Book_Styles/01_TravelBookLite/Sprites/UI_TravelBook_Slot01b.png" id="1_43c6m"]
+[ext_resource type="Script" uid="uid://xqu1mb1gb1n4" path="res://Prefabs/slot.gd" id="1_cqa7s"]
+
+[node name="slot" type="PanelContainer"]
+offset_right = 94.0
+offset_bottom = 94.0
+script = ExtResource("1_cqa7s")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_43c6m")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

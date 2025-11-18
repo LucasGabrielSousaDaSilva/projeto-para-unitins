@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://cgi4wrygo2uxu"]
+[gd_scene load_steps=11 format=4 uid="uid://cgi4wrygo2uxu"]
 
 [ext_resource type="Script" uid="uid://c4dk5wjsx74jo" path="res://Scripts/levels.gd" id="1_8llw3"]
 [ext_resource type="Texture2D" uid="uid://cj8bdprvjk7fh" path="res://kenney_roguelike-modern-city/Tilemap/tilemap_packed.png" id="1_sa6id"]
 [ext_resource type="PackedScene" uid="uid://2bejjpwo38ik" path="res://Scenes/player.tscn" id="2_ob6u7"]
 [ext_resource type="PackedScene" uid="uid://sny22dj70wyo" path="res://Scenes/Door.tscn" id="3_oby66"]
-[ext_resource type="PackedScene" uid="uid://b8ocr6hgedg1m" path="res://transition.tscn" id="5_41sea"]
+[ext_resource type="PackedScene" uid="uid://b8ocr6hgedg1m" path="res://Prefabs/transition.tscn" id="5_41sea"]
+[ext_resource type="PackedScene" uid="uid://deh7a3vxnnyol" path="res://Prefabs/pause.tscn" id="6_4ffh8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ob6u7"]
 texture = ExtResource("1_sa6id")
@@ -2179,3 +2180,5 @@ position = Vector2(227, 169)
 rotation = -1.5475566
 
 [node name="transition" parent="." instance=ExtResource("5_41sea")]
+
+[node name="pause" parent="." instance=ExtResource("6_4ffh8")]

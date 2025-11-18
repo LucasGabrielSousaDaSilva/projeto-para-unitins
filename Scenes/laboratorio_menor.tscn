@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cj8bdprvjk7fh" path="res://kenney_roguelike-modern-city/Tilemap/tilemap_packed.png" id="2_y00hg"]
 [ext_resource type="PackedScene" uid="uid://2bejjpwo38ik" path="res://Scenes/player.tscn" id="3_442ki"]
 [ext_resource type="PackedScene" uid="uid://sny22dj70wyo" path="res://Scenes/Door.tscn" id="4_y71cq"]
-[ext_resource type="PackedScene" uid="uid://b8ocr6hgedg1m" path="res://transition.tscn" id="5_y00hg"]
+[ext_resource type="PackedScene" uid="uid://b8ocr6hgedg1m" path="res://Prefabs/transition.tscn" id="5_y00hg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ffqs"]
 texture = ExtResource("2_y00hg")

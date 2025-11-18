@@ -1,0 +1,385 @@
+[gd_scene load_steps=19 format=3 uid="uid://puuw4l8dok6y"]
+
+[ext_resource type="Script" uid="uid://bdssd03x40b3n" path="res://Prefabs/inventory.gd" id="1_n0qmx"]
+[ext_resource type="Shader" uid="uid://5xt21j2cfs1k" path="res://Effects/blur_shader.gdshader" id="1_snlhn"]
+[ext_resource type="Texture2D" uid="uid://rd66f67lmd73" path="res://UI_Book_Styles/01_TravelBookLite/Sprites/UI_TravelBook_BookCover01a.png" id="2_qk631"]
+[ext_resource type="Texture2D" uid="uid://b3wg6jk1ak0o" path="res://UI_Book_Styles/01_TravelBookLite/Sprites/UI_TravelBook_BookPageRight01a.png" id="3_rlxuv"]
+[ext_resource type="Texture2D" uid="uid://cld50q3v3p5r2" path="res://UI_Book_Styles/01_TravelBookLite/Sprites/UI_TravelBook_FrameSelect01a.png" id="3_wxnpc"]
+[ext_resource type="Texture2D" uid="uid://bgiujj8628utl" path="res://UI_Book_Styles/01_TravelBookLite/Sprites/UI_TravelBook_BookPageLeft01a.png" id="4_2exd0"]
+[ext_resource type="Texture2D" uid="uid://bb10qu5j3dixm" path="res://UI_Book_Styles/01_TravelBookLite/Sprites/UI_TravelBook_Slot01c.png" id="6_l12ec"]
+[ext_resource type="PackedScene" uid="uid://c73ggae4wcgl0" path="res://Prefabs/slot.tscn" id="10_ppooq"]
+[ext_resource type="Texture2D" uid="uid://dhndpy12ljskj" path="res://UI_Book_Styles/01_TravelBookLite/Sprites/UI_TravelBook_Slot01a.png" id="12_4y658"]
+[ext_resource type="Resource" uid="uid://cipo1woarch6p" path="res://Resources/teste.tres" id="12_irgwi"]
+[ext_resource type="Resource" uid="uid://cimos7d8otifd" path="res://Resources/teste2.tres" id="13_irgwi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5qchb"]
+shader = ExtResource("1_snlhn")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Theme" id="Theme_ppooq"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_irgwi"]
+RichTextLabel/font_sizes/normal_font_size = 8
+
+[sub_resource type="Animation" id="Animation_l12ec"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/Inventory:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/NAme_inventario:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n0qmx"]
+resource_name = "Start_inventory"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/Inventory:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.50093865),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5027277),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/NAme_inventario:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5027277),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ppooq"]
+resource_name = "hide_inventory"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/Inventory:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.50093865),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4991496),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/NAme_inventario:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4991496),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n0qmx"]
+_data = {
+&"RESET": SubResource("Animation_l12ec"),
+&"Start_inventory": SubResource("Animation_n0qmx"),
+&"hide_inventory": SubResource("Animation_ppooq")
+}
+
+[node name="Inventory" type="CanvasLayer" node_paths=PackedStringArray("animation", "description")]
+layer = 3
+script = ExtResource("1_n0qmx")
+animation = NodePath("Animacao")
+description = NodePath("ColorRect/Inventory/Pageleft/Descricao")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5qchb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NAme_inventario" type="NinePatchRect" parent="ColorRect"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -263.0
+offset_top = 26.0
+offset_right = 267.0
+offset_bottom = 78.0
+grow_horizontal = 2
+texture = ExtResource("2_qk631")
+region_rect = Rect2(2.335785, 1.1120834, 220.88654, 157.40079)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/NAme_inventario"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 7.0
+offset_right = 504.0
+offset_bottom = 47.0
+texture = ExtResource("3_wxnpc")
+
+[node name="Label" type="Label" parent="ColorRect/NAme_inventario"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ppooq")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 34
+text = "Inventario"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Inventory" type="NinePatchRect" parent="ColorRect"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -281.5
+offset_top = -192.0
+offset_right = 281.5
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qk631")
+region_rect = Rect2(-0.64237976, 1.2419128, 225.39442, 159.27872)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 13
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Pageright" type="NinePatchRect" parent="ColorRect/Inventory"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -280.5
+offset_top = -175.0
+offset_right = -20.5
+offset_bottom = 175.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_rlxuv")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 4
+patch_margin_bottom = 10
+
+[node name="Person" type="NinePatchRect" parent="ColorRect/Inventory/Pageright"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.372
+anchor_right = 0.5
+anchor_bottom = 0.372
+offset_left = -56.0
+offset_top = -67.2
+offset_right = 57.0
+offset_bottom = 67.40294
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_l12ec")
+
+[node name="Pageleft" type="NinePatchRect" parent="ColorRect/Inventory"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 22.5
+offset_top = -175.0
+offset_right = 282.5
+offset_bottom = 175.0
+grow_vertical = 2
+texture = ExtResource("4_2exd0")
+patch_margin_left = 4
+patch_margin_top = 5
+patch_margin_right = 4
+patch_margin_bottom = 8
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/Inventory/Pageleft"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_top = -161.0
+offset_right = 66.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 4
+
+[node name="slot" parent="ColorRect/Inventory/Pageleft/GridContainer" instance=ExtResource("10_ppooq")]
+layout_mode = 2
+item = ExtResource("12_irgwi")
+
+[node name="slot2" parent="ColorRect/Inventory/Pageleft/GridContainer" instance=ExtResource("10_ppooq")]
+layout_mode = 2
+item = ExtResource("13_irgwi")
+
+[node name="slot3" parent="ColorRect/Inventory/Pageleft/GridContainer" instance=ExtResource("10_ppooq")]
+layout_mode = 2
+
+[node name="slot4" parent="ColorRect/Inventory/Pageleft/GridContainer" instance=ExtResource("10_ppooq")]
+layout_mode = 2
+
+[node name="slot5" parent="ColorRect/Inventory/Pageleft/GridContainer" instance=ExtResource("10_ppooq")]
+layout_mode = 2
+
+[node name="slot6" parent="ColorRect/Inventory/Pageleft/GridContainer" instance=ExtResource("10_ppooq")]
+layout_mode = 2
+
+[node name="slot7" parent="ColorRect/Inventory/Pageleft/GridContainer" instance=ExtResource("10_ppooq")]
+layout_mode = 2
+
+[node name="slot8" parent="ColorRect/Inventory/Pageleft/GridContainer" instance=ExtResource("10_ppooq")]
+layout_mode = 2
+
+[node name="slot9" parent="ColorRect/Inventory/Pageleft/GridContainer" instance=ExtResource("10_ppooq")]
+layout_mode = 2
+
+[node name="slot10" parent="ColorRect/Inventory/Pageleft/GridContainer" instance=ExtResource("10_ppooq")]
+layout_mode = 2
+
+[node name="slot11" parent="ColorRect/Inventory/Pageleft/GridContainer" instance=ExtResource("10_ppooq")]
+layout_mode = 2
+
+[node name="slot12" parent="ColorRect/Inventory/Pageleft/GridContainer" instance=ExtResource("10_ppooq")]
+layout_mode = 2
+
+[node name="slot13" parent="ColorRect/Inventory/Pageleft/GridContainer" instance=ExtResource("10_ppooq")]
+layout_mode = 2
+
+[node name="slot14" parent="ColorRect/Inventory/Pageleft/GridContainer" instance=ExtResource("10_ppooq")]
+layout_mode = 2
+
+[node name="slot15" parent="ColorRect/Inventory/Pageleft/GridContainer" instance=ExtResource("10_ppooq")]
+layout_mode = 2
+
+[node name="slot16" parent="ColorRect/Inventory/Pageleft/GridContainer" instance=ExtResource("10_ppooq")]
+layout_mode = 2
+
+[node name="Descricao" type="NinePatchRect" parent="ColorRect/Inventory/Pageleft"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.0
+offset_top = 21.0
+offset_right = 67.0
+offset_bottom = 156.0
+grow_horizontal = 2
+texture = ExtResource("12_4y658")
+
+[node name="Name" type="Label" parent="ColorRect/Inventory/Pageleft/Descricao"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 11.0
+offset_right = 125.0
+offset_bottom = 34.0
+
+[node name="Descricao" type="RichTextLabel" parent="ColorRect/Inventory/Pageleft/Descricao"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 43.0
+offset_right = 125.0
+offset_bottom = 83.0
+theme = SubResource("Theme_irgwi")
+scroll_active = false
+
+[node name="Icon" type="TextureRect" parent="ColorRect/Inventory/Pageleft/Descricao"]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 85.0
+offset_right = 126.0
+offset_bottom = 125.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Animacao" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n0qmx")
+}
+autoplay = "Start_inventory"
