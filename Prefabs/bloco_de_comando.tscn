@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cva4ncrbvc3pf"]
+
+[node name="bloco_de_comando" type="CanvasLayer"]
+
+[node name="CodeEdit" type="CodeEdit" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.63116
+offset_top = -207.75
+offset_right = 251.63116
+offset_bottom = 207.75
+grow_horizontal = 2
+grow_vertical = 2
+text = "Faça um teste IF e ELSE, Em java.
+
+if (condição) {
+    // Bloco de código a ser executado se a condição for verdadeira
+} else {
+    // Bloco de código a ser executado se a condição for falsa
+}"
+placeholder_text = "Base de IF e ELSE.
+
+int idade = 20;
+
+if (idade >= 18) {
+    System.out.println(\"Você é maior de idade.\");
+} else {
+    System.out.println(\"Você é menor de idade.\");
+}"
