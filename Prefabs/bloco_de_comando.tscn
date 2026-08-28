@@ -1,32 +1,94 @@
 [gd_scene format=3 uid="uid://cva4ncrbvc3pf"]
 
-[node name="bloco_de_comando" type="CanvasLayer"]
+[ext_resource type="Texture2D" uid="uid://dglxerfplxdu1" path="res://desktop-computer-pc-mockup.png" id="1_6kq34"]
+[ext_resource type="Script" uid="uid://b12j5q7ph3l7i" path="res://Scripts/bloco_de_comando.gd" id="1_d5n5b"]
 
-[node name="CodeEdit" type="CodeEdit" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -251.63116
-offset_top = -207.75
-offset_right = 251.63116
-offset_bottom = 207.75
+[node name="bloco_de_comando" type="CanvasLayer" unique_id=1142672672]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1439637415]
+offset_right = 1154.0
+offset_bottom = 647.0
+color = Color(0.03137255, 0.18039216, 0.12156863, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2013408971]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -10.0
+offset_right = 9.0
+offset_bottom = 5.0
+texture = ExtResource("1_6kq34")
+
+[node name="Control" type="Control" parent="." unique_id=1313575225]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_d5n5b")
+
+[node name="CodeEdit" type="CodeEdit" parent="Control" unique_id=740160665]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.462
+anchor_top = 0.44900003
+anchor_right = 0.462
+anchor_bottom = 0.44900003
+offset_left = 74.520004
+offset_top = 115.04
+offset_right = 664.52
+offset_bottom = 530.54
 grow_horizontal = 2
 grow_vertical = 2
-text = "Faça um teste IF e ELSE, Em java.
-
-if (condição) {
-    // Bloco de código a ser executado se a condição for verdadeira
-} else {
-    // Bloco de código a ser executado se a condição for falsa
-}"
-placeholder_text = "Base de IF e ELSE.
-
-int idade = 20;
+placeholder_text = "Scanner leitor = new Scanner(System.in);
+int idade = leitor.nextInt();
 
 if (idade >= 18) {
     System.out.println(\"Você é maior de idade.\");
 } else {
     System.out.println(\"Você é menor de idade.\");
 }"
+gutters_draw_line_numbers = true
+gutters_draw_fold_gutter = true
+code_completion_enabled = true
+auto_brace_completion_enabled = true
+
+[node name="Label" type="Label" parent="Control" unique_id=1403172446]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.462
+anchor_top = 0.064
+anchor_right = 0.462
+anchor_bottom = 0.064
+offset_left = 263.52
+offset_top = 48.44
+offset_right = 854.52
+offset_bottom = 97.44
+theme_override_font_sizes/font_size = 35
+text = "Faça um teste IF e ELSE, Em java."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Control" unique_id=749976307]
+layout_mode = 0
+offset_left = 809.0
+offset_top = 484.0
+offset_right = 984.0
+offset_bottom = 534.0
+text = "Enviar"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1282814057]
+layout_mode = 0
+offset_left = 757.0
+offset_top = 282.0
+offset_right = 1059.0
+offset_bottom = 425.0
+
+[node name="LineEdit" type="LineEdit" parent="Control" unique_id=1464026894]
+layout_mode = 0
+offset_left = 754.0
+offset_top = 155.0
+offset_right = 1059.0
+offset_bottom = 260.0
+
+[connection signal="code_completion_requested" from="Control/CodeEdit" to="Control/CodeEdit" method="_on_code_completion_requested"]
