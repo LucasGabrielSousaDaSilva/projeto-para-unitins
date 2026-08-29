@@ -23,6 +23,13 @@ config/icon="res://icon.svg"
 
 Global="*res://Scripts/singlethon/global.gd"
 
+[file_customization]
+
+folder_colors={
+"res://Prefabs/": "orange",
+"res://Scripts/": "green"
+}
+
 [input]
 
 move_left={

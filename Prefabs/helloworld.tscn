@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://bhxghfgnf7pn7"]
+
+[ext_resource type="Script" uid="uid://cnq1332fj3vnj" path="res://Scripts/helloworld.gd" id="1_2bhj5"]
+[ext_resource type="Texture2D" uid="uid://h1t3q4ydnvpf" path="res://desktop-computer-pc-mockup2.png" id="2_taptx"]
+
+[node name="Control" type="Control" unique_id=1544706176]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2bhj5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1011820918]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 647.0
+color = Color(0.010137642, 0.18039131, 0.20321986, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=319838721]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 9.0
+texture = ExtResource("2_taptx")
+
+[node name="CodeEdit" type="CodeEdit" parent="." unique_id=1227788181]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.462
+anchor_top = 0.44900003
+anchor_right = 0.462
+anchor_bottom = 0.44900003
+offset_left = -425.148
+offset_top = -155.74802
+offset_right = 164.85193
+offset_bottom = 259.75192
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "public class HelloWorld {
+
+   public static void main(String[] args) {
+
+       System.out.println(\"Hello, World!\");
+
+   }
+}"
+gutters_draw_line_numbers = true
+gutters_draw_fold_gutter = true
+code_completion_enabled = true
+auto_brace_completion_enabled = true
+
+[node name="Label" type="Label" parent="." unique_id=938054157]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.462
+anchor_top = 0.064
+anchor_right = 0.462
+anchor_bottom = 0.064
+offset_left = -244.14801
+offset_top = 21.272
+offset_right = 346.852
+offset_bottom = 70.272
+theme_override_font_sizes/font_size = 35
+text = "Faça o Hello World, Em java."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=2131108514]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 448.0
+offset_right = 983.0
+offset_bottom = 498.0
+text = "Enviar"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1944901366]
+layout_mode = 0
+offset_left = 753.0
+offset_top = 180.0
+offset_right = 1055.0
+offset_bottom = 323.0
+bbcode_enabled = true
