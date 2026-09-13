@@ -1,0 +1,261 @@
+[gd_scene format=3 uid="uid://bmm30d3gof80d"]
+
+[ext_resource type="Script" uid="uid://br6sx2jtl7o1f" path="res://Scripts/calculadora.gd" id="1_q0r0l"]
+[ext_resource type="Script" uid="uid://cudwd07jptc1b" path="res://Scripts/area_pecas.gd" id="2_2wdqv"]
+[ext_resource type="Script" uid="uid://bd8vr8x1x2e4a" path="res://Scripts/Encaixe_Calculadora/grid_botoes.gd" id="2_rrrmw"]
+
+[node name="Calculadora" type="Control" unique_id=1671876461]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q0r0l")
+
+[node name="Background" type="ColorRect" parent="." unique_id=612433897]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.001
+anchor_bottom = 1.0
+offset_right = -0.15209961
+color = Color(0.20152658, 0.20152658, 0.20152658, 1)
+
+[node name="Titulo" type="Label" parent="." unique_id=2045607048]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.27400002
+anchor_right = 0.75900006
+anchor_bottom = 0.07700001
+offset_left = 0.35198975
+offset_top = 5.0
+offset_right = -0.368042
+offset_bottom = 0.10399628
+text = "Aqui"
+
+[node name="AreaMontagem" type="Panel" parent="." unique_id=1352271942]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 67.0
+offset_right = 1015.0
+offset_bottom = 600.0
+
+[node name="Display" type="LineEdit" parent="AreaMontagem" unique_id=1530318099]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 12.0
+offset_right = 511.0
+offset_bottom = 100.0
+
+[node name="GridBotoes" type="GridContainer" parent="AreaMontagem" unique_id=1350673425]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 114.0
+offset_right = 501.0
+offset_bottom = 514.0
+columns = 4
+script = ExtResource("2_rrrmw")
+
+[node name="Slot0" type="Control" parent="AreaMontagem/GridBotoes" unique_id=797431501]
+layout_mode = 2
+
+[node name="Slot1" type="Control" parent="AreaMontagem/GridBotoes" unique_id=1710192418]
+layout_mode = 2
+
+[node name="Slot2" type="Control" parent="AreaMontagem/GridBotoes" unique_id=1055022433]
+layout_mode = 2
+
+[node name="Slot3" type="Control" parent="AreaMontagem/GridBotoes" unique_id=542816603]
+layout_mode = 2
+
+[node name="Slot4" type="Control" parent="AreaMontagem/GridBotoes" unique_id=90762089]
+layout_mode = 2
+
+[node name="Slot5" type="Control" parent="AreaMontagem/GridBotoes" unique_id=317618089]
+layout_mode = 2
+
+[node name="Slot6" type="Control" parent="AreaMontagem/GridBotoes" unique_id=1162388635]
+layout_mode = 2
+
+[node name="Slot7" type="Control" parent="AreaMontagem/GridBotoes" unique_id=724915848]
+layout_mode = 2
+
+[node name="Slot8" type="Control" parent="AreaMontagem/GridBotoes" unique_id=339455518]
+layout_mode = 2
+
+[node name="Slot9" type="Control" parent="AreaMontagem/GridBotoes" unique_id=868651874]
+layout_mode = 2
+
+[node name="SlotSomar" type="Control" parent="AreaMontagem/GridBotoes" unique_id=523341909]
+layout_mode = 2
+
+[node name="SlotSubtrair" type="Control" parent="AreaMontagem/GridBotoes" unique_id=697435611]
+layout_mode = 2
+
+[node name="SlotMultiplicar" type="Control" parent="AreaMontagem/GridBotoes" unique_id=985335927]
+layout_mode = 2
+
+[node name="SlotDividir" type="Control" parent="AreaMontagem/GridBotoes" unique_id=1684360796]
+layout_mode = 2
+
+[node name="SlotIgual" type="Control" parent="AreaMontagem/GridBotoes" unique_id=787810124]
+layout_mode = 2
+
+[node name="SlotEnter" type="Control" parent="AreaMontagem/GridBotoes" unique_id=1733666194]
+layout_mode = 2
+
+[node name="AreaPecas" type="Panel" parent="." unique_id=1537172897]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 75.0
+offset_right = 443.0
+offset_bottom = 535.0
+script = ExtResource("2_2wdqv")
+
+[node name="Button0" type="Button" parent="AreaPecas" unique_id=1348496773]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 324.0
+offset_right = 298.0
+offset_bottom = 364.0
+text = "0"
+
+[node name="Button1" type="Button" parent="AreaPecas" unique_id=97481371]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.105000004
+anchor_bottom = 0.087000005
+offset_left = 247.0
+offset_top = 47.0
+offset_right = 247.1
+offset_bottom = 46.98
+text = "1"
+
+[node name="Button2" type="Button" parent="AreaPecas" unique_id=1583535990]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 53.0
+offset_right = 229.0
+offset_bottom = 93.0
+text = "2"
+
+[node name="Button3" type="Button" parent="AreaPecas" unique_id=606068160]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 108.0
+offset_right = 347.0
+offset_bottom = 148.0
+text = "3"
+
+[node name="Button4" type="Button" parent="AreaPecas" unique_id=452863729]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 111.0
+offset_right = 283.0
+offset_bottom = 151.0
+text = "4"
+
+[node name="Button5" type="Button" parent="AreaPecas" unique_id=2010986404]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 114.0
+offset_right = 223.0
+offset_bottom = 154.0
+text = "5"
+
+[node name="Button6" type="Button" parent="AreaPecas" unique_id=625909758]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.105000004
+anchor_bottom = 0.087000005
+offset_left = 305.0
+offset_top = 180.0
+offset_right = 305.1
+offset_bottom = 179.98
+text = "6"
+
+[node name="Button7" type="Button" parent="AreaPecas" unique_id=1472187338]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 184.0
+offset_right = 286.0
+offset_bottom = 224.0
+text = "7"
+
+[node name="Button8" type="Button" parent="AreaPecas" unique_id=1713309154]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 183.0
+offset_right = 223.0
+offset_bottom = 223.0
+text = "8"
+
+[node name="Button9" type="Button" parent="AreaPecas" unique_id=411862677]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 250.0
+offset_right = 345.0
+offset_bottom = 290.0
+text = "9"
+
+[node name="ButtonSomar" type="Button" parent="AreaPecas" unique_id=358501341]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 249.0
+offset_right = 286.0
+offset_bottom = 289.0
+text = "+"
+
+[node name="ButtonSubtrair" type="Button" parent="AreaPecas" unique_id=1202306318]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 246.0
+offset_right = 227.0
+offset_bottom = 286.0
+text = "-"
+
+[node name="ButtonMultiplicar" type="Button" parent="AreaPecas" unique_id=88268969]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 54.0
+offset_right = 160.0
+offset_bottom = 94.0
+text = "*"
+
+[node name="ButtonDividir" type="Button" parent="AreaPecas" unique_id=816942906]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 107.0
+offset_right = 156.0
+offset_bottom = 147.0
+text = "/"
+
+[node name="ButtonIgual" type="Button" parent="AreaPecas" unique_id=23035341]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 187.0
+offset_right = 159.0
+offset_bottom = 227.0
+text = "="
+
+[node name="ButtonEnter" type="Button" parent="AreaPecas" unique_id=80264688]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 264.0
+offset_right = 158.0
+offset_bottom = 344.0
+text = "Enter"
+
+[node name="btnTestar" type="Button" parent="." unique_id=1076707966]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 567.0
+offset_right = 430.0
+offset_bottom = 613.0
+
+[node name="Feedback" type="Label" parent="." unique_id=2026822914]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 572.0
+offset_right = 222.0
+offset_bottom = 618.0

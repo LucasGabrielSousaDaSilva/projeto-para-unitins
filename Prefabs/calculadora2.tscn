@@ -1,0 +1,194 @@
+[gd_scene format=3 uid="uid://ccijdvka40vj5"]
+
+[ext_resource type="Script" uid="uid://bccxhqfjhup7s" path="res://Scripts/calculadora_2.gd" id="1_nbt82"]
+
+[sub_resource type="AudioStream" id="AudioStream_xx6xm"]
+
+[node name="Control" type="Control" unique_id=61618888]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nbt82")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=189214005]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 651.0
+color = Color(0, 0.12156863, 0, 0.85490197)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=564625518]
+layout_mode = 0
+offset_left = 741.0
+offset_top = 60.0
+offset_right = 1084.0
+offset_bottom = 537.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=516895623]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.09876543
+anchor_bottom = 0.09876543
+offset_left = 762.0
+offset_top = 61.0
+offset_right = 1062.0
+offset_bottom = 461.0
+offset_transform_enabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="VisorOperacao" type="LineEdit" parent="VBoxContainer" unique_id=1329806114]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+alignment = 2
+
+[node name="VisorResultado" type="LineEdit" parent="VBoxContainer" unique_id=1592950850]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_font_sizes/font_size = 32
+alignment = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=572966399]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+columns = 4
+
+[node name="Button" type="Button" parent="VBoxContainer/GridContainer" unique_id=1184379222]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "7"
+
+[node name="Button2" type="Button" parent="VBoxContainer/GridContainer" unique_id=1353556266]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "8"
+
+[node name="Button3" type="Button" parent="VBoxContainer/GridContainer" unique_id=1139866076]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "9"
+
+[node name="Button4" type="Button" parent="VBoxContainer/GridContainer" unique_id=820258456]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "/"
+
+[node name="Button5" type="Button" parent="VBoxContainer/GridContainer" unique_id=987982535]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "4"
+
+[node name="Button6" type="Button" parent="VBoxContainer/GridContainer" unique_id=722596853]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "5"
+
+[node name="Button7" type="Button" parent="VBoxContainer/GridContainer" unique_id=378477979]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "6"
+
+[node name="Button8" type="Button" parent="VBoxContainer/GridContainer" unique_id=1936047706]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "*"
+
+[node name="Button9" type="Button" parent="VBoxContainer/GridContainer" unique_id=1359247627]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "1"
+
+[node name="Button10" type="Button" parent="VBoxContainer/GridContainer" unique_id=1125136202]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "2"
+
+[node name="Button11" type="Button" parent="VBoxContainer/GridContainer" unique_id=465856894]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "3"
+
+[node name="Button12" type="Button" parent="VBoxContainer/GridContainer" unique_id=296187938]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "-"
+
+[node name="Button13" type="Button" parent="VBoxContainer/GridContainer" unique_id=2043740846]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "C"
+
+[node name="Button14" type="Button" parent="VBoxContainer/GridContainer" unique_id=510965031]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "0"
+
+[node name="Button15" type="Button" parent="VBoxContainer/GridContainer" unique_id=2017963249]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "="
+
+[node name="Button16" type="Button" parent="VBoxContainer/GridContainer" unique_id=1789209341]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+text = "+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer" unique_id=2059673888]
+stream = SubResource("AudioStream_xx6xm")
+
+[node name="CodeEdit" type="CodeEdit" parent="." unique_id=1774335084]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 55.0
+offset_right = 600.0
+offset_bottom = 563.0
+placeholder_text = "public class Calculadora {
+    public static void main(String[] args) {
+
+        // 1. Tratar Números de 0 a 9
+        if (comando.matches(\"[0-9]\")) {
+            adicionarNumero(comando);
+        }
+
+        // 2. Tratar Operadores Matemáticos
+        else if (comando.equals(\"+\") || comando.equals(\"-\") || comando.equals(\"×\") || comando.equals(\"÷\")) {
+            definirOperador(comando);
+        }
+
+        // 3. Tratar o botão de Igual
+        else if (comando.equals(\"=\")) {
+            calcular();
+        }
+
+        // 4. Tratar o botão de Limpar
+        else if (comando.equals(\"AC\")) {
+            limpar();
+        }
+
+        // 5. Tratar Ponto Decimal
+        else if (comando.equals(\".\")) {
+            adicionarPonto();
+        }
+
+    }
+}"
+
+[node name="Button" type="Button" parent="." unique_id=1349064385]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 585.0
+offset_right = 405.0
+offset_bottom = 634.0
+text = "Enviar"
+
+[node name="Conclusao" type="RichTextLabel" parent="." unique_id=1137332469]
+layout_mode = 0
+offset_left = 737.0
+offset_top = 545.0
+offset_right = 1080.0
+offset_bottom = 618.0
+bbcode_enabled = true
