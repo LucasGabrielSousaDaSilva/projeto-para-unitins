@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxit22jf3hinu"]
+[gd_scene format=3 uid="uid://bxit22jf3hinu"]
 
-[ext_resource type="Script" uid="uid://c32sscampkgq6" path="res://Scripts/menu.gd" id="1_q2he7"]
+[ext_resource type="Script" uid="uid://c32sscampkgq6" path="res://Scripts/causa_ambiente/menu.gd" id="1_q2he7"]
 [ext_resource type="Texture2D" uid="uid://c0iwvn6nsa4bb" path="res://Unitins.jpeg" id="2_s0vro"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5yleq"]
@@ -30,7 +30,7 @@ corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ylpcl"]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" unique_id=237620913]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,7 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q2he7")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=622970577]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,13 +47,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Image" type="Panel" parent="Background"]
+[node name="Image" type="Panel" parent="Background" unique_id=1601535490]
 layout_mode = 0
 offset_right = 1154.0
 offset_bottom = 650.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yleq")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Background" unique_id=1894856442]
 process_mode = 3
 layout_mode = 1
 anchors_preset = 7
@@ -68,7 +68,7 @@ offset_bottom = -79.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Stard_Game" type="Button" parent="Background/VBoxContainer"]
+[node name="Stard_Game" type="Button" parent="Background/VBoxContainer" unique_id=1375984300]
 process_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
@@ -83,7 +83,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5yleq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ylpcl")
 text = "Start Game"
 
-[node name="Options" type="Button" parent="Background/VBoxContainer"]
+[node name="Options" type="Button" parent="Background/VBoxContainer" unique_id=1287902861]
 process_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
@@ -98,7 +98,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5yleq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ylpcl")
 text = "Options"
 
-[node name="Exit" type="Button" parent="Background/VBoxContainer"]
+[node name="Exit" type="Button" parent="Background/VBoxContainer" unique_id=415496695]
 process_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
@@ -113,7 +113,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5yleq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ylpcl")
 text = "Exit"
 
-[node name="Text_Principal" type="Label" parent="."]
+[node name="Text_Principal" type="Label" parent="." unique_id=862353511]
 layout_mode = 0
 offset_left = 314.0
 offset_top = 78.0

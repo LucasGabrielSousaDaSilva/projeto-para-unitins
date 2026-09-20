@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ccijdvka40vj5"]
 
-[ext_resource type="Script" uid="uid://bccxhqfjhup7s" path="res://Scripts/calculadora_2.gd" id="1_nbt82"]
-
-[sub_resource type="AudioStream" id="AudioStream_xx6xm"]
+[ext_resource type="Script" uid="uid://bccxhqfjhup7s" path="res://Scripts/algoritmo/calculadora_2.gd" id="1_nbt82"]
+[ext_resource type="Texture2D" uid="uid://h1t3q4ydnvpf" path="res://desktop-computer-pc-mockup2.png" id="2_v3da4"]
+[ext_resource type="AudioStream" uid="uid://688hl17m3m2q" path="res://Effects/shotgun-metal-slug-_-sound-effects-exe-online-audio-converter.mp3" id="3_xx6xm"]
 
 [node name="Control" type="Control" unique_id=61618888]
 layout_mode = 3
@@ -18,6 +18,16 @@ layout_mode = 0
 offset_right = 1154.0
 offset_bottom = 651.0
 color = Color(0, 0.12156863, 0, 0.85490197)
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1692058756]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 9.0
+texture = ExtResource("2_v3da4")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=564625518]
 layout_mode = 0
@@ -138,7 +148,7 @@ layout_mode = 2
 text = "+"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer" unique_id=2059673888]
-stream = SubResource("AudioStream_xx6xm")
+stream = ExtResource("3_xx6xm")
 
 [node name="CodeEdit" type="CodeEdit" parent="." unique_id=1774335084]
 layout_mode = 0

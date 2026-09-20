@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://b7ty1dpxdnogf"]
+[gd_scene format=4 uid="uid://b7ty1dpxdnogf"]
 
-[ext_resource type="Script" uid="uid://c4dk5wjsx74jo" path="res://Scripts/levels.gd" id="1_kkqps"]
+[ext_resource type="Script" uid="uid://c4dk5wjsx74jo" path="res://Scripts/singlethon/levels.gd" id="1_kkqps"]
 [ext_resource type="Texture2D" uid="uid://cj8bdprvjk7fh" path="res://kenney_roguelike-modern-city/Tilemap/tilemap_packed.png" id="2_u18dc"]
 [ext_resource type="PackedScene" uid="uid://2bejjpwo38ik" path="res://Scenes/player.tscn" id="3_4un60"]
 [ext_resource type="PackedScene" uid="uid://sny22dj70wyo" path="res://Scenes/Door.tscn" id="4_xlxdt"]

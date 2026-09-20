@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cva4ncrbvc3pf"]
 
 [ext_resource type="Texture2D" uid="uid://h1t3q4ydnvpf" path="res://desktop-computer-pc-mockup2.png" id="1_6kq34"]
-[ext_resource type="Script" uid="uid://b12j5q7ph3l7i" path="res://Scripts/bloco_de_comando.gd" id="1_d5n5b"]
+[ext_resource type="Script" uid="uid://b12j5q7ph3l7i" path="res://Scripts/algoritmo/bloco_de_comando.gd" id="1_d5n5b"]
 
 [node name="bloco_de_comando" type="CanvasLayer" unique_id=1142672672]
 

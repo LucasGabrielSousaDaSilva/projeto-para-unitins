@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://puuw4l8dok6y"]
 
-[ext_resource type="Script" uid="uid://bdssd03x40b3n" path="res://Scripts/inventory.gd" id="1_n0qmx"]
+[ext_resource type="Script" uid="uid://bdssd03x40b3n" path="res://Scripts/causa_ambiente/inventory.gd" id="1_n0qmx"]
 [ext_resource type="Shader" uid="uid://5xt21j2cfs1k" path="res://Effects/blur_shader.gdshader" id="1_snlhn"]
 [ext_resource type="Texture2D" uid="uid://rd66f67lmd73" path="res://UI_Book_Styles/01_TravelBookLite/Sprites/UI_TravelBook_BookCover01a.png" id="2_qk631"]
 [ext_resource type="Texture2D" uid="uid://b3wg6jk1ak0o" path="res://UI_Book_Styles/01_TravelBookLite/Sprites/UI_TravelBook_BookPageRight01a.png" id="3_rlxuv"]

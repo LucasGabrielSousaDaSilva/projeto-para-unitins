@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c73ggae4wcgl0"]
 
 [ext_resource type="Texture2D" uid="uid://4rju6d2ucslr" path="res://UI_Book_Styles/01_TravelBookLite/Sprites/UI_TravelBook_Slot01b.png" id="1_43c6m"]
-[ext_resource type="Script" uid="uid://xqu1mb1gb1n4" path="res://Scripts/slot.gd" id="1_cqa7s"]
+[ext_resource type="Script" uid="uid://xqu1mb1gb1n4" path="res://Scripts/causa_ambiente/slot.gd" id="1_cqa7s"]
 
 [node name="slot" type="PanelContainer"]
 offset_right = 94.0

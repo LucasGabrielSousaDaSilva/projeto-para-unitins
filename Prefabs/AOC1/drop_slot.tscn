@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://65o0oi44rr2o"]
+
+[ext_resource type="Script" uid="uid://hkc2l3ns7fmm" path="res://Scripts/aoc1/DropSlot.gd" id="1_4j735"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbhcl"]
+bg_color = Color(0.050980393, 0.11372549, 0.19215687, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.14117648, 0.23137255, 0.33333334, 1)
+corner_detail = 12
+
+[node name="DropSlot" type="PanelContainer" unique_id=2049385822]
+offset_right = 37.0
+offset_bottom = 23.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pbhcl")
+script = ExtResource("1_4j735")
+
+[node name="NameLabel2" type="Label" parent="." unique_id=1872399514]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.50980395, 0.6039216, 0.69411767, 1)
+theme_override_font_sizes/font_size = 12
+text = "+
+"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=1976093014]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.91764706, 0.95686275, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "?????"
+horizontal_alignment = 1
+vertical_alignment = 1

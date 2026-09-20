@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c6fc0nls0e670"]
 
-[ext_resource type="Script" uid="uid://bltygdp2f1ffw" path="res://Scripts/atribuicao_dados.gd" id="1_qgdjd"]
+[ext_resource type="Script" uid="uid://bltygdp2f1ffw" path="res://Scripts/algoritmo/atribuicao_dados.gd" id="1_qgdjd"]
 [ext_resource type="Texture2D" uid="uid://h1t3q4ydnvpf" path="res://desktop-computer-pc-mockup2.png" id="2_o2icf"]
 
 [node name="Atribuicao_dados" type="Control" unique_id=1318435679]

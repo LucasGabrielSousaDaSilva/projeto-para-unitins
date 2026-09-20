@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhxghfgnf7pn7"]
 
-[ext_resource type="Script" uid="uid://cnq1332fj3vnj" path="res://Scripts/helloworld.gd" id="1_2bhj5"]
+[ext_resource type="Script" uid="uid://cnq1332fj3vnj" path="res://Scripts/algoritmo/helloworld.gd" id="1_2bhj5"]
 [ext_resource type="Texture2D" uid="uid://h1t3q4ydnvpf" path="res://desktop-computer-pc-mockup2.png" id="2_taptx"]
 
 [node name="Control" type="Control" unique_id=1544706176]

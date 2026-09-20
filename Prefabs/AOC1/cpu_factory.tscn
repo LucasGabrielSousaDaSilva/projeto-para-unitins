@@ -1,0 +1,449 @@
+[gd_scene format=3 uid="uid://pr2r7at7d2c5"]
+
+[ext_resource type="Script" uid="uid://b8n3uue3qan3k" path="res://Scripts/aoc1/cpu_factory.gd" id="1_pbhcl"]
+[ext_resource type="PackedScene" uid="uid://65o0oi44rr2o" path="res://Prefabs/AOC1/drop_slot.tscn" id="2_pbhcl"]
+[ext_resource type="PackedScene" uid="uid://yrd2pdtc385r" path="res://Prefabs/AOC1/draggable_piece.tscn" id="3_w6lij"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22352941, 0.6627451, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6lij"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8pmb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s425s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbhcl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrd84"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k67ak"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qynng"]
+bg_color = Color(0.09019608, 0.2, 0.30588236, 1)
+border_color = Color(0.22352941, 0.6627451, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_by6ep"]
+bg_color = Color(0.25490198, 0.8980392, 0.5411765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmbtx"]
+bg_color = Color(0.12941177, 0.28627452, 0.4117647, 1)
+
+[sub_resource type="Animation" id="Animation_pbhcl"]
+resource_name = "BootOverlay"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BootOverlay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_w6lij"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BootOverlay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k67ak"]
+_data = {
+&"BootOverlay": SubResource("Animation_pbhcl"),
+&"RESET": SubResource("Animation_w6lij")
+}
+
+[node name="CPUFactory" type="Control" unique_id=1649096911]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pbhcl")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1291923987]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 4.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.02745098, 0.06666667, 0.12156863, 1)
+
+[node name="Header" type="HBoxContainer" parent="." unique_id=1487556816]
+layout_mode = 0
+offset_left = 81.0
+offset_right = 1081.0
+offset_bottom = 75.0
+alignment = 1
+
+[node name="Title" type="Label" parent="Header" unique_id=145138413]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CPU FACTORY"
+
+[node name="PhaseLabel" type="Label" parent="Header" unique_id=52247449]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FASE 1/2"
+
+[node name="ScoreLabel" type="Label" parent="Header" unique_id=132732777]
+unique_name_in_owner = true
+layout_mode = 2
+text = "PONTOS: 1000"
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=885072474]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 4.0
+offset_right = 664.0
+offset_bottom = 536.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+
+[node name="Phase1" type="VBoxContainer" parent="." unique_id=1326498021]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 69.0
+offset_top = 90.0
+offset_right = 645.0
+offset_bottom = 488.0
+alignment = 1
+
+[node name="Board" type="HBoxContainer" parent="Phase1" unique_id=1206934398]
+layout_mode = 2
+alignment = 1
+
+[node name="MemorySlot" parent="Phase1/Board" unique_id=2049385822 instance=ExtResource("2_pbhcl")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+expected_component = "memory"
+normal_style = SubResource("StyleBoxFlat_w6lij")
+hover_style = SubResource("StyleBoxFlat_v8pmb")
+filled_style = SubResource("StyleBoxFlat_s425s")
+
+[node name="ProcessorSlot" parent="Phase1/Board" unique_id=1549843985 instance=ExtResource("2_pbhcl")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+expected_component = "processor"
+
+[node name="PeripheralSlot" parent="Phase1/Board" unique_id=1494190739 instance=ExtResource("2_pbhcl")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+expected_component = "peripherals"
+
+[node name="BusLabel" type="Label" parent="Phase1" unique_id=1246027775]
+layout_mode = 2
+text = "═════ BARRAMENTO ═════"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pieces" type="HBoxContainer" parent="Phase1" unique_id=940619357]
+layout_mode = 2
+alignment = 1
+
+[node name="MemoryPiece" parent="Phase1/Pieces" unique_id=757290293 instance=ExtResource("3_w6lij")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+component_id = "memory"
+display_name = "Memória"
+
+[node name="MarginContainer" type="MarginContainer" parent="Phase1/Pieces/MemoryPiece" unique_id=1822889508]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Phase1/Pieces/MemoryPiece/MarginContainer" unique_id=577169239]
+layout_mode = 2
+
+[node name="IconLabel" type="Label" parent="Phase1/Pieces/MemoryPiece/MarginContainer/VBoxContainer" unique_id=893743551]
+layout_mode = 2
+text = "▦"
+horizontal_alignment = 1
+
+[node name="NameLabel" type="Label" parent="Phase1/Pieces/MemoryPiece/MarginContainer/VBoxContainer" unique_id=1958969964]
+layout_mode = 2
+text = "MEMÓRIA"
+horizontal_alignment = 1
+
+[node name="DetailLabel" type="Label" parent="Phase1/Pieces/MemoryPiece/MarginContainer/VBoxContainer" unique_id=1264266683]
+layout_mode = 2
+text = "RAM"
+horizontal_alignment = 1
+
+[node name="ProcessorPiece" parent="Phase1/Pieces" unique_id=735724650 instance=ExtResource("3_w6lij")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+component_id = "processor"
+display_name = "Processador"
+
+[node name="MarginContainer" type="MarginContainer" parent="Phase1/Pieces/ProcessorPiece" unique_id=2077596453]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Phase1/Pieces/ProcessorPiece/MarginContainer" unique_id=1579049564]
+layout_mode = 2
+
+[node name="IconLabel" type="Label" parent="Phase1/Pieces/ProcessorPiece/MarginContainer/VBoxContainer" unique_id=93344492]
+layout_mode = 2
+text = "▣"
+horizontal_alignment = 1
+
+[node name="NameLabel" type="Label" parent="Phase1/Pieces/ProcessorPiece/MarginContainer/VBoxContainer" unique_id=1000188458]
+layout_mode = 2
+text = "PROCESSADOR"
+horizontal_alignment = 1
+
+[node name="DetailLabel" type="Label" parent="Phase1/Pieces/ProcessorPiece/MarginContainer/VBoxContainer" unique_id=1794661529]
+layout_mode = 2
+text = "CPU"
+horizontal_alignment = 1
+
+[node name="PeripheralPiece" parent="Phase1/Pieces" unique_id=1865910445 instance=ExtResource("3_w6lij")]
+custom_minimum_size = Vector2(50, 50)
+propagate_maximum_size = false
+layout_mode = 2
+component_id = "peripherals"
+display_name = "Periferico"
+
+[node name="MarginContainer" type="MarginContainer" parent="Phase1/Pieces/PeripheralPiece" unique_id=242756429]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Phase1/Pieces/PeripheralPiece/MarginContainer" unique_id=675398227]
+layout_mode = 2
+
+[node name="IconLabel" type="Label" parent="Phase1/Pieces/PeripheralPiece/MarginContainer/VBoxContainer" unique_id=2056211390]
+layout_mode = 2
+text = "⌨"
+horizontal_alignment = 1
+
+[node name="NameLabel" type="Label" parent="Phase1/Pieces/PeripheralPiece/MarginContainer/VBoxContainer" unique_id=644541773]
+layout_mode = 2
+text = "PERIFÉRICOS"
+horizontal_alignment = 1
+
+[node name="DetailLabel" type="Label" parent="Phase1/Pieces/PeripheralPiece/MarginContainer/VBoxContainer" unique_id=733710464]
+layout_mode = 2
+text = "E/S"
+horizontal_alignment = 1
+
+[node name="Phase2" type="VBoxContainer" parent="." unique_id=309633854]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.48697916
+anchor_top = -0.06790123
+anchor_right = -0.27083334
+anchor_bottom = 0.09104938
+offset_left = 642.0
+offset_top = 140.0
+offset_right = 934.0
+offset_bottom = 372.0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CPUBoard" type="GridContainer" parent="Phase2" unique_id=1787442091]
+layout_mode = 2
+layout_direction = 1
+columns = 2
+
+[node name="ControlSlot" parent="Phase2/CPUBoard" unique_id=1088314676 instance=ExtResource("2_pbhcl")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+expected_component = "control"
+normal_style = SubResource("StyleBoxFlat_pbhcl")
+hover_style = SubResource("StyleBoxFlat_xrd84")
+filled_style = SubResource("StyleBoxFlat_k67ak")
+
+[node name="ALUSlot" parent="Phase2/CPUBoard" unique_id=1070198398 instance=ExtResource("2_pbhcl")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+expected_component = "alu"
+normal_style = SubResource("StyleBoxFlat_pbhcl")
+hover_style = SubResource("StyleBoxFlat_xrd84")
+filled_style = SubResource("StyleBoxFlat_k67ak")
+
+[node name="RegistersSlot" parent="Phase2/CPUBoard" unique_id=1006843967 instance=ExtResource("2_pbhcl")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 6
+expected_component = "registers"
+normal_style = SubResource("StyleBoxFlat_pbhcl")
+hover_style = SubResource("StyleBoxFlat_xrd84")
+filled_style = SubResource("StyleBoxFlat_k67ak")
+
+[node name="CacheSlot" parent="Phase2/CPUBoard" unique_id=2062420239 instance=ExtResource("2_pbhcl")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+expected_component = "cache"
+normal_style = SubResource("StyleBoxFlat_pbhcl")
+hover_style = SubResource("StyleBoxFlat_xrd84")
+filled_style = SubResource("StyleBoxFlat_k67ak")
+
+[node name="BusLabel" type="Label" parent="Phase2" unique_id=399147602]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pieces" type="HBoxContainer" parent="Phase2" unique_id=1953053791]
+layout_mode = 2
+
+[node name="ControlPiece" parent="Phase2/Pieces" unique_id=1076125959 instance=ExtResource("3_w6lij")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+component_id = "control"
+display_name = "Controle"
+
+[node name="ALUPiece" parent="Phase2/Pieces" unique_id=336954630 instance=ExtResource("3_w6lij")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+component_id = "alu"
+display_name = "Alu"
+
+[node name="RegistersPiece" parent="Phase2/Pieces" unique_id=1875259219 instance=ExtResource("3_w6lij")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+component_id = "registers"
+display_name = "Registro"
+
+[node name="CachePiece" parent="Phase2/Pieces" unique_id=99928163 instance=ExtResource("3_w6lij")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+component_id = "cache"
+display_name = "Cache"
+
+[node name="PowerButton" type="Button" parent="." unique_id=340691437]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 58)
+layout_mode = 0
+offset_left = 406.0
+offset_top = 550.0
+offset_right = 626.0
+offset_bottom = 618.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_qynng")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_by6ep")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cmbtx")
+text = "⚡ LIGAR"
+
+[node name="StausPanel" type="PanelContainer" parent="." unique_id=1221289012]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 726.0
+offset_top = 395.0
+offset_right = 1107.0
+offset_bottom = 580.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StausPanel" unique_id=177702222]
+layout_mode = 2
+
+[node name="StatusTitle" type="Label" parent="StausPanel/VBoxContainer" unique_id=887422493]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StatusMessage" type="Label" parent="StausPanel/VBoxContainer" unique_id=1982246862]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NextButton" type="Button" parent="." unique_id=2140690259]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 882.0
+offset_top = 599.0
+offset_right = 1004.0
+offset_bottom = 630.0
+text = "PRÓXIMA FASE"
+
+[node name="BootOverlay" type="ColorRect" parent="." unique_id=992974308]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 773.0
+offset_top = 98.0
+offset_right = 1090.0
+offset_bottom = 351.0
+
+[node name="CenterContainer" type="CenterContainer" parent="BootOverlay" unique_id=922141224]
+layout_mode = 0
+offset_right = 318.0
+offset_bottom = 254.0
+
+[node name="PanelContainer" type="PanelContainer" parent="BootOverlay/CenterContainer" unique_id=1763480407]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BootOverlay/CenterContainer/PanelContainer" unique_id=446370279]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer" unique_id=2143714713]
+layout_mode = 2
+
+[node name="BootTitle" type="Label" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=435294037]
+layout_mode = 2
+
+[node name="BootStatus" type="Label" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1595985450]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=146390726]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CheckCPU" type="Label" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1183931304]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CheckMemory" type="Label" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=918647336]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CheckBus" type="Label" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=89512816]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CheckIO" type="Label" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=948947258]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FinalStatus" type="Label" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=631164906]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CPU_Ride" type="AnimationPlayer" parent="." unique_id=786646028]
+libraries/ = SubResource("AnimationLibrary_k67ak")

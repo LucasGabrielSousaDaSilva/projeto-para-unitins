@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjtjsg42c3y2f"]
+[gd_scene format=3 uid="uid://cjtjsg42c3y2f"]
 
-[ext_resource type="Script" uid="uid://c3coqsbg63k5e" path="res://Scripts/options.gd" id="1_nnqmf"]
+[ext_resource type="Script" uid="uid://c3coqsbg63k5e" path="res://Scripts/causa_ambiente/options.gd" id="1_nnqmf"]
 
 [node name="Option" type="Control"]
 process_mode = 3

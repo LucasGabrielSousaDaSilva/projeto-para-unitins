@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://yrd2pdtc385r"]
+
+[ext_resource type="Script" uid="uid://b00sm5uemylcx" path="res://Scripts/aoc1/DraggablePiece.gd" id="1_wlgk1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbhcl"]
+bg_color = Color(0.07450981, 0.15686275, 0.24313726, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22352941, 0.6627451, 1, 1)
+
+[node name="DraggablePiece" type="PanelContainer" unique_id=757290293]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pbhcl")
+script = ExtResource("1_wlgk1")
+
+[node name="NameLabel" type="Label" parent="." unique_id=1955487106]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.91764706, 0.95686275, 1, 1)
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
