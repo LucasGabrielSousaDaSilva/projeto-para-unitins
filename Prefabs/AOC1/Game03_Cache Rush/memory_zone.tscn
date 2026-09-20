@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bivxf6qr3d7fd"]
+
+[ext_resource type="Script" uid="uid://cw6tdt5skti6g" path="res://Scripts/aoc1/Game03_Cache Rush/memory_zone.gd" id="1_f8i3v"]
+[ext_resource type="Texture2D" uid="uid://cx5nb7dagamn2" path="res://icon.svg" id="2_v05qx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(127, 125)
+
+[node name="MemoryZone" type="Area2D" unique_id=582108552]
+script = ExtResource("1_f8i3v")
+
+[node name="BodyPanel" type="Panel" parent="." unique_id=85423129]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Glow" type="ColorRect" parent="." unique_id=1292323162]
+offset_right = 127.0
+offset_bottom = 122.0
+color = Color(0.41568628, 0.36078432, 1, 1)
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1059088936]
+position = Vector2(19, 16.937502)
+scale = Vector2(0.24609376, 0.21972656)
+texture = ExtResource("2_v05qx")
+
+[node name="Title" type="Label" parent="." unique_id=814618395]
+offset_left = 40.0
+offset_top = 6.0
+offset_right = 120.0
+offset_bottom = 29.0
+
+[node name="Subtitle" type="Label" parent="." unique_id=1663986750]
+offset_left = 5.0
+offset_top = 38.0
+offset_right = 117.0
+offset_bottom = 65.0
+
+[node name="StatusLabel" type="Label" parent="." unique_id=1376842191]
+offset_left = 9.0
+offset_top = 77.0
+offset_right = 115.0
+offset_bottom = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=452725202]
+position = Vector2(63.5, 61.5)
+shape = SubResource("RectangleShape2D_g4v7s")

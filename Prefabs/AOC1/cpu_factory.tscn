@@ -18,6 +18,18 @@ border_color = Color(0.22352941, 0.6627451, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s425s"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kiqey"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xw6sg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgci8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6yga"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7t1t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xjfg"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbhcl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrd84"]
@@ -126,7 +138,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
 
 [node name="Phase1" type="VBoxContainer" parent="." unique_id=1326498021]
 unique_name_in_owner = true
-visible = false
 layout_mode = 0
 offset_left = 69.0
 offset_top = 90.0
@@ -150,11 +161,17 @@ filled_style = SubResource("StyleBoxFlat_s425s")
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 expected_component = "processor"
+normal_style = SubResource("StyleBoxFlat_kiqey")
+hover_style = SubResource("StyleBoxFlat_xw6sg")
+filled_style = SubResource("StyleBoxFlat_rgci8")
 
 [node name="PeripheralSlot" parent="Phase1/Board" unique_id=1494190739 instance=ExtResource("2_pbhcl")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 expected_component = "peripherals"
+normal_style = SubResource("StyleBoxFlat_p6yga")
+hover_style = SubResource("StyleBoxFlat_g7t1t")
+filled_style = SubResource("StyleBoxFlat_8xjfg")
 
 [node name="BusLabel" type="Label" parent="Phase1" unique_id=1246027775]
 layout_mode = 2
@@ -252,6 +269,7 @@ horizontal_alignment = 1
 
 [node name="Phase2" type="VBoxContainer" parent="." unique_id=309633854]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.48697916

@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://djlafmshi5vdu"]
+
+[ext_resource type="Script" uid="uid://5svq85vamm1w" path="res://Scripts/aoc1/Game03_Cache Rush/cache_rush.gd" id="1_7805s"]
+[ext_resource type="PackedScene" uid="uid://bivxf6qr3d7fd" path="res://Prefabs/AOC1/Game03_Cache Rush/memory_zone.tscn" id="1_ikyf7"]
+[ext_resource type="PackedScene" uid="uid://cubxbipycekml" path="res://Prefabs/AOC1/Game03_Cache Rush/player_aoc.tscn" id="2_7805s"]
+
+[node name="CacheRush" type="Node2D" unique_id=1139496808]
+script = ExtResource("1_7805s")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1249519997]
+
+[node name="BaseColor" type="ColorRect" parent="Node2D" unique_id=1292401392]
+offset_right = 1156.0
+offset_bottom = 652.0
+color = Color(0.02745098, 0.14117648, 0.05882353, 1)
+
+[node name="CircuitOverlay" type="Node2D" parent="Node2D" unique_id=1995131708]
+
+[node name="TopGlow" type="ColorRect" parent="Node2D" unique_id=1977555780]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BottomGlow" type="ColorRect" parent="Node2D" unique_id=1183939146]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="World" type="Node2D" parent="." unique_id=1724283428]
+
+[node name="CpuHeader" type="Node2D" parent="World" unique_id=207029201]
+
+[node name="CpuPanel" type="Panel" parent="World/CpuHeader" unique_id=1212615567]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CpuTitle" type="Label" parent="World/CpuHeader" unique_id=851621868]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CpuGlow" type="ColorRect" parent="World/CpuHeader" unique_id=338105598]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BusLine" type="Node2D" parent="World" unique_id=2074126470]
+
+[node name="Line_Reg_L1" type="Line2D" parent="World/BusLine" unique_id=244361429]
+
+[node name="Line_L1_L2" type="Line2D" parent="World/BusLine" unique_id=1569980473]
+
+[node name="Line_L2_L3" type="Line2D" parent="World/BusLine" unique_id=2029364600]
+
+[node name="Line_L3_RAM" type="Line2D" parent="World/BusLine" unique_id=1161828058]
+
+[node name="Line_RAM_Storage" type="Line2D" parent="World/BusLine" unique_id=1592967594]
+
+[node name="Registers" parent="World" unique_id=582108552 instance=ExtResource("1_ikyf7")]
+position = Vector2(180, 140)
+memory_name = "REGISTRADORES"
+points = 120
+subtitle_text = "Uso interno da CPU"
+
+[node name="CacheL1" parent="World" unique_id=559509231 instance=ExtResource("1_ikyf7")]
+position = Vector2(900, 180)
+memory_name = "CACHE L1"
+memory_index = 1
+subtitle_text = "Cache primária"
+
+[node name="CacheL2" parent="World" unique_id=736236040 instance=ExtResource("1_ikyf7")]
+position = Vector2(180, 300)
+memory_name = "CACHE L2"
+points = 80
+memory_index = 2
+subtitle_text = "Maior que a L1"
+
+[node name="CacheL3" parent="World" unique_id=2022169201 instance=ExtResource("1_ikyf7")]
+position = Vector2(900, 340)
+memory_name = "CACHE L3"
+points = 60
+memory_index = 3
+subtitle_text = "Compartilhada"
+
+[node name="RAM" parent="World" unique_id=507529004 instance=ExtResource("1_ikyf7")]
+position = Vector2(180, 460)
+memory_name = "RAM"
+points = 30
+memory_index = 4
+subtitle_text = "Memória principal"
+
+[node name="Storage" parent="World" unique_id=111767817 instance=ExtResource("1_ikyf7")]
+position = Vector2(900, 500)
+memory_name = "ARMAZENAMENTO"
+points = 10
+memory_index = 5
+subtitle_text = "SSD / HDD"
+
+[node name="PlayerAOC" parent="World" unique_id=1412593754 instance=ExtResource("2_7805s")]
+position = Vector2(560, 320)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1327254528]
+
+[node name="TopPanel" type="Panel" parent="HUD" unique_id=983797088]
+offset_left = 112.0
+offset_top = 3.0
+offset_right = 1005.0
+offset_bottom = 91.0
+
+[node name="TargetLabel" type="Label" parent="HUD/TopPanel" unique_id=1204723353]
+layout_mode = 0
+offset_right = 172.0
+offset_bottom = 74.0
+
+[node name="ScoreLabel" type="Label" parent="HUD/TopPanel" unique_id=407787853]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 13.0
+offset_right = 680.0
+offset_bottom = 80.0
+
+[node name="TimeLabel" type="Label" parent="HUD/TopPanel" unique_id=412807530]
+layout_mode = 0
+offset_left = 745.0
+offset_top = 16.0
+offset_right = 860.0
+offset_bottom = 79.0
+
+[node name="StreakLabel" type="Label" parent="HUD/TopPanel" unique_id=1064122805]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 12.0
+offset_right = 413.0
+offset_bottom = 86.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/TopPanel" unique_id=417106479]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 29.0
+offset_right = 645.0
+offset_bottom = 187.0
+
+[node name="LatencyTitle" type="Label" parent="HUD/TopPanel/VBoxContainer" unique_id=998562757]
+layout_mode = 2
+
+[node name="L1Bar" type="Label" parent="HUD/TopPanel/VBoxContainer" unique_id=265869987]
+layout_mode = 2
+
+[node name="L2Bar" type="Label" parent="HUD/TopPanel/VBoxContainer" unique_id=1389708072]
+layout_mode = 2
+
+[node name="L3Bar" type="Label" parent="HUD/TopPanel/VBoxContainer" unique_id=840524781]
+layout_mode = 2
+
+[node name="RAMBar" type="Label" parent="HUD/TopPanel/VBoxContainer" unique_id=825970198]
+layout_mode = 2
+
+[node name="RAMBar2" type="Label" parent="HUD/TopPanel/VBoxContainer" unique_id=1952908517]
+layout_mode = 2
+
+[node name="MessagePanel" type="Panel" parent="HUD" unique_id=2047010923]
+offset_left = 266.0
+offset_top = 558.0
+offset_right = 857.0
+offset_bottom = 640.0
+
+[node name="MessageLabel" type="Label" parent="HUD/MessagePanel" unique_id=1281034737]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 18.0
+offset_right = 510.0
+offset_bottom = 70.0
+
+[node name="HelpLabel" type="Label" parent="HUD" unique_id=1551030791]
+offset_left = 907.0
+offset_top = 553.0
+offset_right = 1117.0
+offset_bottom = 637.0
+
+[node name="RoundTimer" type="Timer" parent="." unique_id=995544046]
+
+[node name="MessageTimer" type="Timer" parent="." unique_id=1777084747]
