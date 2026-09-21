@@ -180,13 +180,10 @@ func cache_miss(zone):
 		var next_zone = memory_zones[next_allowed_memory]
 
 		show_message(
-			"CACHE MISS!\n\n" +
-			target_data +
-			" não está em " +
-			zone.memory_name +
-			"\nProcure em " +
-			next_zone.memory_name,
-			2.0
+			"CACHE HIT!\n\n" +
+			target_data + " encontrado em " + zone.memory_name + "\n\n" +
+			get_learning_message(zone.memory_name),
+			3.0
 		)
 
 	update_hud()
@@ -221,3 +218,29 @@ func get_multiplier() -> int:
 		return 2
 
 	return 1
+
+func get_learning_message(zone_name: String) -> String:
+	match zone_name:
+		"REGISTRADORES":
+			return "Registradores armazenam temporariamente informações usadas pela CPU."
+		"CACHE L1":
+			return "A L1 é a cache mais próxima do núcleo do processador."
+		"CACHE L2":
+			return "A L2 é maior que a L1, mas também mais lenta."
+		"CACHE L3":
+			return "A L3 costuma ser compartilhada entre os núcleos."
+		"RAM":
+			return "A RAM é a memória principal usada pelos programas em execução."
+		"ARMAZENAMENTO":
+			return "O armazenamento possui grande capacidade, mas é mais lento."
+		_:
+			return ""
+
+func flash_hit():
+	modulate = Color(0.5, 1.0, 0.5)
+	scale = Vector2(1.1, 1.1)
+
+	await get_tree().create_timer(0.2).timeout
+
+	modulate = Color(1, 1, 1)
+	scale = Vector2(1, 1)

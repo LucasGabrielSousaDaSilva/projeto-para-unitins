@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ck8m2l20bioum" path="res://Scripts/aoc1/SlotZone.gd" id="1_dqs7o"]
 [ext_resource type="Script" uid="uid://cyqx485w7y0ar" path="res://Scripts/aoc1/DraggableItem.gd" id="2_54oag"]
-[ext_resource type="Texture2D" uid="uid://cir5f8ow3t0vs" path="res://Scripts/blue-dragon.png" id="2_dcjfi"]
+[ext_resource type="Texture2D" uid="uid://cir5f8ow3t0vs" path="res://blue-dragon.png" id="2_dcjfi"]
 [ext_resource type="Script" uid="uid://dmny01qc8dabl" path="res://Scripts/aoc1/power_button.gd" id="3_54oag"]
 [ext_resource type="Texture2D" uid="uid://qe2dc20d3ysu" path="res://Platinado_Dragon.png" id="4_uoot7"]
 

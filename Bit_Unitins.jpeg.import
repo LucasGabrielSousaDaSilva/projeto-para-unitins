@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cir5f8ow3t0vs"
-path="res://.godot/imported/blue-dragon.png-45459a7685bb4036be6b9e8f55eb354e.ctex"
+uid="uid://cok2qug10hy2h"
+path="res://.godot/imported/Bit_Unitins.jpeg-af45697a798698b9997f0ae203587d80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scripts/blue-dragon.png"
-dest_files=["res://.godot/imported/blue-dragon.png-45459a7685bb4036be6b9e8f55eb354e.ctex"]
+source_file="res://Bit_Unitins.jpeg"
+dest_files=["res://.godot/imported/Bit_Unitins.jpeg-af45697a798698b9997f0ae203587d80.ctex"]
 
 [params]
 

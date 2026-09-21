@@ -3,44 +3,64 @@
 [ext_resource type="Script" uid="uid://cw6tdt5skti6g" path="res://Scripts/aoc1/Game03_Cache Rush/memory_zone.gd" id="1_f8i3v"]
 [ext_resource type="Texture2D" uid="uid://cx5nb7dagamn2" path="res://icon.svg" id="2_v05qx"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_juhq4"]
+bg_color = Color(0.078431375, 0.13333334, 0.16470589, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.33333334, 0.8392157, 1, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(127, 125)
+size = Vector2(180, 103)
 
 [node name="MemoryZone" type="Area2D" unique_id=582108552]
 script = ExtResource("1_f8i3v")
 
-[node name="BodyPanel" type="Panel" parent="." unique_id=85423129]
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Glow" type="ColorRect" parent="." unique_id=1292323162]
-offset_right = 127.0
-offset_bottom = 122.0
-color = Color(0.41568628, 0.36078432, 1, 1)
+visible = false
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 186.0
+offset_bottom = 96.0
+color = Color(0.35405523, 0.886932, 1.0562959, 1)
+
+[node name="BodyPanel" type="Panel" parent="." unique_id=85423129]
+offset_right = 180.0
+offset_bottom = 90.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_juhq4")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1059088936]
-position = Vector2(19, 16.937502)
-scale = Vector2(0.24609376, 0.21972656)
+position = Vector2(18, 18)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_v05qx")
 
 [node name="Title" type="Label" parent="." unique_id=814618395]
-offset_left = 40.0
-offset_top = 6.0
-offset_right = 120.0
-offset_bottom = 29.0
+offset_left = 50.0
+offset_top = 5.0
+offset_right = 143.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 20
+text = "CACHE L1"
 
 [node name="Subtitle" type="Label" parent="." unique_id=1663986750]
-offset_left = 5.0
-offset_top = 38.0
-offset_right = 117.0
-offset_bottom = 65.0
+offset_left = 25.0
+offset_top = 35.0
+offset_right = 175.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0.8039216, 0.9372549, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Cache primária
+Mais próxima da CPU"
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="StatusLabel" type="Label" parent="." unique_id=1376842191]
-offset_left = 9.0
-offset_top = 77.0
-offset_right = 115.0
-offset_bottom = 100.0
+offset_left = 14.0
+offset_top = 68.0
+offset_right = 120.0
+offset_bottom = 91.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=452725202]
-position = Vector2(63.5, 61.5)
+position = Vector2(90, 50.5)
 shape = SubResource("RectangleShape2D_g4v7s")

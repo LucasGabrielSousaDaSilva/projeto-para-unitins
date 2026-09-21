@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bxit22jf3hinu"]
 
 [ext_resource type="Script" uid="uid://c32sscampkgq6" path="res://Scripts/causa_ambiente/menu.gd" id="1_q2he7"]
-[ext_resource type="Texture2D" uid="uid://c0iwvn6nsa4bb" path="res://Unitins.jpeg" id="2_s0vro"]
+[ext_resource type="Texture2D" uid="uid://cok2qug10hy2h" path="res://Bit_Unitins.jpeg" id="2_q2he7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5yleq"]
-texture = ExtResource("2_s0vro")
+texture = ExtResource("2_q2he7")
 modulate_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lthh4"]
