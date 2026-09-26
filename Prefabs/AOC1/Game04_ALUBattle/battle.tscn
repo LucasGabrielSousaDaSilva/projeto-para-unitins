@@ -1,0 +1,562 @@
+[gd_scene format=3 uid="uid://cjgitry5hwd0t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxlkl"]
+bg_color = Color(0.047058824, 0.11372549, 0.19215687, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.13725491, 0.8509804, 1, 1)
+corner_detail = 12
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vop38"]
+bg_color = Color(0.08235294, 0.14509805, 0.21176471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2i20"]
+bg_color = Color(0.13725491, 0.8509804, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixu1r"]
+bg_color = Color(0.047058824, 0.11372549, 0.19215687, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.23921569, 0.40392157, 1)
+corner_detail = 12
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7oi3"]
+bg_color = Color(0.08235294, 0.14509805, 0.21176471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3adq"]
+bg_color = Color(1, 0.23921569, 0.40392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8uomu"]
+bg_color = Color(0.03137255, 0.08235294, 0.14509805, 0.3137255)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.08627451, 0.21568628, 0.32941177, 1)
+corner_detail = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8jr7"]
+bg_color = Color(0.047058824, 0.12941177, 0.21568628, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.13725491, 0.8509804, 1, 1)
+corner_detail = 18
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0m2c"]
+bg_color = Color(1, 0.23921569, 0.40392157, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8901961, 0.7607843, 0, 1)
+corner_detail = 18
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sxkf"]
+bg_color = Color(0.03529412, 0.09803922, 0.16470589, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.13725491, 0.8509804, 1, 1)
+corner_detail = 16
+shadow_color = Color(0, 0, 0, 0.19607843)
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3bn7"]
+bg_color = Color(0.0627451, 0.16470589, 0.2627451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.14117648, 0.32156864, 0.45490196, 1)
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyfn3"]
+bg_color = Color(0.105882354, 0.34901962, 0.45882353, 1)
+border_color = Color(0.22352941, 0.8980392, 0.54901963, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yciv4"]
+bg_color = Color(0.08627451, 0.23137255, 0.34901962, 1)
+border_color = Color(0.13725491, 0.8509804, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aocmp"]
+bg_color = Color(0.08627451, 0.23137255, 0.34901962, 1)
+border_color = Color(0.13725491, 0.8509804, 1, 1)
+
+[node name="Battle" type="Control" unique_id=1489612914]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=774433089]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.019607844, 0.043137256, 0.08627451, 1)
+
+[node name="TopGlow" type="ColorRect" parent="." unique_id=1035495000]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 145.0
+grow_horizontal = 2
+color = Color(0.03137255, 0.14117648, 0.25490198, 0.23529412)
+
+[node name="TopHUD" type="HBoxContainer" parent="." unique_id=1221336087]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.025
+anchor_right = 0.97
+anchor_bottom = 0.18
+offset_left = -16.399998
+offset_top = -15.0
+offset_right = 22.399902
+offset_bottom = 3.399994
+theme_override_constants/separation = 18
+
+[node name="PlayerCard" type="PanelContainer" parent="TopHUD" unique_id=1065243014]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_xxlkl")
+
+[node name="Margin" type="MarginContainer" parent="TopHUD/PlayerCard" unique_id=933429193]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="TopHUD/PlayerCard/Margin" unique_id=1281731376]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="PlayerTopRow" type="HBoxContainer" parent="TopHUD/PlayerCard/Margin/VBox" unique_id=1255864887]
+layout_mode = 2
+
+[node name="PlayerName" type="Label" parent="TopHUD/PlayerCard/Margin/VBox/PlayerTopRow" unique_id=2045823079]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.13725491, 0.8509804, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "ULA"
+
+[node name="PlayerHPLabel" type="Label" parent="TopHUD/PlayerCard/Margin/VBox/PlayerTopRow" unique_id=100395390]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.91764706, 0.96862745, 1, 1)
+text = "100 / 100 HP"
+horizontal_alignment = 2
+
+[node name="PlayerHPBar" type="ProgressBar" parent="TopHUD/PlayerCard/Margin/VBox" unique_id=1862463989]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_vop38")
+theme_override_styles/fill = SubResource("StyleBoxFlat_f2i20")
+value = 100.0
+show_percentage = false
+
+[node name="PlayerStatus" type="Label" parent="TopHUD/PlayerCard/Margin/VBox" unique_id=938702747]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5137255, 0.6313726, 0.72156864, 1)
+theme_override_font_sizes/font_size = 12
+text = "UNIDADE LÓGICA E ARITMÉTICA"
+
+[node name="TitleBlock" type="VBoxContainer" parent="TopHUD" unique_id=641179651]
+custom_minimum_size = Vector2(330, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="TopHUD/TitleBlock" unique_id=535151690]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.91764706, 0.96862745, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "ALU BATTLE"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="TopHUD/TitleBlock" unique_id=758026458]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.13725491, 0.8509804, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "ARENA BINÁRIA"
+horizontal_alignment = 1
+
+[node name="BattleStats" type="HBoxContainer" parent="TopHUD/TitleBlock/Subtitle" unique_id=307832296]
+layout_mode = 0
+offset_right = 325.0
+offset_bottom = 50.0
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="ComboLabel" type="Label" parent="TopHUD/TitleBlock/Subtitle/BattleStats" unique_id=373813276]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5137255, 0.6313726, 0.72156864, 1)
+theme_override_font_sizes/font_size = 12
+text = "COMBO ×0"
+
+[node name="TurnLabel" type="Label" parent="TopHUD/TitleBlock/Subtitle/BattleStats" unique_id=1681507976]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5137255, 0.6313726, 0.72156864, 1)
+theme_override_font_sizes/font_size = 12
+text = "TURNO 1"
+
+[node name="ScoreLabel" type="Label" parent="TopHUD/TitleBlock/Subtitle/BattleStats" unique_id=502648283]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5137255, 0.6313726, 0.72156864, 1)
+theme_override_font_sizes/font_size = 12
+text = "0000 PTS"
+
+[node name="EnemyCard" type="PanelContainer" parent="TopHUD" unique_id=690278095]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ixu1r")
+
+[node name="Margin" type="MarginContainer" parent="TopHUD/EnemyCard" unique_id=1928856745]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="TopHUD/EnemyCard/Margin" unique_id=1812775677]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="EnemyTopRow" type="HBoxContainer" parent="TopHUD/EnemyCard/Margin/VBox" unique_id=285999438]
+layout_mode = 2
+
+[node name="EnemyName" type="Label" parent="TopHUD/EnemyCard/Margin/VBox/EnemyTopRow" unique_id=296267968]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.23921569, 0.40392157, 1)
+theme_override_font_sizes/font_size = 20
+text = "BIT INVERTIDO"
+
+[node name="EnemyHPLabel" type="Label" parent="TopHUD/EnemyCard/Margin/VBox/EnemyTopRow" unique_id=746430159]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.91764706, 0.96862745, 1, 1)
+text = "100 / 100 HP"
+horizontal_alignment = 2
+
+[node name="EnemyHPBar" type="ProgressBar" parent="TopHUD/EnemyCard/Margin/VBox" unique_id=1113709426]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_u7oi3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_l3adq")
+value = 100.0
+show_percentage = false
+
+[node name="EnemyStatus" type="Label" parent="TopHUD/EnemyCard/Margin/VBox" unique_id=784887941]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.23921569, 0.40392157, 1)
+theme_override_font_sizes/font_size = 12
+text = "AMEAÇA BINÁRIA"
+
+[node name="Arena" type="Control" parent="." unique_id=892496804]
+layout_mode = 1
+anchor_left = 0.03
+anchor_top = 0.195
+anchor_right = 0.97
+anchor_bottom = 0.6
+offset_left = -6.3999977
+offset_top = 7.600006
+offset_right = 32.399902
+offset_bottom = 147.99997
+
+[node name="ArenaBackground" type="Panel" parent="Arena" unique_id=802668836]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8uomu")
+
+[node name="BusLineShadow" type="ColorRect" parent="Arena" unique_id=2050780836]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34911433
+anchor_top = 0.51296294
+anchor_right = 0.6491144
+anchor_bottom = 0.51296294
+offset_top = -4.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137256, 0.27058825, 0.4, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BusLine" type="ColorRect" parent="Arena" unique_id=2001309974]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.349
+anchor_top = 0.51100004
+anchor_right = 0.64900005
+anchor_bottom = 0.518
+offset_left = 0.14196777
+offset_top = -0.15202332
+offset_right = 0.14190674
+offset_bottom = -0.17601013
+color = Color(0.13725491, 0.8509804, 1, 1)
+
+[node name="BusLabel" type="Label" parent="Arena" unique_id=1832997321]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -23.0
+offset_right = 100.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.40784314, 0.6862745, 0.79607844, 1)
+theme_override_font_sizes/font_size = 10
+text = "BARRAMENTO DE DADOS"
+horizontal_alignment = 1
+
+[node name="PlayerFighter" type="PanelContainer" parent="Arena" unique_id=50218858]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.045
+anchor_top = 0.12
+anchor_right = 0.275
+anchor_bottom = 0.88
+theme_override_styles/panel = SubResource("StyleBoxFlat_j8jr7")
+
+[node name="PlayerVBox" type="VBoxContainer" parent="Arena/PlayerFighter" unique_id=718468441]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="PlayerIcon" type="Label" parent="Arena/PlayerFighter/PlayerVBox" unique_id=1458397331]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.13725491, 0.8509804, 1, 1)
+theme_override_font_sizes/font_size = 54
+text = "[ ULA ]"
+horizontal_alignment = 1
+
+[node name="PlayerBinary" type="Label" parent="Arena/PlayerFighter/PlayerVBox" unique_id=1973044191]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.91764706, 0.96862745, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "10110101"
+horizontal_alignment = 1
+
+[node name="PlayerRole" type="Label" parent="Arena/PlayerFighter/PlayerVBox" unique_id=1507242383]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5137255, 0.6313726, 0.72156864, 1)
+theme_override_font_sizes/font_size = 11
+text = "PROCESSADOR"
+horizontal_alignment = 1
+
+[node name="EnemyFighter" type="PanelContainer" parent="Arena" unique_id=1265317967]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.725
+anchor_top = 0.12
+anchor_right = 0.955
+anchor_bottom = 0.88
+theme_override_styles/panel = SubResource("StyleBoxFlat_j0m2c")
+
+[node name="EnemyVBox" type="VBoxContainer" parent="Arena/EnemyFighter" unique_id=2025787278]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="EnemyIcon" type="Label" parent="Arena/EnemyFighter/EnemyVBox" unique_id=970479428]
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "ERROR"
+horizontal_alignment = 1
+
+[node name="EnemyBinary" type="Label" parent="Arena/EnemyFighter/EnemyVBox" unique_id=1136953295]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "101?110!"
+horizontal_alignment = 1
+
+[node name="EnemyRole" type="Label" parent="Arena/EnemyFighter/EnemyVBox" unique_id=1221325804]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "BIT INVERTIDO"
+horizontal_alignment = 1
+
+[node name="VersusLabel" type="Label" parent="Arena" unique_id=512781987]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -38.0
+offset_right = 35.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.78431374, 0.34117648, 1)
+theme_override_font_sizes/font_size = 32
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttackFX" type="Label" parent="Arena" unique_id=1814271619]
+visible = false
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.22352941, 0.8980392, 0.54901963, 1)
+theme_override_font_sizes/font_size = 20
+text = "101101  ►►►"
+
+[node name="QuestionPanel" type="PanelContainer" parent="." unique_id=1372733178]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.325
+anchor_top = 0.325
+anchor_right = 0.675
+anchor_bottom = 0.735
+offset_left = 105.0
+offset_top = 159.00002
+offset_right = -71.0
+offset_bottom = 84.79999
+theme_override_styles/panel = SubResource("StyleBoxFlat_7sxkf")
+
+[node name="QuestionMargin" type="MarginContainer" parent="QuestionPanel" unique_id=1512205156]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 14
+
+[node name="QuestionVBox" type="VBoxContainer" parent="QuestionPanel/QuestionMargin" unique_id=838734264]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="OperationType" type="Label" parent="QuestionPanel/QuestionMargin/QuestionVBox" unique_id=2010161340]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.78431374, 0.34117648, 1)
+theme_override_font_sizes/font_size = 14
+text = "ADIÇÃO BINÁRIA"
+horizontal_alignment = 1
+
+[node name="NumberA" type="Label" parent="QuestionPanel/QuestionMargin/QuestionVBox" unique_id=1208838872]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.91764706, 0.96862745, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "  1011"
+horizontal_alignment = 1
+
+[node name="NumberB" type="Label" parent="QuestionPanel/QuestionMargin/QuestionVBox" unique_id=1619171058]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.91764706, 0.96862745, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "+ 0110"
+horizontal_alignment = 1
+
+[node name="Separator" type="ColorRect" parent="QuestionPanel/QuestionMargin/QuestionVBox" unique_id=1431587288]
+custom_minimum_size = Vector2(220, 2)
+layout_mode = 2
+color = Color(0.13725491, 0.8509804, 1, 1)
+
+[node name="QuestionMark" type="Label" parent="QuestionPanel/QuestionMargin/QuestionVBox" unique_id=1431607525]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.78431374, 0.34117648, 1)
+theme_override_font_sizes/font_size = 35
+text = "?"
+horizontal_alignment = 1
+
+[node name="Answers" type="GridContainer" parent="." unique_id=39873373]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.755
+anchor_right = 0.8
+anchor_bottom = 0.96
+offset_left = 16.0
+offset_top = 36.400024
+offset_right = -18.0
+offset_bottom = 24.799988
+theme_override_constants/h_separation = 14
+theme_override_constants/v_separation = 12
+columns = 2
+
+[node name="Answer1" type="Button" parent="Answers" unique_id=956743836]
+custom_minimum_size = Vector2(360, 62)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_c3bn7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wyfn3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yciv4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_aocmp")
+text = "10001"
+
+[node name="Answer2" type="Button" parent="Answers" unique_id=658526572]
+custom_minimum_size = Vector2(360, 62)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_c3bn7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wyfn3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yciv4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_aocmp")
+text = "11001"
+
+[node name="Answer3" type="Button" parent="Answers" unique_id=456235337]
+custom_minimum_size = Vector2(360, 62)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_c3bn7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wyfn3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yciv4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_aocmp")
+text = "11110"
+
+[node name="Answer4" type="Button" parent="Answers" unique_id=1758170048]
+custom_minimum_size = Vector2(360, 62)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_c3bn7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wyfn3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yciv4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_aocmp")
+text = "01001"
+
+[node name="MessageLabel" type="Label" parent="." unique_id=1445549185]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -20.0
+offset_right = 300.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.22352941, 0.8980392, 0.54901963, 1)
+theme_override_font_sizes/font_size = 22
+text = "Text = \"\""
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=260398506]

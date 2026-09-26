@@ -84,20 +84,39 @@ text = "Origem das requisições de dados"
 [node name="BusLine" type="Node2D" parent="World" unique_id=2074126470]
 
 [node name="Line_Reg_L1" type="Line2D" parent="World/BusLine" unique_id=244361429]
+points = PackedVector2Array(301, 189, 575, 178, 850, 197)
 width = 4.0
 default_color = Color(0.33333334, 0.8392157, 1, 1)
 
 [node name="Line_Reg_L2" type="Line2D" parent="World/BusLine" unique_id=253553910]
+points = PackedVector2Array(204, 237, 210, 264, 201, 297)
+width = 4.0
+default_color = Color(0.4001879, 0.9931618, 1.1816263, 1)
 
 [node name="Line_L1_L3" type="Line2D" parent="World/BusLine" unique_id=1569980473]
+points = PackedVector2Array(935, 240, 931, 276, 935, 305)
+width = 4.0
+default_color = Color(0.4001879, 0.9931618, 1.1816263, 1)
 
 [node name="Line_L2_L3" type="Line2D" parent="World/BusLine" unique_id=2029364600]
+points = PackedVector2Array(300, 336, 590, 361, 848, 350)
+width = 4.0
+default_color = Color(0.4001879, 0.9931618, 1.1816263, 1)
 
 [node name="Line_L2_RAM" type="Line2D" parent="World/BusLine" unique_id=1161828058]
+points = PackedVector2Array(214, 374, 203, 421, 216, 463)
+width = 4.0
+default_color = Color(0.4001879, 0.9931618, 1.1816263, 1)
 
 [node name="Line_L3_Storage" type="Line2D" parent="World/BusLine" unique_id=1161848542]
+points = PackedVector2Array(932, 382, 937, 435, 928, 477)
+width = 4.0
+default_color = Color(0.4001879, 0.9931618, 1.1816263, 1)
 
 [node name="Line_RAM_Storage" type="Line2D" parent="World/BusLine" unique_id=1592967594]
+points = PackedVector2Array(298, 512, 558, 532, 837, 526)
+width = 4.0
+default_color = Color(0.39366195, 0.9781346, 1.1638972, 1)
 
 [node name="Registers" parent="World" unique_id=582108552 instance=ExtResource("1_ikyf7")]
 position = Vector2(120, 150)
