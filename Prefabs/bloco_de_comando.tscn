@@ -6,8 +6,8 @@
 [node name="bloco_de_comando" type="CanvasLayer" unique_id=1142672672]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1439637415]
-offset_right = 1154.0
-offset_bottom = 647.0
+offset_right = 1280.0
+offset_bottom = 712.0
 color = Color(0.03137255, 0.18039216, 0.12156863, 1)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2013408971]
@@ -23,8 +23,8 @@ texture = ExtResource("1_6kq34")
 layout_mode = 3
 anchor_right = 0.035
 anchor_bottom = 0.062000003
-offset_right = 1113.68
-offset_bottom = 611.824
+offset_right = 1234.2
+offset_bottom = 671.36
 script = ExtResource("1_d5n5b")
 
 [node name="CodeEdit" type="CodeEdit" parent="Control" unique_id=740160665]
@@ -34,10 +34,10 @@ anchor_left = 0.462
 anchor_top = 0.44900003
 anchor_right = 0.462
 anchor_bottom = 0.44900003
-offset_left = -425.148
-offset_top = -155.74802
-offset_right = 164.85193
-offset_bottom = 259.75192
+offset_left = -505.898
+offset_top = -169.48401
+offset_right = 107.10199
+offset_bottom = 275.516
 grow_horizontal = 2
 grow_vertical = 2
 placeholder_text = "Scanner leitor = new Scanner(System.in);
@@ -71,26 +71,26 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Control" unique_id=749976307]
 layout_mode = 0
-offset_left = 809.0
-offset_top = 484.0
-offset_right = 984.0
-offset_bottom = 534.0
+offset_left = 876.0
+offset_top = 524.0
+offset_right = 1082.0
+offset_bottom = 585.0
 text = "Enviar"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1282814057]
 layout_mode = 0
-offset_left = 752.0
-offset_top = 298.0
-offset_right = 1054.0
-offset_bottom = 441.0
+offset_left = 816.0
+offset_top = 315.0
+offset_right = 1149.0
+offset_bottom = 481.0
 theme_override_colors/selection_color = Color(0.1, 0.1, 1, 0.8)
 
 [node name="LineEdit" type="LineEdit" parent="Control" unique_id=1464026894]
 layout_mode = 0
-offset_left = 754.0
+offset_left = 816.0
 offset_top = 155.0
-offset_right = 1059.0
-offset_bottom = 260.0
+offset_right = 1162.0
+offset_bottom = 285.0
 theme_override_colors/selection_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
 
 [connection signal="code_completion_requested" from="Control/CodeEdit" to="Control/CodeEdit" method="_on_code_completion_requested"]

@@ -14,8 +14,8 @@ script = ExtResource("1_2bhj5")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1011820918]
 layout_mode = 0
-offset_right = 1154.0
-offset_bottom = 647.0
+offset_right = 1283.0
+offset_bottom = 717.0
 color = Color(0.010137642, 0.18039131, 0.20321986, 1)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=319838721]
@@ -72,16 +72,16 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="." unique_id=2131108514]
 layout_mode = 0
-offset_left = 808.0
-offset_top = 448.0
-offset_right = 983.0
-offset_bottom = 498.0
+offset_left = 813.0
+offset_top = 565.0
+offset_right = 988.0
+offset_bottom = 615.0
 text = "Enviar"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1944901366]
 layout_mode = 0
-offset_left = 753.0
-offset_top = 180.0
-offset_right = 1055.0
-offset_bottom = 323.0
+offset_left = 839.0
+offset_top = 189.0
+offset_right = 1206.0
+offset_bottom = 411.0
 bbcode_enabled = true
