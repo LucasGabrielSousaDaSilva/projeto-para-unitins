@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cjgitry5hwd0t"]
 
+[ext_resource type="Script" uid="uid://d30bv3fdblvya" path="res://Scripts/aoc1/Game04_ALUBattle/battle.gd" id="1_f2i20"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxlkl"]
 bg_color = Color(0.047058824, 0.11372549, 0.19215687, 1)
 border_width_left = 2
@@ -89,9 +91,292 @@ border_color = Color(0.22352941, 0.8980392, 0.54901963, 1)
 bg_color = Color(0.08627451, 0.23137255, 0.34901962, 1)
 border_color = Color(0.13725491, 0.8509804, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.0627451, 0.16470589, 0.2627451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.14117648, 0.32156864, 0.45490196, 1)
+corner_detail = 12
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aocmp"]
 bg_color = Color(0.08627451, 0.23137255, 0.34901962, 1)
 border_color = Color(0.13725491, 0.8509804, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+bg_color = Color(0.043137256, 0.09803922, 0.15686275, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.13725491, 0.8509804, 1, 1)
+corner_detail = 18
+shadow_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57qmd"]
+bg_color = Color(0.0627451, 0.16470589, 0.2627451, 1)
+border_color = Color(0.13725491, 0.8509804, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0u6y"]
+bg_color = Color(0.08627451, 0.23137255, 0.34901962, 1)
+border_color = Color(0.13725491, 0.8509804, 1, 1)
+
+[sub_resource type="Animation" id="Animation_ixu1r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MessageLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MessageLabel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("QuestionPanel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Arena/PlayerFighter:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Arena/EnemyFighter:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Arena/EnemyFighter:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Arena/PlayerFighter:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_stqtw"]
+resource_name = "correct_answer"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MessageLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.28, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.22352941, 0.8980392, 0.54901963, 0.39215687), Color(0.22352941, 0.8980392, 0.54901963, 1), Color(0.2235294, 0.8980392, 0.54901963, 1), Color(0.22352941, 0.8980392, 0.54901963, 0.39215687)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MessageLabel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.28, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.85, 0.85), Vector2(1.08, 1.08), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("QuestionPanel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.7254902, 1, 0.84705883, 1), Color(0.8627451, 1, 0.9235294, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u7oi3"]
+resource_name = "enemy_attack"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arena/EnemyFighter:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.22, 0.34, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.95, 0.95), Vector2(1.1, 1.1), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arena/PlayerFighter:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.52, 0.57, 0.62, 0.66, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 0.23921569, 0.40392157, 1), Color(1, 1, 1, 1), Color(1, 0.23921569, 0.40392157, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arena/PlayerFighter:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.54, 0.6, 0.67, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.08, 0.92), Vector2(0.96, 1.04), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l3adq"]
+resource_name = "player_attack"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arena/PlayerFighter:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.22, 0.34, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.95, 0.95), Vector2(1.1, 1.1), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arena/EnemyFighter:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.52, 0.57, 0.62, 0.66, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 0.23921569, 0.40392157, 1), Color(1, 1, 1, 1), Color(1, 0.23921569, 0.40392157, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arena/EnemyFighter:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.54, 0.6, 0.67, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.08, 0.92), Vector2(0.96, 1.04), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8uomu"]
+resource_name = "wrong_answer"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MessageLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.28, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.23921569, 0.40392157, 0.39215687), Color(1, 0.23921569, 0.40392157, 1), Color(1, 0.23921569, 0.40392157, 1), Color(1, 0.23921569, 0.40392157, 0.39215687)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MessageLabel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.28, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.85, 0.85), Vector2(1.08, 1.08), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("QuestionPanel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.69411767, 0.7529412, 1), Color(1, 0.69411767, 0.7529412, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j8jr7"]
+_data = {
+&"RESET": SubResource("Animation_ixu1r"),
+&"correct_answer": SubResource("Animation_stqtw"),
+&"enemy_attack": SubResource("Animation_u7oi3"),
+&"player_attack": SubResource("Animation_l3adq"),
+&"wrong_answer": SubResource("Animation_8uomu")
+}
 
 [node name="Battle" type="Control" unique_id=1489612914]
 layout_mode = 3
@@ -100,6 +385,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_f2i20")
 
 [node name="Background" type="ColorRect" parent="." unique_id=774433089]
 layout_mode = 1
@@ -197,26 +483,24 @@ theme_override_font_sizes/font_size = 14
 text = "ARENA BINÁRIA"
 horizontal_alignment = 1
 
-[node name="BattleStats" type="HBoxContainer" parent="TopHUD/TitleBlock/Subtitle" unique_id=307832296]
-layout_mode = 0
-offset_right = 325.0
-offset_bottom = 50.0
+[node name="BattleStats" type="HBoxContainer" parent="TopHUD/TitleBlock" unique_id=307832296]
+layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="ComboLabel" type="Label" parent="TopHUD/TitleBlock/Subtitle/BattleStats" unique_id=373813276]
+[node name="ComboLabel" type="Label" parent="TopHUD/TitleBlock/BattleStats" unique_id=373813276]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.5137255, 0.6313726, 0.72156864, 1)
 theme_override_font_sizes/font_size = 12
 text = "COMBO ×0"
 
-[node name="TurnLabel" type="Label" parent="TopHUD/TitleBlock/Subtitle/BattleStats" unique_id=1681507976]
+[node name="TurnLabel" type="Label" parent="TopHUD/TitleBlock/BattleStats" unique_id=1681507976]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.5137255, 0.6313726, 0.72156864, 1)
 theme_override_font_sizes/font_size = 12
 text = "TURNO 1"
 
-[node name="ScoreLabel" type="Label" parent="TopHUD/TitleBlock/Subtitle/BattleStats" unique_id=502648283]
+[node name="ScoreLabel" type="Label" parent="TopHUD/TitleBlock/BattleStats" unique_id=502648283]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.5137255, 0.6313726, 0.72156864, 1)
 theme_override_font_sizes/font_size = 12
@@ -274,10 +558,10 @@ anchor_left = 0.03
 anchor_top = 0.195
 anchor_right = 0.97
 anchor_bottom = 0.6
-offset_left = -6.3999977
-offset_top = 7.600006
-offset_right = 32.399902
-offset_bottom = 147.99997
+offset_left = -16.399998
+offset_top = 1.6000061
+offset_right = 22.399902
+offset_bottom = 141.99997
 
 [node name="ArenaBackground" type="Panel" parent="Arena" unique_id=802668836]
 layout_mode = 1
@@ -295,12 +579,13 @@ anchor_left = 0.34911433
 anchor_top = 0.51296294
 anchor_right = 0.6491144
 anchor_bottom = 0.51296294
-offset_top = -4.0
-offset_bottom = 5.0
+offset_left = -4.5999756
+offset_top = -53.0
+offset_right = -4.5999756
+offset_bottom = -44.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.043137256, 0.27058825, 0.4, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="BusLine" type="ColorRect" parent="Arena" unique_id=2001309974]
 layout_mode = 1
@@ -309,10 +594,10 @@ anchor_left = 0.349
 anchor_top = 0.51100004
 anchor_right = 0.64900005
 anchor_bottom = 0.518
-offset_left = 0.14196777
-offset_top = -0.15202332
-offset_right = 0.14190674
-offset_bottom = -0.17601013
+offset_left = -4.458008
+offset_top = -49.152023
+offset_right = -4.458069
+offset_bottom = -49.17601
 color = Color(0.13725491, 0.8509804, 1, 1)
 
 [node name="BusLabel" type="Label" parent="Arena" unique_id=1832997321]
@@ -322,10 +607,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -23.0
-offset_right = 100.0
-offset_bottom = -5.0
+offset_left = -104.599976
+offset_top = -72.0
+offset_right = 95.400024
+offset_bottom = -54.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.40784314, 0.6862745, 0.79607844, 1)
@@ -407,10 +692,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = -38.0
-offset_right = 35.0
-offset_bottom = 38.0
+offset_left = -21.0
+offset_top = -117.0
+offset_right = 17.0
+offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.78431374, 0.34117648, 1)
@@ -420,10 +705,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AttackFX" type="Label" parent="Arena" unique_id=1814271619]
-visible = false
 layout_mode = 1
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 555.0
+offset_top = 56.0
+offset_right = 686.0
+offset_bottom = 84.0
 theme_override_colors/font_color = Color(0.22352941, 0.8980392, 0.54901963, 1)
 theme_override_font_sizes/font_size = 20
 text = "101101  ►►►"
@@ -435,10 +721,10 @@ anchor_left = 0.325
 anchor_top = 0.325
 anchor_right = 0.675
 anchor_bottom = 0.735
-offset_left = 105.0
-offset_top = 159.00002
-offset_right = -71.0
-offset_bottom = 84.79999
+offset_left = 91.0
+offset_top = 103.000015
+offset_right = -85.0
+offset_bottom = 28.799988
 theme_override_styles/panel = SubResource("StyleBoxFlat_7sxkf")
 
 [node name="QuestionMargin" type="MarginContainer" parent="QuestionPanel" unique_id=1512205156]
@@ -493,10 +779,10 @@ anchor_left = 0.2
 anchor_top = 0.755
 anchor_right = 0.8
 anchor_bottom = 0.96
-offset_left = 16.0
-offset_top = 36.400024
-offset_right = -18.0
-offset_bottom = 24.799988
+offset_left = 12.0
+offset_top = 35.400024
+offset_right = -22.0
+offset_bottom = 23.799988
 theme_override_constants/h_separation = 14
 theme_override_constants/v_separation = 12
 columns = 2
@@ -504,40 +790,48 @@ columns = 2
 [node name="Answer1" type="Button" parent="Answers" unique_id=956743836]
 custom_minimum_size = Vector2(360, 62)
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_c3bn7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wyfn3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yciv4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_g4v7s")
 theme_override_styles/focus = SubResource("StyleBoxFlat_aocmp")
 text = "10001"
 
 [node name="Answer2" type="Button" parent="Answers" unique_id=658526572]
 custom_minimum_size = Vector2(360, 62)
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_c3bn7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wyfn3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yciv4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_g4v7s")
 theme_override_styles/focus = SubResource("StyleBoxFlat_aocmp")
 text = "11001"
 
 [node name="Answer3" type="Button" parent="Answers" unique_id=456235337]
 custom_minimum_size = Vector2(360, 62)
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_c3bn7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wyfn3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yciv4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_g4v7s")
 theme_override_styles/focus = SubResource("StyleBoxFlat_aocmp")
 text = "11110"
 
 [node name="Answer4" type="Button" parent="Answers" unique_id=1758170048]
 custom_minimum_size = Vector2(360, 62)
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_c3bn7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wyfn3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yciv4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_g4v7s")
 theme_override_styles/focus = SubResource("StyleBoxFlat_aocmp")
 text = "01001"
 
@@ -548,10 +842,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -20.0
-offset_right = 300.0
-offset_bottom = 20.0
+offset_left = -295.0
+offset_top = -203.0
+offset_right = 305.0
+offset_bottom = -163.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.22352941, 0.8980392, 0.54901963, 1)
@@ -559,4 +853,87 @@ theme_override_font_sizes/font_size = 22
 text = "Text = \"\""
 horizontal_alignment = 1
 
+[node name="ResultOverlay" type="Control" parent="." unique_id=1949485518]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimBackground" type="ColorRect" parent="ResultOverlay" unique_id=984562059]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.014235594, 0.049110524, 0.08086094, 1)
+
+[node name="ResultPanel" type="PanelContainer" parent="ResultOverlay" unique_id=503413364]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3384375
+anchor_top = 0.19750002
+anchor_right = 0.65843755
+anchor_bottom = 0.6775
+offset_left = 6.799988
+offset_top = 7.799988
+offset_right = 6.800049
+offset_bottom = 7.7999573
+theme_override_styles/panel = SubResource("StyleBoxFlat_yf5fn")
+metadata/_edit_use_anchors_ = true
+
+[node name="Margin" type="MarginContainer" parent="ResultOverlay/ResultPanel" unique_id=543377605]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 26
+
+[node name="VBox" type="VBoxContainer" parent="ResultOverlay/ResultPanel/Margin" unique_id=1713163014]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="ResultTitle" type="Label" parent="ResultOverlay/ResultPanel/Margin/VBox" unique_id=729674672]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "PROCESSO FINALIZADO"
+horizontal_alignment = 1
+
+[node name="ResultSubtitle" type="Label" parent="ResultOverlay/ResultPanel/Margin/VBox" unique_id=2101772605]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "BIT INVERTIDO ELIMINADO"
+horizontal_alignment = 1
+
+[node name="ResultSeparator" type="ColorRect" parent="ResultOverlay/ResultPanel/Margin/VBox" unique_id=1549214624]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.14117648, 0.32156864, 0.45490196, 1)
+
+[node name="ResultScore" type="Label" parent="ResultOverlay/ResultPanel/Margin/VBox" unique_id=1910428515]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "PONTUAÇÃO: 0000"
+horizontal_alignment = 1
+
+[node name="ResultTurns" type="Label" parent="ResultOverlay/ResultPanel/Margin/VBox" unique_id=2074673642]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5137255, 0.6313726, 0.72156864, 1)
+theme_override_font_sizes/font_size = 15
+text = "TURNOS: 0"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="ResultOverlay/ResultPanel/Margin/VBox" unique_id=1116436978]
+custom_minimum_size = Vector2(270, 55)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_57qmd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d0u6y")
+text = "TENTAR NOVAMENTE"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=260398506]
+libraries/ = SubResource("AnimationLibrary_j8jr7")
