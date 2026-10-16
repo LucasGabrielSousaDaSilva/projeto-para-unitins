@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://2x1ag28gos2k"]
+
+[ext_resource type="Script" uid="uid://b2savmuas525k" path="res://Scripts/causa_ambiente/interect.gd" id="1_fdrrn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 21.0
+
+[node name="PCInterativo" type="Area2D" unique_id=762736484]
+script = ExtResource("1_fdrrn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=489354463]
+shape = SubResource("CircleShape2D_yf5fn")
+
+[node name="Indicador" type="Node2D" parent="." unique_id=466217948]
+
+[node name="Label" type="Label" parent="Indicador" unique_id=569878639]
+offset_left = 31.0
+offset_top = -25.0
+offset_right = 79.0
+offset_bottom = -8.0
+rotation = 1.5707964
+theme_override_font_sizes/font_size = 12
+text = "[E] Jogar"
+horizontal_alignment = 1
