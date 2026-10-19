@@ -71,3 +71,13 @@ func _update_task_color(index: int, is_done: bool) -> void:
 		task_list.set_item_custom_fg_color(index, Color.GREEN)
 	else:
 		task_list.set_item_custom_fg_color(index, Color.WHITE)
+
+
+func _on_botao_voltar_pressed() -> void:
+	GameManager.voltar_laboratorio()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and not event.is_echo():
+		get_viewport().set_input_as_handled()
+		GameManager.voltar_laboratorio()

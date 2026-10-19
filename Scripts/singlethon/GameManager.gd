@@ -67,27 +67,29 @@ func abrir_jogo(
 	em_transicao = false
 
 
-func voltar_laboratorio() -> void:
 
+func voltar_laboratorio() -> void:
 	if em_transicao:
 		return
 
-	var destino := sala_origem_path
+	var destino: String = sala_origem_path
 
 	if destino.is_empty():
 		destino = laboratorio_path
 
 	if destino.is_empty():
-		push_error("Nenhuma sala de retorno configurada.")
+		push_error("ERRO: Nenhuma sala de retorno configurada!")
 		return
 
 	em_transicao = true
+
+	print("Retornando para: ", destino)
 
 	var erro := get_tree().change_scene_to_file(destino)
 
 	if erro != OK:
 		em_transicao = false
-		push_error("Erro ao voltar para sala: " + str(erro))
+		push_error("Erro ao voltar: " + str(erro))
 		return
 
 	jogo_atual = ""

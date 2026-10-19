@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://dnfbabmj4u8dv" path="res://Scripts/aoc1/Game01_BinaryRunner/byte_pickup.gd" id="1_bit"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bit"]
+radius = 27.0
+
+[node name="BytePickup" type="Area2D"]
+script = ExtResource("1_bit")
+collision_layer = 2
+collision_mask = 1
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bit")
+
+[node name="Glow" type="Polygon2D" parent="."]
+color = Color(0.12, 0.45, 0.62, 1)
+polygon = PackedVector2Array(-26, -18, -18, -27, 18, -27, 27, -18, 27, 18, 18, 27, -18, 27, -27, 18)
+
+[node name="Core" type="Polygon2D" parent="."]
+color = Color(0.31, 0.85, 1, 1)
+polygon = PackedVector2Array(-20, -14, -14, -20, 14, -20, 20, -14, 20, 14, 14, 20, -14, 20, -20, 14)
+
+[node name="BitLabel" type="Label" parent="."]
+offset_left = -29.0
+offset_top = -29.0
+offset_right = 29.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 31
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -7,6 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://b8ocr6hgedg1m" path="res://Prefabs/transition.tscn" id="5_y00hg"]
 [ext_resource type="PackedScene" uid="uid://2x1ag28gos2k" path="res://Prefabs/interect.tscn" id="6_442ki"]
 [ext_resource type="PackedScene" uid="uid://bhxghfgnf7pn7" path="res://Prefabs/helloworld.tscn" id="7_y71cq"]
+[ext_resource type="PackedScene" uid="uid://c6fc0nls0e670" path="res://Prefabs/atribuicao_dados.tscn" id="8_qeaaa"]
+[ext_resource type="PackedScene" uid="uid://ccijdvka40vj5" path="res://Prefabs/calculadora2.tscn" id="9_ym5wp"]
+[ext_resource type="PackedScene" uid="uid://cva4ncrbvc3pf" path="res://Prefabs/bloco_de_comando.tscn" id="10_12a1s"]
+[ext_resource type="PackedScene" uid="uid://pr2r7at7d2c5" path="res://Prefabs/AOC1/Game02_CPU_Factory/cpu_factory.tscn" id="11_8vjf3"]
+[ext_resource type="PackedScene" path="res://Prefabs/AOC1/Game01_BinaryRunner/BinaryHub.tscn" id="11_g5ghl"]
+[ext_resource type="PackedScene" uid="uid://djlafmshi5vdu" path="res://Prefabs/AOC1/Game03_Cache Rush/cache_rush.tscn" id="12_g5ghl"]
+[ext_resource type="PackedScene" uid="uid://cjgitry5hwd0t" path="res://Prefabs/AOC1/Game04_ALUBattle/battle.tscn" id="13_t04dp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ffqs"]
 texture = ExtResource("2_y00hg")
@@ -2228,7 +2235,7 @@ tile_set = SubResource("TileSet_bvfl5")
 tile_map_data = PackedByteArray("AAA/ACUAAAAXAA8AAGBAACUAAAAXAA8AAGA/ACQAAAAVAA4AAGA/ACMAAAAOAA0AAAA/ACIAAAAXAA4AAGBAACQAAAAXAA4AAFBAACMAAAAWAA4AAFBAACIAAAAVAA4AAFAzACAAAAARABAAAFAzACEAAAASABAAAFAzABwAAAARABAAAFAzAB0AAAASABAAAFAzABgAAAARABAAAFAzABkAAAASABAAAFAzABQAAAARABAAAFAzABUAAAASABAAAFAzAAwAAAARABAAAFAzAA0AAAASABAAAFAzAAgAAAARABAAAFAzAAkAAAASABAAAFAqAAgAAAARABAAAFAqAAkAAAASABAAAFAqAAwAAAARABAAAFAqAA0AAAASABAAAFAqABQAAAARABAAAFAqABUAAAASABAAAFAqABgAAAARABAAAFAqABkAAAASABAAAFAqABwAAAARABAAAFAqAB0AAAASABAAAFAqACAAAAARABAAAFAqACEAAAASABAAAFAhAAgAAAARABAAAFAhAAkAAAASABAAAFAhAAwAAAARABAAAFAhAA0AAAASABAAAFAhABQAAAARABAAAFAhABUAAAASABAAAFAhABgAAAARABAAAFAhABkAAAASABAAAFAhABwAAAARABAAAFAhAB0AAAASABAAAFAhACAAAAARABAAAFAhACEAAAASABAAAFAYAAgAAAARABAAAFAYAAkAAAASABAAAFAYAAwAAAARABAAAFAYAA0AAAASABAAAFAYABQAAAARABAAAFAYABUAAAASABAAAFAYABgAAAARABAAAFAYABkAAAASABAAAFAYABwAAAARABAAAFAYAB0AAAASABAAAFAYACAAAAARABAAAFAYACEAAAASABAAAFAPAAgAAAARABAAAFAPAAkAAAASABAAAFAPAAwAAAARABAAAFAPAA0AAAASABAAAFAPABQAAAARABAAAFAPABUAAAASABAAAFAPABgAAAARABAAAFAPABkAAAASABAAAFAPABwAAAARABAAAFAPAB0AAAASABAAAFAPACAAAAARABAAAFAPACEAAAASABAAAFAGAAgAAAARABAAAFAGAAkAAAASABAAAFAGAAwAAAARABAAAFAGAA0AAAASABAAAFAGABQAAAARABAAAFAGABUAAAASABAAAFAGABgAAAARABAAAFAGABkAAAASABAAAFAGABwAAAARABAAAFAGAB0AAAASABAAAFAGACAAAAARABAAAFAGACEAAAASABAAAFA=")
 tile_set = SubResource("TileSet_bvfl5")
 
-[node name="Player" parent="." unique_id=1874414782 instance=ExtResource("3_442ki")]
+[node name="Player" parent="." unique_id=1874414782 groups=["player"] instance=ExtResource("3_442ki")]
 position = Vector2(1025, 520)
 
 [node name="Door" parent="." unique_id=1286263373 node_paths=PackedStringArray("transition_controller") instance=ExtResource("4_y71cq")]
@@ -2246,29 +2253,44 @@ position = Vector2(1024, 520)
 position = Vector2(-9, 3)
 
 [node name="Hello" parent="ComputadoresAlg" unique_id=762736484 instance=ExtResource("6_442ki")]
-position = Vector2(871, 327)
+position = Vector2(871, 326)
+nome_jogo = "Hello World"
 cena_jogo = ExtResource("7_y71cq")
 
 [node name="Atribuicao" parent="ComputadoresAlg" unique_id=1172867994 instance=ExtResource("6_442ki")]
 position = Vector2(876, 396)
+nome_jogo = "Atribuição"
+cena_jogo = ExtResource("8_qeaaa")
 
 [node name="calculadora" parent="ComputadoresAlg" unique_id=2104675860 instance=ExtResource("6_442ki")]
 position = Vector2(876, 460)
+nome_jogo = "Calculadora"
+cena_jogo = ExtResource("9_ym5wp")
 
 [node name="comando" parent="ComputadoresAlg" unique_id=322013414 instance=ExtResource("6_442ki")]
 position = Vector2(875, 523)
+nome_jogo = "Comando"
+cena_jogo = ExtResource("10_12a1s")
 
 [node name="ComputadoresAOC" type="Node2D" parent="." unique_id=1987426110]
 position = Vector2(-16, 2)
 
 [node name="PC_Binary" parent="ComputadoresAOC" unique_id=278667567 instance=ExtResource("6_442ki")]
 position = Vector2(733, 334)
+nome_jogo = "Binary"
+cena_jogo = ExtResource("11_g5ghl")
 
 [node name="PC_Factory" parent="ComputadoresAOC" unique_id=1055111385 instance=ExtResource("6_442ki")]
 position = Vector2(734, 398)
+nome_jogo = "Factory"
+cena_jogo = ExtResource("11_8vjf3")
 
 [node name="PC_Cache" parent="ComputadoresAOC" unique_id=1288105366 instance=ExtResource("6_442ki")]
 position = Vector2(733, 460)
+nome_jogo = "Cache"
+cena_jogo = ExtResource("12_g5ghl")
 
 [node name="PC_ALU" parent="ComputadoresAOC" unique_id=29205247 instance=ExtResource("6_442ki")]
 position = Vector2(732, 524)
+nome_jogo = "ALU"
+cena_jogo = ExtResource("13_t04dp")

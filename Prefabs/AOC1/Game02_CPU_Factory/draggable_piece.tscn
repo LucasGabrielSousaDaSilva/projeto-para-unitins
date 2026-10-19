@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://yrd2pdtc385r"]
 
-[ext_resource type="Script" uid="uid://b00sm5uemylcx" path="res://Scripts/aoc1/DraggablePiece.gd" id="1_wlgk1"]
+[ext_resource type="Script" uid="uid://b00sm5uemylcx" path="res://Scripts/aoc1/Game02_CPU_Factory/DraggablePiece.gd" id="1_wlgk1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbhcl"]
 bg_color = Color(0.07450981, 0.15686275, 0.24313726, 1)

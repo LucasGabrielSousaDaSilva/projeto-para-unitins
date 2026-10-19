@@ -58,3 +58,13 @@ func avaliar_execucao_java(codigo: String, idade: int) -> void:
 
 func imprimir_no_terminal(texto: String) -> void:
 	terminal_output.append_text(texto + "\n")
+
+
+func _on_botao_voltar_pressed() -> void:
+	GameManager.voltar_laboratorio()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and not event.is_echo():
+		get_viewport().set_input_as_handled()
+		GameManager.voltar_laboratorio()

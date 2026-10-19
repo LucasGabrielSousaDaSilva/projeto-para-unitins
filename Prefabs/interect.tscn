@@ -6,6 +6,8 @@
 radius = 21.0
 
 [node name="PCInterativo" type="Area2D" unique_id=762736484]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_fdrrn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=489354463]

@@ -1,0 +1,44 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://caejntryk6vct" path="res://Scripts/aoc1/Game01_BinaryRunner/gate.gd" id="1_gate"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gate"]
+size = Vector2(85, 158)
+
+[node name="Gate" type="Area2D"]
+script = ExtResource("1_gate")
+collision_layer = 2
+collision_mask = 1
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gate")
+
+[node name="Frame" type="Polygon2D" parent="."]
+color = Color(0.1, 0.81, 0.98, 1)
+polygon = PackedVector2Array(-52, -84, 52, -84, 52, 84, -52, 84)
+
+[node name="Interior" type="Polygon2D" parent="."]
+color = Color(0.03, 0.12, 0.23, 1)
+polygon = PackedVector2Array(-37, -70, 37, -70, 37, 70, -37, 70)
+
+[node name="GateLabel" type="Label" parent="."]
+offset_left = -90.0
+offset_top = -151.0
+offset_right = 90.0
+offset_bottom = -91.0
+theme_override_colors/font_color = Color(0.92, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 23
+text = "PORTA 13"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DoorCode" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -22.0
+offset_right = 32.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.23, 0.97, 0.95, 1)
+theme_override_font_sizes/font_size = 18
+text = "BIN\n?"
+horizontal_alignment = 1
+vertical_alignment = 1

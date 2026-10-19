@@ -22,3 +22,13 @@ func _on_enviar_pressed() -> void:
 	else:
 		rich_text_label.append_text("[color=red]Erro de Compilação / Resposta Incorreta![/color]\n\n")
 		rich_text_label.append_text("Verifique se declarou a classe, o método main e o comando System.out.println com a frase correta.")
+
+
+func _on_botao_voltar_pressed() -> void:
+	GameManager.voltar_laboratorio()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and not event.is_echo():
+		get_viewport().set_input_as_handled()
+		GameManager.voltar_laboratorio()

@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://df7ovw6gq2xk1"]
+
+[ext_resource type="Script" uid="uid://dx8724js7c53l" path="res://Scripts/aoc1/Game01_BinaryRunner/binary_hub.gd" id="1_hub"]
+
+[sub_resource type="StyleBoxFlat" id="panel"]
+bg_color = Color(0.025, 0.085, 0.17, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.15, 0.65, 0.8, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="card"]
+bg_color = Color(0.06, 0.18, 0.28, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23, 0.82, 0.94, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="BinaryHub" type="Control" unique_id=713566348]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hub")
+
+[node name="Background" type="ColorRect" parent="." unique_id=962516818]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.02, 0.045, 0.1, 1)
+
+[node name="HeaderPanel" type="Panel" parent="." unique_id=1389757588]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 26.0
+offset_right = 1252.0
+offset_bottom = 213.0
+theme_override_styles/panel = SubResource("panel")
+
+[node name="Title" type="Label" parent="HeaderPanel" unique_id=1926542829]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 17.0
+offset_right = 900.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.31, 0.93, 1, 1)
+theme_override_font_sizes/font_size = 43
+text = "BINARY RUNNER  //  HUB"
+
+[node name="Subtitle" type="Label" parent="HeaderPanel" unique_id=1487489332]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 77.0
+offset_right = 1102.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0.75, 0.86, 0.94, 1)
+theme_override_font_sizes/font_size = 21
+text = "Atravesse circuitos, resolva conversões e desbloqueie o núcleo final."
+
+[node name="ProgressLabel" type="Label" parent="." unique_id=1083957394]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 159.0
+offset_right = 640.0
+offset_bottom = 192.0
+theme_override_colors/font_color = Color(0.92, 0.87, 0.55, 1)
+theme_override_font_sizes/font_size = 19
+text = "PROGRESSO: 0/5 ETAPAS CONCLUÍDAS"
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=906534120]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 163.0
+offset_right = 1199.0
+offset_bottom = 188.0
+show_percentage = false
+
+[node name="StageCards" type="Control" parent="." unique_id=462808972]
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+
+[node name="Card1" type="Button" parent="StageCards" unique_id=621108069]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 256.0
+offset_right = 260.0
+offset_bottom = 525.0
+theme_override_colors/font_color = Color(0.91, 0.96, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.44, 0.56, 0.65, 1)
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("card")
+theme_override_styles/pressed = SubResource("card")
+theme_override_styles/hover = SubResource("card")
+text = "FASE 1"
+
+[node name="Card2" type="Button" parent="StageCards" unique_id=1652621464]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 256.0
+offset_right = 507.0
+offset_bottom = 525.0
+theme_override_colors/font_color = Color(0.91, 0.96, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.44, 0.56, 0.65, 1)
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("card")
+theme_override_styles/pressed = SubResource("card")
+theme_override_styles/hover = SubResource("card")
+text = "FASE 2"
+
+[node name="Card3" type="Button" parent="StageCards" unique_id=1615919819]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 256.0
+offset_right = 754.0
+offset_bottom = 525.0
+theme_override_colors/font_color = Color(0.91, 0.96, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.44, 0.56, 0.65, 1)
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("card")
+theme_override_styles/pressed = SubResource("card")
+theme_override_styles/hover = SubResource("card")
+text = "FASE 3"
+
+[node name="Card4" type="Button" parent="StageCards" unique_id=1939963018]
+layout_mode = 0
+offset_left = 769.0
+offset_top = 256.0
+offset_right = 1001.0
+offset_bottom = 525.0
+theme_override_colors/font_color = Color(0.91, 0.96, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.44, 0.56, 0.65, 1)
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("card")
+theme_override_styles/pressed = SubResource("card")
+theme_override_styles/hover = SubResource("card")
+text = "FASE 4"
+
+[node name="Card5" type="Button" parent="StageCards" unique_id=449113864]
+layout_mode = 0
+offset_left = 1016.0
+offset_top = 256.0
+offset_right = 1248.0
+offset_bottom = 525.0
+theme_override_colors/font_color = Color(0.91, 0.96, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.44, 0.56, 0.65, 1)
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("card")
+theme_override_styles/pressed = SubResource("card")
+theme_override_styles/hover = SubResource("card")
+text = "FASE 5"
+
+[node name="FinalLabel" type="Label" parent="." unique_id=1330507247]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 566.0
+offset_right = 1220.0
+offset_bottom = 610.0
+theme_override_colors/font_color = Color(0.75, 0.86, 0.94, 1)
+theme_override_font_sizes/font_size = 21
+text = "Complete uma fase para desbloquear a próxima."
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=688222842]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 632.0
+offset_right = 448.0
+offset_bottom = 690.0
+theme_override_font_sizes/font_size = 21
+text = "VOLTAR AO LABORATÓRIO"
+
+[node name="ResetButton" type="Button" parent="." unique_id=1197304420]
+layout_mode = 0
+offset_left = 849.0
+offset_top = 632.0
+offset_right = 1231.0
+offset_bottom = 690.0
+theme_override_font_sizes/font_size = 21
+text = "ZERAR PROGRESSO"
+
+[node name="ResetConfirmation" type="ConfirmationDialog" parent="." unique_id=75021101]
+title = "Reiniciar o Binary Runner?"
+ok_button_text = "SIM, ZERAR"
+dialog_text = "Isso bloqueará novamente as Fases 2, 3, 4 e o Boss. Confirmar?"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

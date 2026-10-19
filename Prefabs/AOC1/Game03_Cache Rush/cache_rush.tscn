@@ -291,3 +291,16 @@ text = "WASD mover | E verificar memória"
 [node name="RoundTimer" type="Timer" parent="." unique_id=995544046]
 
 [node name="MessageTimer" type="Timer" parent="." unique_id=1777084747]
+
+[node name="BotaoVoltar" type="Button" parent="." unique_id=400230406]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 931.0
+offset_top = 612.0
+offset_right = 1145.0
+offset_bottom = 643.0
+grow_horizontal = 0
+text = "VOLTAR AO LABORATÓRIO"
+
+[connection signal="pressed" from="BotaoVoltar" to="." method="_on_botao_voltar_pressed"]

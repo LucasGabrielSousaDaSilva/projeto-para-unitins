@@ -1,0 +1,312 @@
+[gd_scene format=3 uid="uid://ckb4g3pq80xgg"]
+
+[ext_resource type="Script" uid="uid://bqy22se0ip8x" path="res://Scripts/aoc1/Game01_BinaryRunner/level01.gd" id="1_level"]
+[ext_resource type="Script" uid="uid://b61go8l7wlp6f" path="res://Scripts/aoc1/Game01_BinaryRunner/circuit_background.gd" id="2_bg"]
+[ext_resource type="PackedScene" path="res://Prefabs/AOC1/Game01_BinaryRunner/Player.tscn" id="3_player"]
+[ext_resource type="PackedScene" path="res://Prefabs/AOC1/Game01_BinaryRunner/BitPickup.tscn" id="4_bit"]
+[ext_resource type="PackedScene" uid="uid://ksohohl1dpfe" path="res://Prefabs/AOC1/Game01_BinaryRunner/Hazard.tscn" id="5_hazard"]
+[ext_resource type="PackedScene" path="res://Prefabs/AOC1/Game01_BinaryRunner/Gate.tscn" id="6_gate"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(3600, 120)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_top"]
+bg_color = Color(0.035, 0.09, 0.16, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.12, 0.75, 0.83, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[node name="Level01" type="Node2D" unique_id=904901703]
+script = ExtResource("1_level")
+
+[node name="Background" type="Node2D" parent="." unique_id=295711190]
+z_index = -10
+script = ExtResource("2_bg")
+
+[node name="World" type="Node2D" parent="." unique_id=312937282]
+
+[node name="Ground" type="StaticBody2D" parent="World" unique_id=920592902]
+position = Vector2(1600, 660)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Ground" unique_id=1865999401]
+shape = SubResource("RectangleShape2D_ground")
+
+[node name="Visual" type="Polygon2D" parent="World/Ground" unique_id=829636074]
+color = Color(0.055, 0.26, 0.34, 1)
+polygon = PackedVector2Array(-1800, -60, 1800, -60, 1800, 60, -1800, 60)
+
+[node name="NeonEdge" type="Line2D" parent="World/Ground" unique_id=418520269]
+points = PackedVector2Array(-1800, -60, 1800, -60)
+width = 5.0
+default_color = Color(0.22, 0.92, 0.95, 1)
+
+[node name="Player" parent="World" unique_id=230412651 instance=ExtResource("3_player")]
+position = Vector2(135, 574)
+
+[node name="Stations" type="Node2D" parent="World" unique_id=2016874045]
+
+[node name="Station1" type="Node2D" parent="World/Stations" unique_id=2030772211]
+position = Vector2(520, 0)
+
+[node name="StationLabel" type="Label" parent="World/Stations/Station1" unique_id=2038155809]
+offset_left = -130.0
+offset_top = 349.0
+offset_right = 130.0
+offset_bottom = 386.0
+theme_override_colors/font_color = Color(0.7, 0.92, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "ESTAÇÃO 1  •  PESO 8"
+horizontal_alignment = 1
+
+[node name="Bit0" parent="World/Stations/Station1" unique_id=1293556620 instance=ExtResource("4_bit")]
+position = Vector2(0, 549)
+
+[node name="Bit1" parent="World/Stations/Station1" unique_id=2140668337 instance=ExtResource("4_bit")]
+position = Vector2(0, 459)
+bit_value = 1
+
+[node name="Station2" type="Node2D" parent="World/Stations" unique_id=285160713]
+position = Vector2(1130, 0)
+
+[node name="StationLabel" type="Label" parent="World/Stations/Station2" unique_id=1926909640]
+offset_left = -130.0
+offset_top = 349.0
+offset_right = 130.0
+offset_bottom = 386.0
+theme_override_colors/font_color = Color(0.7, 0.92, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "ESTAÇÃO 2  •  PESO 4"
+horizontal_alignment = 1
+
+[node name="Bit0" parent="World/Stations/Station2" unique_id=650915257 instance=ExtResource("4_bit")]
+position = Vector2(0, 549)
+slot_index = 1
+
+[node name="Bit1" parent="World/Stations/Station2" unique_id=1994868096 instance=ExtResource("4_bit")]
+position = Vector2(0, 459)
+bit_value = 1
+slot_index = 1
+
+[node name="Station3" type="Node2D" parent="World/Stations" unique_id=1410038075]
+position = Vector2(1740, 0)
+
+[node name="StationLabel" type="Label" parent="World/Stations/Station3" unique_id=1624095938]
+offset_left = -130.0
+offset_top = 349.0
+offset_right = 130.0
+offset_bottom = 386.0
+theme_override_colors/font_color = Color(0.7, 0.92, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "ESTAÇÃO 3  •  PESO 2"
+horizontal_alignment = 1
+
+[node name="Bit0" parent="World/Stations/Station3" unique_id=970806250 instance=ExtResource("4_bit")]
+position = Vector2(0, 549)
+slot_index = 2
+
+[node name="Bit1" parent="World/Stations/Station3" unique_id=995296076 instance=ExtResource("4_bit")]
+position = Vector2(0, 459)
+bit_value = 1
+slot_index = 2
+
+[node name="Station4" type="Node2D" parent="World/Stations" unique_id=931074532]
+position = Vector2(2350, 0)
+
+[node name="StationLabel" type="Label" parent="World/Stations/Station4" unique_id=1647257224]
+offset_left = -130.0
+offset_top = 349.0
+offset_right = 130.0
+offset_bottom = 386.0
+theme_override_colors/font_color = Color(0.7, 0.92, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "ESTAÇÃO 4  •  PESO 1"
+horizontal_alignment = 1
+
+[node name="Bit0" parent="World/Stations/Station4" unique_id=1092419992 instance=ExtResource("4_bit")]
+position = Vector2(0, 549)
+slot_index = 3
+
+[node name="Bit1" parent="World/Stations/Station4" unique_id=1567030050 instance=ExtResource("4_bit")]
+position = Vector2(0, 459)
+bit_value = 1
+slot_index = 3
+
+[node name="Hazards" type="Node2D" parent="World" unique_id=1380426615]
+
+[node name="Shock1" parent="World/Hazards" unique_id=2079545700 instance=ExtResource("5_hazard")]
+position = Vector2(850, 575)
+
+[node name="Shock2" parent="World/Hazards" unique_id=690590978 instance=ExtResource("5_hazard")]
+position = Vector2(1460, 575)
+
+[node name="Shock3" parent="World/Hazards" unique_id=913380013 instance=ExtResource("5_hazard")]
+position = Vector2(2070, 575)
+
+[node name="Gate" parent="World" unique_id=374445981 instance=ExtResource("6_gate")]
+position = Vector2(2940, 516)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1098444069]
+layer = 10
+
+[node name="HUDRoot" type="Control" parent="HUD" unique_id=787675180]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopPanel" type="Panel" parent="HUD/HUDRoot" unique_id=1884545376]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 1264.0
+offset_bottom = 133.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_top")
+
+[node name="Title" type="Label" parent="HUD/HUDRoot/TopPanel" unique_id=500630064]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 9.0
+offset_right = 405.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(0.39, 0.94, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "BINARY RUNNER"
+
+[node name="Objective" type="Label" parent="HUD/HUDRoot/TopPanel" unique_id=1310998915]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 53.0
+offset_right = 418.0
+offset_bottom = 98.0
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "MISSÃO: converter 10 decimal em binário"
+
+[node name="BitsCaption" type="Label" parent="HUD/HUDRoot/TopPanel" unique_id=536055595]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 11.0
+offset_right = 807.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0.61, 0.85, 0.94, 1)
+theme_override_font_sizes/font_size = 17
+text = "BITS COLETADOS       (8 4 2 1)"
+horizontal_alignment = 1
+
+[node name="CodeLabel" type="Label" parent="HUD/HUDRoot/TopPanel" unique_id=557327564]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 37.0
+offset_right = 808.0
+offset_bottom = 103.0
+theme_override_colors/font_color = Color(0.98, 0.85, 0.41, 1)
+theme_override_font_sizes/font_size = 33
+text = "_     _     _     _"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LivesLabel" type="Label" parent="HUD/HUDRoot/TopPanel" unique_id=1283799124]
+layout_mode = 0
+offset_left = 864.0
+offset_top = 19.0
+offset_right = 1082.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(1, 0.54, 0.6, 1)
+theme_override_font_sizes/font_size = 22
+text = "VIDAS: 3/3"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="HUD/HUDRoot/TopPanel" unique_id=878650083]
+layout_mode = 0
+offset_left = 899.0
+offset_top = 59.0
+offset_right = 1189.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 18
+text = "REINICIAR FASE"
+
+[node name="HintPanel" type="Panel" parent="HUD/HUDRoot" unique_id=959271774]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 637.0
+offset_right = 1085.0
+offset_bottom = 701.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_top")
+
+[node name="HintLabel" type="Label" parent="HUD/HUDRoot/HintPanel" unique_id=307400584]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 5.0
+offset_right = 878.0
+offset_bottom = 59.0
+theme_override_colors/font_color = Color(0.89, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Controles"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Shade" type="ColorRect" parent="HUD/HUDRoot" unique_id=753252963]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.015, 0.035, 0.08, 0.85)
+
+[node name="ResultPanel" type="Panel" parent="HUD/HUDRoot" unique_id=509250424]
+visible = false
+layout_mode = 0
+offset_left = 326.0
+offset_top = 169.0
+offset_right = 954.0
+offset_bottom = 526.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_top")
+
+[node name="ResultTitle" type="Label" parent="HUD/HUDRoot/ResultPanel" unique_id=577482331]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 30.0
+offset_right = 599.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.36, 0.94, 0.71, 1)
+theme_override_font_sizes/font_size = 32
+text = "FASE 1 CONCLUÍDA!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResultDescription" type="Label" parent="HUD/HUDRoot/ResultPanel" unique_id=122992122]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 104.0
+offset_right = 582.0
+offset_bottom = 249.0
+theme_override_colors/font_color = Color(0.93, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 23
+text = "Resultado"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="RestartButton" type="Button" parent="HUD/HUDRoot/ResultPanel" unique_id=1749756884]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 271.0
+offset_right = 484.0
+offset_bottom = 327.0
+theme_override_font_sizes/font_size = 23
+text = "JOGAR NOVAMENTE"

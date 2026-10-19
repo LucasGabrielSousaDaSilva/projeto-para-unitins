@@ -937,3 +937,17 @@ text = "TENTAR NOVAMENTE"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=260398506]
 libraries/ = SubResource("AnimationLibrary_j8jr7")
+
+[node name="BotaoVoltar" type="Button" parent="." unique_id=233744258]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1274.0
+offset_top = 680.0
+offset_right = -1060.0
+offset_bottom = 711.0
+grow_horizontal = 0
+text = "VOLTAR AO LABORATÓRIO"
+
+[connection signal="pressed" from="BotaoVoltar" to="." method="_on_botao_voltar_pressed"]

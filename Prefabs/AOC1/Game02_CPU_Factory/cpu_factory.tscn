@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://pr2r7at7d2c5"]
 
-[ext_resource type="Script" uid="uid://b8n3uue3qan3k" path="res://Scripts/aoc1/cpu_factory.gd" id="1_pbhcl"]
-[ext_resource type="PackedScene" uid="uid://65o0oi44rr2o" path="res://Prefabs/AOC1/drop_slot.tscn" id="2_pbhcl"]
-[ext_resource type="PackedScene" uid="uid://yrd2pdtc385r" path="res://Prefabs/AOC1/draggable_piece.tscn" id="3_w6lij"]
+[ext_resource type="Script" uid="uid://b8n3uue3qan3k" path="res://Scripts/aoc1/Game02_CPU_Factory/cpu_factory.gd" id="1_pbhcl"]
+[ext_resource type="PackedScene" uid="uid://65o0oi44rr2o" path="res://Prefabs/AOC1/Game02_CPU_Factory/drop_slot.tscn" id="2_pbhcl"]
+[ext_resource type="PackedScene" uid="uid://yrd2pdtc385r" path="res://Prefabs/AOC1/Game02_CPU_Factory/draggable_piece.tscn" id="3_w6lij"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -465,3 +465,17 @@ layout_mode = 2
 
 [node name="CPU_Ride" type="AnimationPlayer" parent="." unique_id=786646028]
 libraries/ = SubResource("AnimationLibrary_k67ak")
+
+[node name="BotaoVoltar" type="Button" parent="." unique_id=561757074]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -216.0
+offset_top = 684.0
+offset_right = -2.0
+offset_bottom = 715.0
+grow_horizontal = 0
+text = "VOLTAR AO LABORATÓRIO"
+
+[connection signal="pressed" from="BotaoVoltar" to="." method="_on_botao_voltar_pressed"]

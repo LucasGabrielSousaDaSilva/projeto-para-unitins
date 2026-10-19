@@ -85,3 +85,17 @@ offset_top = 189.0
 offset_right = 1206.0
 offset_bottom = 411.0
 bbcode_enabled = true
+
+[node name="BotaoVoltar" type="Button" parent="." unique_id=297652688]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 30.0
+grow_horizontal = 0
+text = "VOLTAR AO LABORATÓRIO"
+
+[connection signal="pressed" from="BotaoVoltar" to="." method="_on_botao_voltar_pressed"]

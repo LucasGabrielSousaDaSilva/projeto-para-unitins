@@ -20,16 +20,25 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	#print("CORPO DETECTADO: ", body.name)
+	#print("ESTÁ NO GRUPO PLAYER: ", body.is_in_group("player"))
+
 	if body.is_in_group("player"):
 		jogador_perto = true
 		jogador = body
+
 		indicador.show()
+
+		print("INTERAÇÃO ATIVADA!")
 
 
 func _on_body_exited(body: Node2D) -> void:
+	print("CORPO SAIU: ", body.name)
+
 	if body == jogador:
 		jogador_perto = false
 		jogador = null
+
 		indicador.hide()
 
 
@@ -37,7 +46,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not jogador_perto:
 		return
 
-	if event.is_action_pressed("interagir") and not event.is_echo():
+	if event.is_action_pressed("interact") and not event.is_echo():
 
 		if cena_jogo == null:
 			push_warning(

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ksohohl1dpfe"]
+
+[ext_resource type="Script" uid="uid://bubnqfyc5psec" path="res://Scripts/aoc1/Game01_BinaryRunner/hazard.gd" id="1_hazard"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hazard"]
+size = Vector2(72, 44)
+
+[node name="Hazard" type="Area2D" unique_id=1103401029]
+collision_mask = 3
+monitorable = false
+script = ExtResource("1_hazard")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=433911455]
+shape = SubResource("RectangleShape2D_hazard")
+
+[node name="Glow" type="Polygon2D" parent="." unique_id=788309860]
+color = Color(0.48, 0.09, 0.2, 1)
+polygon = PackedVector2Array(-42, -25, 42, -25, 42, 25, -42, 25)
+
+[node name="Body" type="Polygon2D" parent="." unique_id=1279641048]
+color = Color(1, 0.27, 0.4, 1)
+polygon = PackedVector2Array(-35, 18, -25, -18, -12, 7, 0, -18, 12, 7, 25, -18, 35, 18)
+
+[node name="Warning" type="Label" parent="." unique_id=1767655416]
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(1, 0.94, 0.81, 1)
+theme_override_font_sizes/font_size = 22
+text = "!"
+horizontal_alignment = 1
+vertical_alignment = 1

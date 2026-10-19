@@ -1,0 +1,33 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://st3b041b6bya" path="res://Scripts/aoc1/Game01_BinaryRunner/player.gd" id="1_player"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(30, 50)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_player")
+collision_layer = 1
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_body")
+
+[node name="BodyVisual" type="Polygon2D" parent="."]
+color = Color(0.18, 0.85, 1, 1)
+polygon = PackedVector2Array(-18, -25, 12, -25, 20, -17, 20, 17, 12, 25, -18, 25)
+
+[node name="Core" type="Polygon2D" parent="."]
+color = Color(0.03, 0.19, 0.3, 1)
+polygon = PackedVector2Array(-11, -14, 12, -14, 12, 15, -11, 15)
+
+[node name="Eye" type="Polygon2D" parent="."]
+color = Color(1, 0.92, 0.35, 1)
+polygon = PackedVector2Array(2, -11, 10, -11, 10, -3, 2, -3)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 3400
+limit_bottom = 720
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
