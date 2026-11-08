@@ -5,6 +5,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 21.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.19215687, 0.34509805, 0, 0.5882353)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
 [node name="PCInterativo" type="Area2D" unique_id=762736484]
 collision_layer = 3
 collision_mask = 3
@@ -21,6 +28,14 @@ offset_top = -25.0
 offset_right = 79.0
 offset_bottom = -8.0
 rotation = 1.5707964
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "[E] Jogar"
 horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=1530601995]
+offset_left = -15.0
+offset_top = -13.0
+offset_right = 15.0
+offset_bottom = 15.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")

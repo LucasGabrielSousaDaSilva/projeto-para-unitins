@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://b7f7ppdhuof6n"]
+
+[ext_resource type="Script" uid="uid://bkcjutlu6slby" path="res://Scripts/causa_ambiente/area_nao_interativa.gd" id="1_vq42g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(37, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.19215687, 0.34509805, 0, 0.5882353)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[node name="AreaNaoInterativa" type="Area2D" unique_id=762736484]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_vq42g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=489354463]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Indicador" type="Node2D" parent="." unique_id=466217948]
+
+[node name="Informação" type="Label" parent="Indicador" unique_id=569878639]
+offset_left = -94.0
+offset_top = -40.0
+offset_right = 103.0
+offset_bottom = -23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Area não Disponivel no momento."
+horizontal_alignment = 1
+
+[node name="Local" type="Label" parent="Indicador" unique_id=1878214896]
+offset_left = -21.0
+offset_top = -24.0
+offset_right = 15.0
+offset_bottom = -10.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Bloco C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=1530601995]
+offset_left = -11.0
+offset_top = -10.0
+offset_right = 11.0
+offset_bottom = 10.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")

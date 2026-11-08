@@ -5,8 +5,23 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xaln"]
 size = Vector2(17.5, 35.25)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38ogf"]
+bg_color = Color(0.06666667, 0.16470589, 0.07058824, 0.7176471)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+corner_detail = 10
+
 [node name="Area2D" type="Area2D" unique_id=496072417]
 script = ExtResource("1_1vvux")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=466631311]
 shape = SubResource("RectangleShape2D_6xaln")
+
+[node name="Panel" type="Panel" parent="." unique_id=697737335]
+offset_left = -9.0
+offset_right = 16.0
+offset_bottom = 25.0
+scale = Vector2(0.7170461, 0.7356653)
+theme_override_styles/panel = SubResource("StyleBoxFlat_38ogf")

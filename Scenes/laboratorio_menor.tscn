@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ccijdvka40vj5" path="res://Prefabs/calculadora2.tscn" id="9_ym5wp"]
 [ext_resource type="PackedScene" uid="uid://cva4ncrbvc3pf" path="res://Prefabs/bloco_de_comando.tscn" id="10_12a1s"]
 [ext_resource type="PackedScene" uid="uid://pr2r7at7d2c5" path="res://Prefabs/AOC1/Game02_CPU_Factory/cpu_factory.tscn" id="11_8vjf3"]
-[ext_resource type="PackedScene" path="res://Prefabs/AOC1/Game01_BinaryRunner/BinaryHub.tscn" id="11_g5ghl"]
+[ext_resource type="PackedScene" uid="uid://df7ovw6gq2xk1" path="res://Prefabs/AOC1/Game01_BinaryRunner/BinaryHub.tscn" id="11_g5ghl"]
 [ext_resource type="PackedScene" uid="uid://djlafmshi5vdu" path="res://Prefabs/AOC1/Game03_Cache Rush/cache_rush.tscn" id="12_g5ghl"]
 [ext_resource type="PackedScene" uid="uid://cjgitry5hwd0t" path="res://Prefabs/AOC1/Game04_ALUBattle/battle.tscn" id="13_t04dp"]
 
@@ -2239,8 +2239,9 @@ tile_set = SubResource("TileSet_bvfl5")
 position = Vector2(1025, 520)
 
 [node name="Door" parent="." unique_id=1286263373 node_paths=PackedStringArray("transition_controller") instance=ExtResource("4_y71cq")]
-position = Vector2(1024, 562)
-scale = Vector2(1.8, 1.1200098)
+position = Vector2(1024, 568)
+rotation = 3.1415927
+scale = Vector2(1.9424094, 1.4389741)
 next_level = "res://Scenes/bloco_b.tscn"
 transition_controller = NodePath("../transition")
 
