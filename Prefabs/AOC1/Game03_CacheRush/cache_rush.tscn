@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://djlafmshi5vdu"]
+
+[ext_resource type="Script" uid="uid://5svq85vamm1w" path="res://Scripts/aoc1/Game03_Cache Rush/cache_rush.gd" id="1_d5vx4"]
+[ext_resource type="PackedScene" uid="uid://bivxf6qr3d7fd" path="res://Prefabs/AOC1/Game03_CacheRush/memory_zone.tscn" id="1_ikyf7"]
+[ext_resource type="PackedScene" uid="uid://cubxbipycekml" path="res://Prefabs/AOC1/Game03_CacheRush/player_aoc.tscn" id="2_7805s"]
+[ext_resource type="Script" uid="uid://bjw72nbd62mpn" path="res://Scripts/aoc1/Game03_Cache Rush/cache_background.gd" id="3_bg"]
+[ext_resource type="Script" uid="uid://uptogh714mcu" path="res://Scripts/aoc1/Game03_Cache Rush/cache_fx.gd" id="4_fx"]
+[ext_resource type="Script" uid="uid://de6l7fkdgcfm7" path="res://Scripts/aoc1/Game03_Cache Rush/cache_hud.gd" id="5_hud"]
+
+[node name="CacheRush" type="Node2D" unique_id=1791084089]
+script = ExtResource("1_d5vx4")
+
+[node name="Background" type="Node2D" parent="." unique_id=200724198]
+
+[node name="Floor" type="Node2D" parent="Background" unique_id=632148903]
+script = ExtResource("3_bg")
+
+[node name="Bus" type="Node2D" parent="Background" unique_id=1322122148]
+script = ExtResource("3_bg")
+mode = 1
+
+[node name="World" type="Node2D" parent="." unique_id=102238377]
+
+[node name="Registers" parent="World" unique_id=1064636584 instance=ExtResource("1_ikyf7")]
+position = Vector2(40, 196)
+memory_name = "REGISTRADORES"
+points = 120
+subtitle_line_1 = "Mais rápido"
+subtitle_line_2 = "Uso interno da CPU"
+panel_color = Color(0.956863, 0.772549, 0.258824, 1)
+
+[node name="CacheL1" parent="World" unique_id=382342208 instance=ExtResource("1_ikyf7")]
+position = Vector2(40, 353)
+memory_name = "CACHE L1"
+memory_index = 1
+subtitle_line_1 = "Cache primária"
+subtitle_line_2 = "Mais próxima da CPU"
+panel_color = Color(0.337255, 0.839216, 1, 1)
+
+[node name="CacheL2" parent="World" unique_id=1349878370 instance=ExtResource("1_ikyf7")]
+position = Vector2(40, 510)
+memory_name = "CACHE L2"
+points = 80
+memory_index = 2
+subtitle_line_1 = "Maior que a L1"
+subtitle_line_2 = "Mais lenta"
+panel_color = Color(0.227451, 0.631373, 1, 1)
+
+[node name="CacheL3" parent="World" unique_id=242483909 instance=ExtResource("1_ikyf7")]
+position = Vector2(960, 510)
+memory_name = "CACHE L3"
+points = 60
+memory_index = 3
+subtitle_line_1 = "Compartilhada"
+subtitle_line_2 = "Maior capacidade"
+panel_color = Color(0.470588, 0.407843, 1, 1)
+
+[node name="RAM" parent="World" unique_id=2000580879 instance=ExtResource("1_ikyf7")]
+position = Vector2(960, 353)
+memory_name = "RAM"
+points = 30
+memory_index = 4
+subtitle_line_1 = "Memória principal"
+subtitle_line_2 = "Uso dos programas"
+panel_color = Color(0.282353, 0.780392, 0.454902, 1)
+
+[node name="Storage" parent="World" unique_id=1307965507 instance=ExtResource("1_ikyf7")]
+position = Vector2(960, 196)
+memory_name = "ARMAZENAMENTO"
+points = 10
+memory_index = 5
+subtitle_line_1 = "SSD / HD"
+subtitle_line_2 = "Maior capacidade"
+panel_color = Color(1, 0.54902, 0.258824, 1)
+
+[node name="PlayerAOC" parent="World" unique_id=958101734 instance=ExtResource("2_7805s")]
+position = Vector2(640, 392)
+
+[node name="FX" type="Node2D" parent="." unique_id=1247017879]
+script = ExtResource("4_fx")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1252426636]
+
+[node name="Hud" type="Control" parent="HUD" unique_id=1942852795]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_hud")
+
+[node name="BotaoVoltar" type="Button" parent="HUD" unique_id=1267228337]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -236.0
+offset_top = -46.0
+offset_right = -20.0
+offset_bottom = -14.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+text = "VOLTAR AO LABORATÓRIO"
+
+[connection signal="pressed" from="HUD/BotaoVoltar" to="." method="_on_botao_voltar_pressed"]

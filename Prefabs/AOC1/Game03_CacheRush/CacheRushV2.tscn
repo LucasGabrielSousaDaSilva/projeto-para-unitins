@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dl48o0yrafckv"]
+
+[ext_resource type="Script" uid="uid://byb3jts45aaw3" path="res://Scripts/aoc1/Game03_Cache Rush/CacheRushV2.gd" id="1_cache"]
+
+[node name="CacheRushV2" type="Control" unique_id=1126279402]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cache")
+laboratory_scene = "uid://br3ae7ec1w344"

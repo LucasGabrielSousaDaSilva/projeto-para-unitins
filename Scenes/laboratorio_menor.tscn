@@ -10,10 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://c6fc0nls0e670" path="res://Prefabs/atribuicao_dados.tscn" id="8_qeaaa"]
 [ext_resource type="PackedScene" uid="uid://ccijdvka40vj5" path="res://Prefabs/calculadora2.tscn" id="9_ym5wp"]
 [ext_resource type="PackedScene" uid="uid://cva4ncrbvc3pf" path="res://Prefabs/bloco_de_comando.tscn" id="10_12a1s"]
-[ext_resource type="PackedScene" uid="uid://pr2r7at7d2c5" path="res://Prefabs/AOC1/Game02_CPU_Factory/cpu_factory.tscn" id="11_8vjf3"]
+[ext_resource type="PackedScene" uid="uid://bws0kiyemp7kc" path="res://Prefabs/AOC1/Game02_CPU_Factory/cpu_factory.tscn" id="11_8vjf3"]
 [ext_resource type="PackedScene" uid="uid://df7ovw6gq2xk1" path="res://Prefabs/AOC1/Game01_BinaryRunner/BinaryHub.tscn" id="11_g5ghl"]
-[ext_resource type="PackedScene" uid="uid://djlafmshi5vdu" path="res://Prefabs/AOC1/Game03_Cache Rush/cache_rush.tscn" id="12_g5ghl"]
+[ext_resource type="PackedScene" uid="uid://djlafmshi5vdu" path="res://Prefabs/AOC1/Game03_CacheRush/cache_rush.tscn" id="12_g5ghl"]
 [ext_resource type="PackedScene" uid="uid://cjgitry5hwd0t" path="res://Prefabs/AOC1/Game04_ALUBattle/battle.tscn" id="13_t04dp"]
+[ext_resource type="PackedScene" uid="uid://dl48o0yrafckv" path="res://Prefabs/AOC1/Game03_CacheRush/CacheRushV2.tscn" id="14_g5ghl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ffqs"]
 texture = ExtResource("2_y00hg")
@@ -2295,3 +2296,10 @@ cena_jogo = ExtResource("12_g5ghl")
 position = Vector2(732, 524)
 nome_jogo = "ALU"
 cena_jogo = ExtResource("13_t04dp")
+
+[node name="Teste_Novas_Mecanica" type="Node2D" parent="." unique_id=1048362063]
+
+[node name="CacheV2" parent="Teste_Novas_Mecanica" unique_id=1021900186 instance=ExtResource("6_442ki")]
+position = Vector2(721, 202)
+nome_jogo = "CacheV2"
+cena_jogo = ExtResource("14_g5ghl")

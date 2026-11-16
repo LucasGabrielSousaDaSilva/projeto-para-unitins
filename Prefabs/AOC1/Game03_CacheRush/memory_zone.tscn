@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bivxf6qr3d7fd"]
+
+[ext_resource type="Script" uid="uid://cw6tdt5skti6g" path="res://Scripts/aoc1/Game03_Cache Rush/memory_zone.gd" id="1_hh3rg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(280, 112)
+
+[node name="MemoryZone" type="Area2D" unique_id=1411508162]
+script = ExtResource("1_hh3rg")
+memory_name = "L1"
+panel_size = Vector2(180, 90)
+panel_color = Color(0.95686275, 0.77254903, 0.25882354, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1669155307]
+position = Vector2(140, 56)
+shape = SubResource("RectangleShape2D_g4v7s")

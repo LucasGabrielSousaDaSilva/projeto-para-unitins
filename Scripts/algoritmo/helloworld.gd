@@ -13,8 +13,9 @@ func _on_enviar_pressed() -> void:
 	
 	# Checa os elementos essenciais da estrutura Java e a saída esperada
 	var possui_classe: bool = codigo.contains("public class")
-	var possui_main: bool = codigo.contains("public static void main")
-	var possui_print: bool = codigo.contains('System.out.println("Olá Mundo!!");') or codigo.contains('System.out.println("Hello, World!");') or codigo.contains('System.out.println("Hello World");')
+	var possui_main: bool = codigo.contains("public static void main") or codigo.contains("public static void main(String[] args)")
+	var possui_print: bool = codigo.contains('System.out.println("Olá Mundo!!");') or codigo.contains('System.out.println("Hello World!");') or codigo.contains('System.out.println("Hello World");') or codigo.contains('System.out.print("Hello World");') or codigo.contains('System.out.print("Hello World!");')
+	
 	
 	if possui_classe and possui_main and possui_print:
 		rich_text_label.append_text("[color=green]Compilado com sucesso![/color]\n\n")

@@ -8,7 +8,7 @@ extends Control
 
 @onready var power_button: Button = %PowerButton
 
-@onready var boot_overlay: ColorRect = $%BootOverlay
+@onready var boot_overlay: ColorRect = %BootOverlay
 @onready var status_panel: PanelContainer = %StatusPanel
 @onready var status_title: Label = %StatusTitle
 @onready var status_message: Label = %StatusMessage
@@ -21,6 +21,14 @@ extends Control
 @onready var check_bus: Label = %CheckBus
 @onready var check_io: Label = %CheckIO
 @onready var final_status: Label = %FinalStatus
+@onready var standby_label: Label = %Standby
+
+# Arte de placa de circuito (muda de cor conforme o estado do jogo)
+@onready var art_phase_1: PCBArt = $Phase1/Art
+@onready var art_phase_2: PCBArt = $Phase2/Art
+
+const COLOR_OK := Color(0.4, 1.0, 0.6)
+const COLOR_ERROR := Color(1.0, 0.42, 0.42)
 
 var current_phase := 1
 var score := 1000
@@ -46,8 +54,8 @@ func _ready() -> void:
 	phase_1.show()
 	phase_2.hide()
 	boot_overlay.hide()
-	# status_panel.hide()
 	next_button.hide()
+	_show_idle_status()
 
 	power_button.pressed.connect(_on_power_pressed)
 	next_button.pressed.connect(_on_next_pressed)
@@ -74,16 +82,26 @@ func _on_power_pressed() -> void:
 		if not slot.is_correct():
 			correct = false
 
+	# evita apertar LIGAR de novo durante o boot
+	power_button.disabled = true
+	_set_art_state(&"boot")
+
 	await play_boot_and_wait(correct)
 
 	if correct:
+		_set_art_state(&"ok")
+		_set_standby(true)
 		_phase_completed()
 	else:
+		_set_art_state(&"error")
 		_show_first_error(slots)
 
 		await get_tree().create_timer(2.0).timeout
 
 		reset_current_phase()
+		_set_art_state(&"idle")
+		_set_standby(false)
+		power_button.disabled = false
 
 func play_boot_and_wait(success: bool) -> void:
 	play_boot_sequence(success)
@@ -129,7 +147,6 @@ func _phase_completed() -> void:
 			+ "SISTEMA PRONTO."
 		)
 
-		power_button.disabled = true
 		next_button.text = "JOGAR NOVAMENTE"
 		next_button.show()
 
@@ -148,15 +165,46 @@ func _on_next_pressed() -> void:
 		phase_1.hide()
 		phase_2.show()
 
-		#status_panel.hide()
 		next_button.hide()
 
 		power_button.text = "⚡ LIGAR CPU"
+		power_button.disabled = false
+		_set_standby(false)
+		_show_idle_status()
 
 	else:
 		get_tree().reload_current_scene()
 
 	_update_ui()
+
+
+func _show_idle_status() -> void:
+	status_title.text = "▮ TERMINAL DO SISTEMA"
+
+	if current_phase == 1:
+		status_message.text = (
+			"Arraste os componentes até os encaixes da placa-mãe "
+			+ "e pressione LIGAR."
+		)
+	else:
+		status_message.text = (
+			"Agora monte o interior da CPU: Unidade de Controle, "
+			+ "ULA, Registradores e Cache. Depois pressione LIGAR CPU."
+		)
+
+
+func _set_standby(online: bool) -> void:
+	if online:
+		standby_label.text = "● ONLINE\n\nsistema operacional"
+		standby_label.add_theme_color_override("font_color", COLOR_OK)
+	else:
+		standby_label.text = "● STANDBY\n\nplaca desligada"
+		standby_label.add_theme_color_override("font_color", Color(0.2, 0.5, 0.35))
+
+
+func _set_art_state(new_state: StringName) -> void:
+	var art := art_phase_1 if current_phase == 1 else art_phase_2
+	art.set_state(new_state)
 
 
 func _update_ui() -> void:
@@ -193,6 +241,8 @@ func play_boot_sequence(success: bool) -> void:
 	check_bus.text = "CHECK BUS............"
 	check_io.text = "CHECK I/O............"
 	final_status.text = ""
+	for lbl in [check_cpu, check_memory, check_bus, check_io, final_status]:
+		lbl.add_theme_color_override("font_color", COLOR_OK)
 
 	var tween := create_tween()
 
@@ -228,7 +278,9 @@ func play_boot_sequence(success: bool) -> void:
 	else:
 		tween.tween_callback(func():
 			check_io.text = "CHECK I/O............ ERROR"
+			check_io.add_theme_color_override("font_color", COLOR_ERROR)
 			final_status.text = "FALHA DE HARDWARE"
+			final_status.add_theme_color_override("font_color", COLOR_ERROR)
 		)
 
 func animate_power_button() -> void:
@@ -272,7 +324,6 @@ func reset_current_phase() -> void:
 	for slot in slots:
 		slot.reset_slot()
 
-	#status_panel.hide()
 	next_button.hide()
 
 

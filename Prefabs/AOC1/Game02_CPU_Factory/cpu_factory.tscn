@@ -1,57 +1,314 @@
-[gd_scene format=3 uid="uid://pr2r7at7d2c5"]
+[gd_scene format=3 uid="uid://bws0kiyemp7kc"]
 
 [ext_resource type="Script" uid="uid://b8n3uue3qan3k" path="res://Scripts/aoc1/Game02_CPU_Factory/cpu_factory.gd" id="1_pbhcl"]
-[ext_resource type="PackedScene" uid="uid://65o0oi44rr2o" path="res://Prefabs/AOC1/Game02_CPU_Factory/drop_slot.tscn" id="2_pbhcl"]
-[ext_resource type="PackedScene" uid="uid://yrd2pdtc385r" path="res://Prefabs/AOC1/Game02_CPU_Factory/draggable_piece.tscn" id="3_w6lij"]
+[ext_resource type="PackedScene" uid="uid://65o0oi44rr2o" path="res://Prefabs/AOC1/Game02_CPU_Factory/drop_slot.tscn" id="2_slot"]
+[ext_resource type="PackedScene" uid="uid://yrd2pdtc385r" path="res://Prefabs/AOC1/Game02_CPU_Factory/draggable_piece.tscn" id="3_piece"]
+[ext_resource type="Script" uid="uid://b3psc7hkniqsx" path="res://Scripts/aoc1/Game02_CPU_Factory/pcb_art.gd" id="5_art"]
+[ext_resource type="Script" uid="uid://7u45noo5vvdj" path="res://Scripts/aoc1/Game02_CPU_Factory/bus_lines.gd" id="6_bus"]
+[ext_resource type="Script" uid="uid://dbfvint3gnvvw" path="res://Scripts/aoc1/Game02_CPU_Factory/scanlines.gd" id="7_scan"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="SystemFont" id="SystemFont_mono"]
+font_names = PackedStringArray("Consolas", "Cascadia Mono", "Menlo", "DejaVu Sans Mono", "Courier New", "monospace")
+
+[sub_resource type="SystemFont" id="SystemFont_bold"]
+font_names = PackedStringArray("Consolas", "Cascadia Mono", "Menlo", "DejaVu Sans Mono", "Courier New", "monospace")
+font_weight = 700
+
+[sub_resource type="StyleBoxFlat" id="SB_board"]
+bg_color = Color(0.035, 0.09, 0.15, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.22352941, 0.6627451, 1, 1)
+border_color = Color(0.2, 0.5, 0.78, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.2, 0.6, 1, 0.22)
+shadow_size = 16
+[sub_resource type="StyleBoxFlat" id="SB_header"]
+bg_color = Color(0.04, 0.09, 0.16, 1)
+border_width_bottom = 2
+border_color = Color(0.22, 0.66, 1, 0.9)
+shadow_color = Color(0.2, 0.6, 1, 0.18)
+shadow_size = 12
+[sub_resource type="StyleBoxFlat" id="SB_tray"]
+bg_color = Color(0.025, 0.06, 0.11, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.16, 0.34, 0.5, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+content_margin_left = 14
+content_margin_top = 14
+content_margin_right = 14
+content_margin_bottom = 14
+[sub_resource type="StyleBoxFlat" id="SB_monitor"]
+bg_color = Color(0.09, 0.12, 0.17, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.24, 0.32, 0.42, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 14
+[sub_resource type="StyleBoxFlat" id="SB_status"]
+bg_color = Color(0.03, 0.07, 0.12, 0.96)
+border_width_left = 4
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.45, 0.7, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 16
+content_margin_top = 16
+content_margin_right = 16
+content_margin_bottom = 16
+shadow_color = Color(0.2, 0.6, 1, 0.15)
+shadow_size = 10
+[sub_resource type="StyleBoxFlat" id="SB_btn_normal"]
+bg_color = Color(0.07, 0.15, 0.24, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22, 0.5, 0.8, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 8
+content_margin_top = 8
+content_margin_right = 8
+content_margin_bottom = 8
+[sub_resource type="StyleBoxFlat" id="SB_btn_hover"]
+bg_color = Color(0.1, 0.22, 0.34, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35, 0.75, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 8
+content_margin_top = 8
+content_margin_right = 8
+content_margin_bottom = 8
+[sub_resource type="StyleBoxFlat" id="SB_btn_pressed"]
+bg_color = Color(0.25, 0.9, 0.54, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 1, 0.8, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 8
+content_margin_top = 8
+content_margin_right = 8
+content_margin_bottom = 8
+[sub_resource type="StyleBoxFlat" id="SB_btn_disabled"]
+bg_color = Color(0.05, 0.09, 0.13, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.16, 0.24, 0.32, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 8
+content_margin_top = 8
+content_margin_right = 8
+content_margin_bottom = 8
+[sub_resource type="StyleBoxFlat" id="SB_power_normal"]
+bg_color = Color(0.05, 0.22, 0.32, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.85, 1, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+content_margin_left = 8
+content_margin_top = 8
+content_margin_right = 8
+content_margin_bottom = 8
+shadow_color = Color(0.3, 0.85, 1, 0.4)
+shadow_size = 14
+[sub_resource type="StyleBoxFlat" id="SB_power_hover"]
+bg_color = Color(0.08, 0.32, 0.45, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.95, 1, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+content_margin_left = 8
+content_margin_top = 8
+content_margin_right = 8
+content_margin_bottom = 8
+shadow_color = Color(0.4, 0.9, 1, 0.6)
+shadow_size = 18
+[sub_resource type="StyleBoxFlat" id="SB_power_pressed"]
+bg_color = Color(0.25, 0.9, 0.54, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7, 1, 0.85, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+content_margin_left = 8
+content_margin_top = 8
+content_margin_right = 8
+content_margin_bottom = 8
+shadow_color = Color(0.3, 1, 0.6, 0.6)
+shadow_size = 18
+[sub_resource type="StyleBoxFlat" id="SB_power_disabled"]
+bg_color = Color(0.05, 0.09, 0.13, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.16, 0.24, 0.32, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+content_margin_left = 8
+content_margin_top = 8
+content_margin_right = 8
+content_margin_bottom = 8
+[sub_resource type="StyleBoxFlat" id="SB_next_normal"]
+bg_color = Color(0.05, 0.25, 0.17, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.28, 0.95, 0.58, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+content_margin_left = 8
+content_margin_top = 8
+content_margin_right = 8
+content_margin_bottom = 8
+shadow_color = Color(0.28, 0.95, 0.58, 0.4)
+shadow_size = 14
+[sub_resource type="StyleBoxFlat" id="SB_next_hover"]
+bg_color = Color(0.08, 0.36, 0.24, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 1, 0.8, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+content_margin_left = 8
+content_margin_top = 8
+content_margin_right = 8
+content_margin_bottom = 8
+shadow_color = Color(0.3, 1, 0.6, 0.6)
+shadow_size = 18
+[sub_resource type="StyleBoxFlat" id="SB_back"]
+bg_color = Color(0.04, 0.08, 0.13, 0.85)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.3, 0.42, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+content_margin_left = 6
+content_margin_top = 6
+content_margin_right = 6
+content_margin_bottom = 6
+[sub_resource type="StyleBoxFlat" id="SB_back_hover"]
+bg_color = Color(0.08, 0.15, 0.24, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.65, 0.95, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+content_margin_left = 6
+content_margin_top = 6
+content_margin_right = 6
+content_margin_bottom = 6
+[sub_resource type="StyleBoxFlat" id="SB_pb_bg"]
+bg_color = Color(0.02, 0.06, 0.05, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.1, 0.3, 0.2, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxFlat" id="SB_pb_fill"]
+bg_color = Color(0.3, 1, 0.55, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+[sub_resource type="StyleBoxEmpty" id="SB_empty"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6lij"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8pmb"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s425s"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kiqey"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xw6sg"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgci8"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6yga"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7t1t"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xjfg"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbhcl"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrd84"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k67ak"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qynng"]
-bg_color = Color(0.09019608, 0.2, 0.30588236, 1)
-border_color = Color(0.22352941, 0.6627451, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_by6ep"]
-bg_color = Color(0.25490198, 0.8980392, 0.5411765, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmbtx"]
-bg_color = Color(0.12941177, 0.28627452, 0.4117647, 1)
+[sub_resource type="Theme" id="Theme_main"]
+default_font = SubResource("SystemFont_mono")
+default_font_size = 14
+Button/colors/font_color = Color(0.9, 0.96, 1, 1)
+Button/colors/font_disabled_color = Color(0.45, 0.55, 0.65, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(0.02, 0.12, 0.07, 1)
+Button/styles/disabled = SubResource("SB_btn_disabled")
+Button/styles/focus = SubResource("SB_empty")
+Button/styles/hover = SubResource("SB_btn_hover")
+Button/styles/normal = SubResource("SB_btn_normal")
+Button/styles/pressed = SubResource("SB_btn_pressed")
+Label/colors/font_color = Color(0.82, 0.92, 1, 1)
+ProgressBar/styles/background = SubResource("SB_pb_bg")
+ProgressBar/styles/fill = SubResource("SB_pb_fill")
 
 [sub_resource type="Animation" id="Animation_pbhcl"]
 resource_name = "BootOverlay"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BootOverlay:visible")
+tracks/0/path = NodePath("MonitorFrame/Screen/BootOverlay:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -66,7 +323,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BootOverlay:visible")
+tracks/0/path = NodePath("MonitorFrame/Screen/BootOverlay:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -82,400 +339,571 @@ _data = {
 &"RESET": SubResource("Animation_w6lij")
 }
 
-[node name="CPUFactory" type="Control" unique_id=1649096911]
+[node name="CPUFactory" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_main")
 script = ExtResource("1_pbhcl")
 
-[node name="Background" type="ColorRect" parent="." unique_id=1291923987]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 6.0
-offset_right = 4.0
-offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.02745098, 0.06666667, 0.12156863, 1)
+color = Color(0.024, 0.051, 0.102, 1)
 
-[node name="Header" type="HBoxContainer" parent="." unique_id=1487556816]
+[node name="BackgroundArt" type="Control" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_art")
+mode = 2
+seed_value = 21
+trace_count = 40
+
+[node name="HeaderBar" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 81.0
-offset_right = 1081.0
-offset_bottom = 75.0
-alignment = 1
+offset_left = 0
+offset_top = 0
+offset_right = 1280
+offset_bottom = 64
+mouse_filter = 2
+theme_override_styles/panel = SubResource("SB_header")
 
-[node name="Title" type="Label" parent="Header" unique_id=145138413]
+[node name="Header" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 32
+offset_top = 10
+offset_right = 1248
+offset_bottom = 54
+
+[node name="Title" type="Label" parent="Header"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "CPU FACTORY"
+theme_override_colors/font_color = Color(0.4, 0.82, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_bold")
+theme_override_font_sizes/font_size = 24
+text = "▣ CPU FACTORY"
+vertical_alignment = 1
 
-[node name="PhaseLabel" type="Label" parent="Header" unique_id=52247449]
+[node name="PhaseLabel" type="Label" parent="Header"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 17
 text = "FASE 1/2"
-
-[node name="ScoreLabel" type="Label" parent="Header" unique_id=132732777]
-unique_name_in_owner = true
-layout_mode = 2
-text = "PONTOS: 1000"
-
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=885072474]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 4.0
-offset_right = 664.0
-offset_bottom = 536.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
-
-[node name="Phase1" type="VBoxContainer" parent="." unique_id=1326498021]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 69.0
-offset_top = 90.0
-offset_right = 645.0
-offset_bottom = 488.0
-alignment = 1
-
-[node name="Board" type="HBoxContainer" parent="Phase1" unique_id=1206934398]
-layout_mode = 2
-alignment = 1
-
-[node name="MemorySlot" parent="Phase1/Board" unique_id=2049385822 instance=ExtResource("2_pbhcl")]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-expected_component = "memory"
-normal_style = SubResource("StyleBoxFlat_w6lij")
-hover_style = SubResource("StyleBoxFlat_v8pmb")
-filled_style = SubResource("StyleBoxFlat_s425s")
-
-[node name="ProcessorSlot" parent="Phase1/Board" unique_id=1549843985 instance=ExtResource("2_pbhcl")]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-expected_component = "processor"
-normal_style = SubResource("StyleBoxFlat_kiqey")
-hover_style = SubResource("StyleBoxFlat_xw6sg")
-filled_style = SubResource("StyleBoxFlat_rgci8")
-
-[node name="PeripheralSlot" parent="Phase1/Board" unique_id=1494190739 instance=ExtResource("2_pbhcl")]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-expected_component = "peripherals"
-normal_style = SubResource("StyleBoxFlat_p6yga")
-hover_style = SubResource("StyleBoxFlat_g7t1t")
-filled_style = SubResource("StyleBoxFlat_8xjfg")
-
-[node name="BusLabel" type="Label" parent="Phase1" unique_id=1246027775]
-layout_mode = 2
-text = "═════ BARRAMENTO ═════"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Pieces" type="HBoxContainer" parent="Phase1" unique_id=940619357]
+[node name="ScoreLabel" type="Label" parent="Header"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.8, 0.35, 1)
+theme_override_fonts/font = SubResource("SystemFont_bold")
+theme_override_font_sizes/font_size = 20
+text = "PONTOS: 1000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 32
+offset_top = 84
+offset_right = 792
+offset_bottom = 604
+mouse_filter = 2
+theme_override_styles/panel = SubResource("SB_board")
+
+[node name="Phase1" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 32
+offset_top = 84
+offset_right = 792
+offset_bottom = 604
+mouse_filter = 2
+
+[node name="Art" type="Control" parent="Phase1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_art")
+seed_value = 7
+
+[node name="Heading" type="Label" parent="Phase1"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 16.0
+offset_right = 720.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.45, 0.78, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "▌PLACA-MÃE  //  MONTAGEM DO SISTEMA"
+vertical_alignment = 1
+
+[node name="Board" type="HBoxContainer" parent="Phase1"]
+layout_mode = 0
+offset_left = 40
+offset_top = 56
+offset_right = 720
+offset_bottom = 216
+theme_override_constants/separation = 40
 alignment = 1
 
-[node name="MemoryPiece" parent="Phase1/Pieces" unique_id=757290293 instance=ExtResource("3_w6lij")]
-custom_minimum_size = Vector2(50, 50)
+[node name="MemorySlot" parent="Phase1/Board" instance=ExtResource("2_slot")]
+custom_minimum_size = Vector2(200, 160)
 layout_mode = 2
-component_id = "memory"
-display_name = "Memória"
+size_flags_horizontal = 3
+expected_component = "memory"
+slot_label = "SLOT 01"
 
-[node name="MarginContainer" type="MarginContainer" parent="Phase1/Pieces/MemoryPiece" unique_id=1822889508]
+[node name="ProcessorSlot" parent="Phase1/Board" instance=ExtResource("2_slot")]
+custom_minimum_size = Vector2(200, 160)
 layout_mode = 2
+size_flags_horizontal = 3
+expected_component = "processor"
+slot_label = "SLOT 02"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Phase1/Pieces/MemoryPiece/MarginContainer" unique_id=577169239]
+[node name="PeripheralSlot" parent="Phase1/Board" instance=ExtResource("2_slot")]
+custom_minimum_size = Vector2(200, 160)
 layout_mode = 2
+size_flags_horizontal = 3
+expected_component = "peripherals"
+slot_label = "SLOT 03"
 
-[node name="IconLabel" type="Label" parent="Phase1/Pieces/MemoryPiece/MarginContainer/VBoxContainer" unique_id=893743551]
+[node name="Bus" type="Control" parent="Phase1"]
+layout_mode = 0
+offset_left = 40
+offset_top = 216
+offset_right = 720
+offset_bottom = 296
+mouse_filter = 2
+script = ExtResource("6_bus")
+
+[node name="TrayLabel" type="Label" parent="Phase1"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 300.0
+offset_right = 720.0
+offset_bottom = 322.0
+theme_override_colors/font_color = Color(0.55, 0.7, 0.85, 1)
+theme_override_font_sizes/font_size = 12
+text = "COMPONENTES DISPONÍVEIS  ▸  arraste até o encaixe correto"
+vertical_alignment = 1
+
+[node name="Tray" type="PanelContainer" parent="Phase1"]
+layout_mode = 0
+offset_left = 40
+offset_top = 324
+offset_right = 720
+offset_bottom = 490
+theme_override_styles/panel = SubResource("SB_tray")
+
+[node name="Pieces" type="HBoxContainer" parent="Phase1/Tray"]
 layout_mode = 2
-text = "▦"
-horizontal_alignment = 1
+theme_override_constants/separation = 24
+alignment = 1
 
-[node name="NameLabel" type="Label" parent="Phase1/Pieces/MemoryPiece/MarginContainer/VBoxContainer" unique_id=1958969964]
-layout_mode = 2
-text = "MEMÓRIA"
-horizontal_alignment = 1
-
-[node name="DetailLabel" type="Label" parent="Phase1/Pieces/MemoryPiece/MarginContainer/VBoxContainer" unique_id=1264266683]
-layout_mode = 2
-text = "RAM"
-horizontal_alignment = 1
-
-[node name="ProcessorPiece" parent="Phase1/Pieces" unique_id=735724650 instance=ExtResource("3_w6lij")]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-component_id = "processor"
-display_name = "Processador"
-
-[node name="MarginContainer" type="MarginContainer" parent="Phase1/Pieces/ProcessorPiece" unique_id=2077596453]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Phase1/Pieces/ProcessorPiece/MarginContainer" unique_id=1579049564]
-layout_mode = 2
-
-[node name="IconLabel" type="Label" parent="Phase1/Pieces/ProcessorPiece/MarginContainer/VBoxContainer" unique_id=93344492]
-layout_mode = 2
-text = "▣"
-horizontal_alignment = 1
-
-[node name="NameLabel" type="Label" parent="Phase1/Pieces/ProcessorPiece/MarginContainer/VBoxContainer" unique_id=1000188458]
-layout_mode = 2
-text = "PROCESSADOR"
-horizontal_alignment = 1
-
-[node name="DetailLabel" type="Label" parent="Phase1/Pieces/ProcessorPiece/MarginContainer/VBoxContainer" unique_id=1794661529]
-layout_mode = 2
-text = "CPU"
-horizontal_alignment = 1
-
-[node name="PeripheralPiece" parent="Phase1/Pieces" unique_id=1865910445 instance=ExtResource("3_w6lij")]
-custom_minimum_size = Vector2(50, 50)
-propagate_maximum_size = false
-layout_mode = 2
-component_id = "peripherals"
-display_name = "Periferico"
-
-[node name="MarginContainer" type="MarginContainer" parent="Phase1/Pieces/PeripheralPiece" unique_id=242756429]
+[node name="MemoryPiece" parent="Phase1/Tray/Pieces" instance=ExtResource("3_piece")]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+component_id = "memory"
+display_name = "Memória RAM"
+title_text = "MEMÓRIA"
+detail_text = "RAM"
+accent_color = Color(0.3, 0.9, 0.55, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Phase1/Pieces/PeripheralPiece/MarginContainer" unique_id=675398227]
+[node name="ProcessorPiece" parent="Phase1/Tray/Pieces" instance=ExtResource("3_piece")]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
+size_flags_horizontal = 4
+component_id = "processor"
+display_name = "Processador"
+title_text = "PROCESSADOR"
+detail_text = "CPU"
+accent_color = Color(0.35, 0.75, 1, 1)
 
-[node name="IconLabel" type="Label" parent="Phase1/Pieces/PeripheralPiece/MarginContainer/VBoxContainer" unique_id=2056211390]
+[node name="PeripheralPiece" parent="Phase1/Tray/Pieces" instance=ExtResource("3_piece")]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
-text = "⌨"
+size_flags_horizontal = 4
+component_id = "peripherals"
+display_name = "Periféricos"
+title_text = "PERIFÉRICOS"
+detail_text = "E/S"
+accent_color = Color(1, 0.75, 0.3, 1)
+
+[node name="Phase2" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 32
+offset_top = 84
+offset_right = 792
+offset_bottom = 604
+mouse_filter = 2
+
+[node name="Art" type="Control" parent="Phase2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_art")
+mode = 1
+seed_value = 13
+trace_count = 26
+
+[node name="Heading" type="Label" parent="Phase2"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 8.0
+offset_right = 720.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.45, 0.78, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "▌INTERIOR DA CPU  //  MONTAGEM DO NÚCLEO"
+vertical_alignment = 1
+
+[node name="CPUBoard" type="GridContainer" parent="Phase2"]
+layout_mode = 0
+offset_left = 162
+offset_top = 80
+offset_right = 598
+offset_bottom = 284
+theme_override_constants/h_separation = 48
+theme_override_constants/v_separation = 24
+columns = 2
+
+[node name="ControlSlot" parent="Phase2/CPUBoard" instance=ExtResource("2_slot")]
+custom_minimum_size = Vector2(194, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expected_component = "control"
+slot_label = "NÚCLEO · A"
+
+[node name="ALUSlot" parent="Phase2/CPUBoard" instance=ExtResource("2_slot")]
+custom_minimum_size = Vector2(194, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expected_component = "alu"
+slot_label = "NÚCLEO · B"
+
+[node name="RegistersSlot" parent="Phase2/CPUBoard" instance=ExtResource("2_slot")]
+custom_minimum_size = Vector2(194, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expected_component = "registers"
+slot_label = "NÚCLEO · C"
+
+[node name="CacheSlot" parent="Phase2/CPUBoard" instance=ExtResource("2_slot")]
+custom_minimum_size = Vector2(194, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expected_component = "cache"
+slot_label = "NÚCLEO · D"
+
+[node name="TrayLabel" type="Label" parent="Phase2"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 334.0
+offset_right = 720.0
+offset_bottom = 356.0
+theme_override_colors/font_color = Color(0.55, 0.7, 0.85, 1)
+theme_override_font_sizes/font_size = 12
+text = "COMPONENTES DISPONÍVEIS  ▸  arraste até o encaixe correto"
+vertical_alignment = 1
+
+[node name="Tray" type="PanelContainer" parent="Phase2"]
+layout_mode = 0
+offset_left = 40
+offset_top = 358
+offset_right = 720
+offset_bottom = 504
+theme_override_styles/panel = SubResource("SB_tray")
+
+[node name="Pieces" type="HBoxContainer" parent="Phase2/Tray"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ControlPiece" parent="Phase2/Tray/Pieces" instance=ExtResource("3_piece")]
+custom_minimum_size = Vector2(152, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+component_id = "control"
+display_name = "Unidade de Controle"
+title_text = "CONTROLE"
+detail_text = "UC"
+accent_color = Color(0.72, 0.58, 1, 1)
+
+[node name="ALUPiece" parent="Phase2/Tray/Pieces" instance=ExtResource("3_piece")]
+custom_minimum_size = Vector2(152, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+component_id = "alu"
+display_name = "ULA"
+title_text = "ULA"
+detail_text = "ALU"
+accent_color = Color(1, 0.55, 0.3, 1)
+
+[node name="RegistersPiece" parent="Phase2/Tray/Pieces" instance=ExtResource("3_piece")]
+custom_minimum_size = Vector2(152, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+component_id = "registers"
+display_name = "Registradores"
+title_text = "REGISTRADORES"
+detail_text = "REG"
+accent_color = Color(0.25, 0.9, 0.85, 1)
+
+[node name="CachePiece" parent="Phase2/Tray/Pieces" instance=ExtResource("3_piece")]
+custom_minimum_size = Vector2(152, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+component_id = "cache"
+display_name = "Memória Cache"
+title_text = "CACHE"
+detail_text = "L1"
+accent_color = Color(1, 0.45, 0.7, 1)
+
+[node name="PowerButton" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 0
+offset_left = 262
+offset_top = 620
+offset_right = 562
+offset_bottom = 680
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("SB_power_normal")
+theme_override_styles/hover = SubResource("SB_power_hover")
+theme_override_styles/pressed = SubResource("SB_power_pressed")
+theme_override_styles/disabled = SubResource("SB_power_disabled")
+text = "⚡ LIGAR"
+
+[node name="MonitorFrame" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 816
+offset_top = 84
+offset_right = 1248
+offset_bottom = 354
+mouse_filter = 2
+theme_override_styles/panel = SubResource("SB_monitor")
+
+[node name="Screen" type="ColorRect" parent="MonitorFrame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = -14.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.01, 0.045, 0.04, 1)
+
+[node name="Standby" type="Label" parent="MonitorFrame/Screen"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.2, 0.5, 0.35, 1)
+text = "● STANDBY
+
+placa desligada"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="NameLabel" type="Label" parent="Phase1/Pieces/PeripheralPiece/MarginContainer/VBoxContainer" unique_id=644541773]
-layout_mode = 2
-text = "PERIFÉRICOS"
-horizontal_alignment = 1
-
-[node name="DetailLabel" type="Label" parent="Phase1/Pieces/PeripheralPiece/MarginContainer/VBoxContainer" unique_id=733710464]
-layout_mode = 2
-text = "E/S"
-horizontal_alignment = 1
-
-[node name="Phase2" type="VBoxContainer" parent="." unique_id=309633854]
+[node name="BootOverlay" type="ColorRect" parent="MonitorFrame/Screen"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.48697916
-anchor_top = -0.06790123
-anchor_right = -0.27083334
-anchor_bottom = 0.09104938
-offset_left = 642.0
-offset_top = 140.0
-offset_right = 934.0
-offset_bottom = 372.0
-alignment = 1
-metadata/_edit_use_anchors_ = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.01, 0.05, 0.04, 1)
 
-[node name="CPUBoard" type="GridContainer" parent="Phase2" unique_id=1787442091]
+[node name="CenterContainer" type="CenterContainer" parent="MonitorFrame/Screen/BootOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MonitorFrame/Screen/BootOverlay/CenterContainer"]
 layout_mode = 2
-layout_direction = 1
-columns = 2
+theme_override_styles/panel = SubResource("SB_empty")
 
-[node name="ControlSlot" parent="Phase2/CPUBoard" unique_id=1088314676 instance=ExtResource("2_pbhcl")]
-custom_minimum_size = Vector2(75, 75)
+[node name="MarginContainer" type="MarginContainer" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-expected_component = "control"
-normal_style = SubResource("StyleBoxFlat_pbhcl")
-hover_style = SubResource("StyleBoxFlat_xrd84")
-filled_style = SubResource("StyleBoxFlat_k67ak")
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="ALUSlot" parent="Phase2/CPUBoard" unique_id=1070198398 instance=ExtResource("2_pbhcl")]
-custom_minimum_size = Vector2(75, 75)
+[node name="VBoxContainer" type="VBoxContainer" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 6
-expected_component = "alu"
-normal_style = SubResource("StyleBoxFlat_pbhcl")
-hover_style = SubResource("StyleBoxFlat_xrd84")
-filled_style = SubResource("StyleBoxFlat_k67ak")
+theme_override_constants/separation = 5
 
-[node name="RegistersSlot" parent="Phase2/CPUBoard" unique_id=1006843967 instance=ExtResource("2_pbhcl")]
-custom_minimum_size = Vector2(75, 75)
+[node name="BootTitle" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 6
-expected_component = "registers"
-normal_style = SubResource("StyleBoxFlat_pbhcl")
-hover_style = SubResource("StyleBoxFlat_xrd84")
-filled_style = SubResource("StyleBoxFlat_k67ak")
+theme_override_colors/font_color = Color(0.4, 1, 0.6, 1)
+theme_override_fonts/font = SubResource("SystemFont_bold")
+theme_override_font_sizes/font_size = 16
+text = "AOC-1 BIOS v1.0"
 
-[node name="CacheSlot" parent="Phase2/CPUBoard" unique_id=2062420239 instance=ExtResource("2_pbhcl")]
-custom_minimum_size = Vector2(75, 75)
+[node name="BootStatus" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 6
-expected_component = "cache"
-normal_style = SubResource("StyleBoxFlat_pbhcl")
-hover_style = SubResource("StyleBoxFlat_xrd84")
-filled_style = SubResource("StyleBoxFlat_k67ak")
+theme_override_colors/font_color = Color(0.25, 0.65, 0.4, 1)
+theme_override_font_sizes/font_size = 11
+text = "POWER-ON SELF TEST"
 
-[node name="BusLabel" type="Label" parent="Phase2" unique_id=399147602]
-layout_mode = 2
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Pieces" type="HBoxContainer" parent="Phase2" unique_id=1953053791]
-layout_mode = 2
-
-[node name="ControlPiece" parent="Phase2/Pieces" unique_id=1076125959 instance=ExtResource("3_w6lij")]
-custom_minimum_size = Vector2(75, 75)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-component_id = "control"
-display_name = "Controle"
-
-[node name="ALUPiece" parent="Phase2/Pieces" unique_id=336954630 instance=ExtResource("3_w6lij")]
-custom_minimum_size = Vector2(75, 75)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-component_id = "alu"
-display_name = "Alu"
-
-[node name="RegistersPiece" parent="Phase2/Pieces" unique_id=1875259219 instance=ExtResource("3_w6lij")]
-custom_minimum_size = Vector2(75, 75)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-component_id = "registers"
-display_name = "Registro"
-
-[node name="CachePiece" parent="Phase2/Pieces" unique_id=99928163 instance=ExtResource("3_w6lij")]
-custom_minimum_size = Vector2(75, 75)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-component_id = "cache"
-display_name = "Cache"
-
-[node name="PowerButton" type="Button" parent="." unique_id=340691437]
+[node name="ProgressBar" type="ProgressBar" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(220, 58)
+custom_minimum_size = Vector2(300, 12)
+layout_mode = 2
+show_percentage = false
+
+[node name="CheckCPU" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 1, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+
+[node name="CheckMemory" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 1, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+
+[node name="CheckBus" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 1, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+
+[node name="CheckIO" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 1, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+
+[node name="FinalStatus" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 1, 0.6, 1)
+theme_override_fonts/font = SubResource("SystemFont_bold")
+theme_override_font_sizes/font_size = 15
+
+[node name="Scanlines" type="Control" parent="MonitorFrame/Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("7_scan")
+
+[node name="StatusPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 406.0
-offset_top = 550.0
-offset_right = 626.0
-offset_bottom = 618.0
+offset_left = 816
+offset_top = 370
+offset_right = 1248
+offset_bottom = 604
+theme_override_styles/panel = SubResource("SB_status")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatusPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StatusTitle" type="Label" parent="StatusPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.82, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_bold")
+theme_override_font_sizes/font_size = 17
+text = "▮ TERMINAL DO SISTEMA"
+
+[node name="HSeparator" type="HSeparator" parent="StatusPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="StatusMessage" type="Label" parent="StatusPanel/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 14
+text = "Arraste os componentes até os encaixes da placa e pressione LIGAR."
+autowrap_mode = 3
+
+[node name="NextButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 816
+offset_top = 620
+offset_right = 1248
+offset_bottom = 680
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_qynng")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_by6ep")
-theme_override_styles/hover = SubResource("StyleBoxFlat_cmbtx")
-text = "⚡ LIGAR"
-
-[node name="StausPanel" type="PanelContainer" parent="." unique_id=1221289012]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 726.0
-offset_top = 395.0
-offset_right = 1107.0
-offset_bottom = 580.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="StausPanel" unique_id=177702222]
-layout_mode = 2
-
-[node name="StatusTitle" type="Label" parent="StausPanel/VBoxContainer" unique_id=887422493]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="StatusMessage" type="Label" parent="StausPanel/VBoxContainer" unique_id=1982246862]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="NextButton" type="Button" parent="." unique_id=2140690259]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 882.0
-offset_top = 599.0
-offset_right = 1004.0
-offset_bottom = 630.0
+theme_override_styles/normal = SubResource("SB_next_normal")
+theme_override_styles/hover = SubResource("SB_next_hover")
+theme_override_styles/pressed = SubResource("SB_btn_pressed")
 text = "PRÓXIMA FASE"
 
-[node name="BootOverlay" type="ColorRect" parent="." unique_id=992974308]
-unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_left = 773.0
-offset_top = 98.0
-offset_right = 1090.0
-offset_bottom = 351.0
-
-[node name="CenterContainer" type="CenterContainer" parent="BootOverlay" unique_id=922141224]
-layout_mode = 0
-offset_right = 318.0
-offset_bottom = 254.0
-
-[node name="PanelContainer" type="PanelContainer" parent="BootOverlay/CenterContainer" unique_id=1763480407]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="BootOverlay/CenterContainer/PanelContainer" unique_id=446370279]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer" unique_id=2143714713]
-layout_mode = 2
-
-[node name="BootTitle" type="Label" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=435294037]
-layout_mode = 2
-
-[node name="BootStatus" type="Label" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1595985450]
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=146390726]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="CheckCPU" type="Label" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1183931304]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="CheckMemory" type="Label" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=918647336]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="CheckBus" type="Label" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=89512816]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="CheckIO" type="Label" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=948947258]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="FinalStatus" type="Label" parent="BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=631164906]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="CPU_Ride" type="AnimationPlayer" parent="." unique_id=786646028]
+[node name="CPU_Ride" type="AnimationPlayer" parent="."]
 libraries/ = SubResource("AnimationLibrary_k67ak")
 
-[node name="BotaoVoltar" type="Button" parent="." unique_id=561757074]
+[node name="BotaoVoltar" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
-offset_left = -216.0
-offset_top = 684.0
-offset_right = -2.0
-offset_bottom = 715.0
+anchor_bottom = 1.0
+offset_left = -262.0
+offset_top = -34.0
+offset_right = -32.0
+offset_bottom = -6.0
 grow_horizontal = 0
-text = "VOLTAR AO LABORATÓRIO"
+grow_vertical = 0
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("SB_back")
+theme_override_styles/hover = SubResource("SB_back_hover")
+text = "← VOLTAR AO LABORATÓRIO"
 
 [connection signal="pressed" from="BotaoVoltar" to="." method="_on_botao_voltar_pressed"]
