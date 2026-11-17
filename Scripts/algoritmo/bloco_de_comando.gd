@@ -11,6 +11,9 @@ func _ready() -> void:
 	btn_executar.pressed.connect(_on_executar_pressed)
 	terminal_input.text_submitted.connect(_on_entrada_terminal_enviada)
 	terminal_input.editable = false # Trava o terminal até o programa rodar
+	
+	# Preenche o CodeEdit com a classe base para poupar tempo
+	code_edit.text = "public class Comando {\n  \n   }"
 
 func _on_executar_pressed() -> void:
 	codigo_salvo = code_edit.text

@@ -3310,7 +3310,7 @@ texture = ExtResource("1_iw7t8")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qd3xx")
 
-[node name="unitins" type="Node2D" unique_id=1070983965]
+[node name="unitins" type="Node2D" unique_id=1070983965 groups=["com_hud_missao"]]
 script = ExtResource("1_njbdn")
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=466199051]

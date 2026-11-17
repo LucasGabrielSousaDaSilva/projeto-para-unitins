@@ -40,13 +40,15 @@ offset_right = 107.10199
 offset_bottom = 275.516
 grow_horizontal = 2
 grow_vertical = 2
-placeholder_text = "Scanner leitor = new Scanner(System.in);
-int idade = leitor.nextInt();
+placeholder_text = "public class Comando {
+	Scanner leitor = new Scanner(System.in);
+	int idade = leitor.nextInt();
 
-if (idade >= 18) {
-    System.out.println(\"Você é maior de idade.\");
-} else {
-    System.out.println(\"Você é menor de idade.\");
+	if (idade >= 18) {
+    	System.out.println(\"Você é maior de idade.\");
+	} else {
+    	System.out.println(\"Você é 	menor de idade.\");
+	}
 }"
 gutters_draw_line_numbers = true
 gutters_draw_fold_gutter = true

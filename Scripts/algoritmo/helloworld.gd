@@ -6,6 +6,9 @@ extends Control
 
 func _ready() -> void:
 	button.pressed.connect(_on_enviar_pressed)
+	
+	# Preenche o CodeEdit com a classe base para poupar tempo
+	code_edit.text = "public class HelloWorld {\n  \n   }"
 
 func _on_enviar_pressed() -> void:
 	var codigo: String = code_edit.text

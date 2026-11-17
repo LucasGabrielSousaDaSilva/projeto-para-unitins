@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://sny22dj70wyo" path="res://Scenes/Door.tscn" id="4_y71cq"]
 [ext_resource type="PackedScene" uid="uid://b8ocr6hgedg1m" path="res://Prefabs/transition.tscn" id="5_y00hg"]
 [ext_resource type="PackedScene" uid="uid://2x1ag28gos2k" path="res://Prefabs/interect.tscn" id="6_442ki"]
+[ext_resource type="PackedScene" uid="uid://deh7a3vxnnyol" path="res://Prefabs/pause.tscn" id="6_lutpe"]
 [ext_resource type="PackedScene" uid="uid://bhxghfgnf7pn7" path="res://Prefabs/helloworld.tscn" id="7_y71cq"]
 [ext_resource type="PackedScene" uid="uid://c6fc0nls0e670" path="res://Prefabs/atribuicao_dados.tscn" id="8_qeaaa"]
 [ext_resource type="PackedScene" uid="uid://ccijdvka40vj5" path="res://Prefabs/calculadora2.tscn" id="9_ym5wp"]
@@ -2215,7 +2216,8 @@ texture = ExtResource("2_y00hg")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_l5882")
 
-[node name="laboratorio_menor" type="Node2D" unique_id=1534738604]
+[node name="laboratorio_menor" type="Node2D" unique_id=1534738604 groups=["com_hud_missao"]]
+position = Vector2(-42, 12)
 script = ExtResource("1_aofy2")
 
 [node name="Cenario" type="Sprite2D" parent="." unique_id=1936219295]
@@ -2251,11 +2253,13 @@ position = Vector2(1024, 520)
 
 [node name="transition" parent="." unique_id=556627561 instance=ExtResource("5_y00hg")]
 
+[node name="pause" parent="." unique_id=2117712120 instance=ExtResource("6_lutpe")]
+
 [node name="ComputadoresAlg" type="Node2D" parent="." unique_id=346968744]
 position = Vector2(-9, 3)
 
 [node name="Hello" parent="ComputadoresAlg" unique_id=762736484 instance=ExtResource("6_442ki")]
-position = Vector2(871, 326)
+position = Vector2(875, 327)
 nome_jogo = "Hello World"
 cena_jogo = ExtResource("7_y71cq")
 
@@ -2265,12 +2269,12 @@ nome_jogo = "Atribuição"
 cena_jogo = ExtResource("8_qeaaa")
 
 [node name="calculadora" parent="ComputadoresAlg" unique_id=2104675860 instance=ExtResource("6_442ki")]
-position = Vector2(876, 460)
+position = Vector2(875, 518)
 nome_jogo = "Calculadora"
 cena_jogo = ExtResource("9_ym5wp")
 
 [node name="comando" parent="ComputadoresAlg" unique_id=322013414 instance=ExtResource("6_442ki")]
-position = Vector2(875, 523)
+position = Vector2(875, 457)
 nome_jogo = "Comando"
 cena_jogo = ExtResource("10_12a1s")
 

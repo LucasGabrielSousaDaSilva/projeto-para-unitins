@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b8ocr6hgedg1m" path="res://Prefabs/transition.tscn" id="5_u18dc"]
 [ext_resource type="PackedScene" uid="uid://deh7a3vxnnyol" path="res://Prefabs/pause.tscn" id="6_4un60"]
 [ext_resource type="PackedScene" uid="uid://b7f7ppdhuof6n" path="res://Prefabs/area_nao_interativa.tscn" id="7_xlxdt"]
+[ext_resource type="PackedScene" path="res://Prefabs/Lab1Trigger.tscn" id="8_hgmu6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_05ra4"]
 texture = ExtResource("2_u18dc")
@@ -2208,7 +2209,7 @@ texture = ExtResource("2_u18dc")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_i4ul5")
 
-[node name="bloco_b" type="Node2D" unique_id=445891992]
+[node name="bloco_b" type="Node2D" unique_id=445891992 groups=["com_hud_missao"]]
 script = ExtResource("1_kkqps")
 
 [node name="Textura" type="Sprite2D" parent="." unique_id=1154364841]
@@ -2227,9 +2228,15 @@ position = Vector2(438, 544)
 [node name="Door_Labo" parent="." unique_id=1992265884 node_paths=PackedStringArray("transition_controller") instance=ExtResource("4_xlxdt")]
 position = Vector2(210, 440)
 rotation = -1.5621811
-scale = Vector2(-0.96481717, 0.90387344)
+scale = Vector2(-1.0424051, 0.98386854)
 next_level = "res://Scenes/laboratorio_menor.tscn"
 transition_controller = NodePath("../transition")
+
+[node name="Lab1Trigger" parent="Door_Labo" unique_id=660585368 instance=ExtResource("8_hgmu6")]
+position = Vector2(-0.033088744, 4.065431)
+rotation = 1.5788673
+scale = Vector2(0.27921814, -0.30716062)
+skew = 0.0011249781
 
 [node name="laboratorio_menor" type="Marker2D" parent="." unique_id=408626023]
 position = Vector2(245, 440)

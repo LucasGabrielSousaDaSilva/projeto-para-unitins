@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" path="res://Prefabs/AOC1/Game01_BinaryRunner/Player.tscn" id="3_player"]
 [ext_resource type="PackedScene" path="res://Prefabs/AOC1/Game01_BinaryRunner/BytePickup.tscn" id="4_bit"]
 [ext_resource type="PackedScene" uid="uid://ksohohl1dpfe" path="res://Prefabs/AOC1/Game01_BinaryRunner/Hazard.tscn" id="5_hazard"]
-[ext_resource type="PackedScene" path="res://Prefabs/AOC1/Game01_BinaryRunner/Gate.tscn" id="6_gate"]
+[ext_resource type="PackedScene" uid="uid://h0w0lrsmmcpt" path="res://Prefabs/AOC1/Game01_BinaryRunner/Gate.tscn" id="6_gate"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(3600, 120)

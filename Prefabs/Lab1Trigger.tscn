@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://vblowwfm875u" path="res://Scripts/causa_ambiente/Lab1Trigger.gd" id="1_trigger"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_porta"]
+size = Vector2(100, 60)
+
+[node name="Lab1Trigger" type="Area2D"]
+collision_layer = 0
+collision_mask = 1
+script = ExtResource("1_trigger")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_porta")

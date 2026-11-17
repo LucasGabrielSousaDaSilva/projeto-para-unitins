@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://bil2m2mygo3hp"]
+
+[ext_resource type="Script" uid="uid://c806kbep18246" path="res://Scripts/causa_ambiente/MissoesUI.gd" id="1_tutorial"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_intro"]
+bg_color = Color(0.0980392, 0.168627, 0.270588, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.219608, 0.337255, 0.478431, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.45)
+shadow_size = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_normal"]
+bg_color = Color(0.145098, 0.388235, 0.921569, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pressed"]
+bg_color = Color(0.0862745, 0.290196, 0.729412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
+bg_color = Color(0.231373, 0.509804, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_objetivo"]
+bg_color = Color(0.0705882, 0.133333, 0.231373, 0.94)
+border_width_left = 3
+border_color = Color(0.980392, 0.792157, 0.0823529, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.25)
+shadow_size = 4
+
+[node name="MissoesUI" type="CanvasLayer" unique_id=1570761443]
+process_mode = 3
+layer = 10
+script = ExtResource("1_tutorial")
+
+[node name="Escurecer" type="ColorRect" parent="." unique_id=1632805307]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.67)
+
+[node name="InicioContainer" type="CenterContainer" parent="." unique_id=1511908925]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InicioPanel" type="PanelContainer" parent="InicioContainer" unique_id=564598729]
+custom_minimum_size = Vector2(560, 295)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_intro")
+
+[node name="Margem" type="MarginContainer" parent="InicioContainer/InicioPanel" unique_id=167687701]
+layout_mode = 2
+theme_override_constants/margin_left = 27
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 27
+theme_override_constants/margin_bottom = 24
+
+[node name="Conteudo" type="VBoxContainer" parent="InicioContainer/InicioPanel/Margem" unique_id=537204063]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Titulo" type="Label" parent="InicioContainer/InicioPanel/Margem/Conteudo" unique_id=173424175]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.831373, 0.403922, 1)
+theme_override_font_sizes/font_size = 26
+text = "BEM-VINDO À UNI ADVENTURE!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Descricao" type="Label" parent="InicioContainer/InicioPanel/Margem/Conteudo" unique_id=1439170118]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.847059, 0.886275, 0.945098, 1)
+theme_override_font_sizes/font_size = 18
+text = "Prepare-se para explorar o ambiente universitario e realizar alguns mini games de Sistemas.
+
+MISSÃO 01: Siga para o Laboratório 1 e encontre os desafios."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BotaoComecar" type="Button" parent="InicioContainer/InicioPanel/Margem/Conteudo" unique_id=1846288921]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+text = "COMEÇAR EXPLORAÇÃO"
+
+[node name="ObjetivoPanel" type="PanelContainer" parent="." unique_id=1632226502]
+visible = false
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 510.0
+offset_bottom = 82.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_objetivo")
+
+[node name="Margem" type="MarginContainer" parent="ObjetivoPanel" unique_id=2136109185]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 12
+
+[node name="TextoObjetivo" type="Label" parent="ObjetivoPanel/Margem" unique_id=1456702127]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 17
+text = "MISSÃO ATUAL: Siga para o Laboratório 1"
+autowrap_mode = 3

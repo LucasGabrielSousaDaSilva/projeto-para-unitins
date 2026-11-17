@@ -1,7 +1,7 @@
 extends Node2D
 ## Script único para Fases 2, 3, 4 e Boss (Fase 1 opcional no pacote completo).
 @export_range(1, 5, 1) var phase_id: int = 2
-const MissionData = preload("res://scripts/aoc1/Game01_BinaryRunner/runner_data.gd")
+const MissionData = preload("res://Scripts/aoc1/Game01_BinaryRunner/runner_data.gd")
 const MAX_LIVES: int = 3
 var lives: int = MAX_LIVES
 var selected: Array[String] = []

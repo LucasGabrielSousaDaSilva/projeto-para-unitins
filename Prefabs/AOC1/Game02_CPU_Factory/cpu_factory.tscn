@@ -1,99 +1,35 @@
 [gd_scene format=3 uid="uid://bws0kiyemp7kc"]
 
 [ext_resource type="Script" uid="uid://b8n3uue3qan3k" path="res://Scripts/aoc1/Game02_CPU_Factory/cpu_factory.gd" id="1_pbhcl"]
-[ext_resource type="PackedScene" uid="uid://65o0oi44rr2o" path="res://Prefabs/AOC1/Game02_CPU_Factory/drop_slot.tscn" id="2_slot"]
-[ext_resource type="PackedScene" uid="uid://yrd2pdtc385r" path="res://Prefabs/AOC1/Game02_CPU_Factory/draggable_piece.tscn" id="3_piece"]
+[ext_resource type="PackedScene" uid="uid://exn5l1jh7yg7" path="res://Prefabs/AOC1/Game02_CPU_Factory/drop_slot.tscn" id="2_slot"]
+[ext_resource type="PackedScene" uid="uid://bxsure5cf03ll" path="res://Prefabs/AOC1/Game02_CPU_Factory/draggable_piece.tscn" id="3_piece"]
 [ext_resource type="Script" uid="uid://b3psc7hkniqsx" path="res://Scripts/aoc1/Game02_CPU_Factory/pcb_art.gd" id="5_art"]
 [ext_resource type="Script" uid="uid://7u45noo5vvdj" path="res://Scripts/aoc1/Game02_CPU_Factory/bus_lines.gd" id="6_bus"]
 [ext_resource type="Script" uid="uid://dbfvint3gnvvw" path="res://Scripts/aoc1/Game02_CPU_Factory/scanlines.gd" id="7_scan"]
 
-[sub_resource type="SystemFont" id="SystemFont_mono"]
-font_names = PackedStringArray("Consolas", "Cascadia Mono", "Menlo", "DejaVu Sans Mono", "Courier New", "monospace")
-
-[sub_resource type="SystemFont" id="SystemFont_bold"]
-font_names = PackedStringArray("Consolas", "Cascadia Mono", "Menlo", "DejaVu Sans Mono", "Courier New", "monospace")
-font_weight = 700
-
-[sub_resource type="StyleBoxFlat" id="SB_board"]
-bg_color = Color(0.035, 0.09, 0.15, 1)
+[sub_resource type="StyleBoxFlat" id="SB_btn_disabled"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.05, 0.09, 0.13, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.2, 0.5, 0.78, 1)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
-shadow_color = Color(0.2, 0.6, 1, 0.22)
-shadow_size = 16
-[sub_resource type="StyleBoxFlat" id="SB_header"]
-bg_color = Color(0.04, 0.09, 0.16, 1)
-border_width_bottom = 2
-border_color = Color(0.22, 0.66, 1, 0.9)
-shadow_color = Color(0.2, 0.6, 1, 0.18)
-shadow_size = 12
-[sub_resource type="StyleBoxFlat" id="SB_tray"]
-bg_color = Color(0.025, 0.06, 0.11, 0.96)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.16, 0.34, 0.5, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-content_margin_left = 14
-content_margin_top = 14
-content_margin_right = 14
-content_margin_bottom = 14
-[sub_resource type="StyleBoxFlat" id="SB_monitor"]
-bg_color = Color(0.09, 0.12, 0.17, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.24, 0.32, 0.42, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.5)
-shadow_size = 14
-[sub_resource type="StyleBoxFlat" id="SB_status"]
-bg_color = Color(0.03, 0.07, 0.12, 0.96)
-border_width_left = 4
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.2, 0.45, 0.7, 1)
+border_color = Color(0.16, 0.24, 0.32, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-content_margin_left = 16
-content_margin_top = 16
-content_margin_right = 16
-content_margin_bottom = 16
-shadow_color = Color(0.2, 0.6, 1, 0.15)
-shadow_size = 10
-[sub_resource type="StyleBoxFlat" id="SB_btn_normal"]
-bg_color = Color(0.07, 0.15, 0.24, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.22, 0.5, 0.8, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-content_margin_left = 8
-content_margin_top = 8
-content_margin_right = 8
-content_margin_bottom = 8
+
+[sub_resource type="StyleBoxEmpty" id="SB_empty"]
+
 [sub_resource type="StyleBoxFlat" id="SB_btn_hover"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 bg_color = Color(0.1, 0.22, 0.34, 1)
 border_width_left = 2
 border_width_top = 2
@@ -104,11 +40,28 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-content_margin_left = 8
-content_margin_top = 8
-content_margin_right = 8
-content_margin_bottom = 8
+
+[sub_resource type="StyleBoxFlat" id="SB_btn_normal"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.07, 0.15, 0.24, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22, 0.5, 0.8, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="StyleBoxFlat" id="SB_btn_pressed"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 bg_color = Color(0.25, 0.9, 0.54, 1)
 border_width_left = 2
 border_width_top = 2
@@ -119,155 +72,7 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-content_margin_left = 8
-content_margin_top = 8
-content_margin_right = 8
-content_margin_bottom = 8
-[sub_resource type="StyleBoxFlat" id="SB_btn_disabled"]
-bg_color = Color(0.05, 0.09, 0.13, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.16, 0.24, 0.32, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-content_margin_left = 8
-content_margin_top = 8
-content_margin_right = 8
-content_margin_bottom = 8
-[sub_resource type="StyleBoxFlat" id="SB_power_normal"]
-bg_color = Color(0.05, 0.22, 0.32, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.3, 0.85, 1, 1)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
-content_margin_left = 8
-content_margin_top = 8
-content_margin_right = 8
-content_margin_bottom = 8
-shadow_color = Color(0.3, 0.85, 1, 0.4)
-shadow_size = 14
-[sub_resource type="StyleBoxFlat" id="SB_power_hover"]
-bg_color = Color(0.08, 0.32, 0.45, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.6, 0.95, 1, 1)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
-content_margin_left = 8
-content_margin_top = 8
-content_margin_right = 8
-content_margin_bottom = 8
-shadow_color = Color(0.4, 0.9, 1, 0.6)
-shadow_size = 18
-[sub_resource type="StyleBoxFlat" id="SB_power_pressed"]
-bg_color = Color(0.25, 0.9, 0.54, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.7, 1, 0.85, 1)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
-content_margin_left = 8
-content_margin_top = 8
-content_margin_right = 8
-content_margin_bottom = 8
-shadow_color = Color(0.3, 1, 0.6, 0.6)
-shadow_size = 18
-[sub_resource type="StyleBoxFlat" id="SB_power_disabled"]
-bg_color = Color(0.05, 0.09, 0.13, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.16, 0.24, 0.32, 1)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
-content_margin_left = 8
-content_margin_top = 8
-content_margin_right = 8
-content_margin_bottom = 8
-[sub_resource type="StyleBoxFlat" id="SB_next_normal"]
-bg_color = Color(0.05, 0.25, 0.17, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.28, 0.95, 0.58, 1)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
-content_margin_left = 8
-content_margin_top = 8
-content_margin_right = 8
-content_margin_bottom = 8
-shadow_color = Color(0.28, 0.95, 0.58, 0.4)
-shadow_size = 14
-[sub_resource type="StyleBoxFlat" id="SB_next_hover"]
-bg_color = Color(0.08, 0.36, 0.24, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.6, 1, 0.8, 1)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
-content_margin_left = 8
-content_margin_top = 8
-content_margin_right = 8
-content_margin_bottom = 8
-shadow_color = Color(0.3, 1, 0.6, 0.6)
-shadow_size = 18
-[sub_resource type="StyleBoxFlat" id="SB_back"]
-bg_color = Color(0.04, 0.08, 0.13, 0.85)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.2, 0.3, 0.42, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-content_margin_left = 6
-content_margin_top = 6
-content_margin_right = 6
-content_margin_bottom = 6
-[sub_resource type="StyleBoxFlat" id="SB_back_hover"]
-bg_color = Color(0.08, 0.15, 0.24, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.35, 0.65, 0.95, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-content_margin_left = 6
-content_margin_top = 6
-content_margin_right = 6
-content_margin_bottom = 6
+
 [sub_resource type="StyleBoxFlat" id="SB_pb_bg"]
 bg_color = Color(0.02, 0.06, 0.05, 1)
 border_width_left = 1
@@ -279,13 +84,17 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxFlat" id="SB_pb_fill"]
 bg_color = Color(0.3, 1, 0.55, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
-[sub_resource type="StyleBoxEmpty" id="SB_empty"]
+
+[sub_resource type="SystemFont" id="SystemFont_mono"]
+font_names = PackedStringArray("Consolas", "Cascadia Mono", "Menlo", "DejaVu Sans Mono", "Courier New", "monospace")
+subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_main"]
 default_font = SubResource("SystemFont_mono")
@@ -302,6 +111,634 @@ Button/styles/pressed = SubResource("SB_btn_pressed")
 Label/colors/font_color = Color(0.82, 0.92, 1, 1)
 ProgressBar/styles/background = SubResource("SB_pb_bg")
 ProgressBar/styles/fill = SubResource("SB_pb_fill")
+
+[sub_resource type="StyleBoxFlat" id="SB_header"]
+bg_color = Color(0.04, 0.09, 0.16, 1)
+border_width_bottom = 2
+border_color = Color(0.22, 0.66, 1, 0.9)
+shadow_color = Color(0.2, 0.6, 1, 0.18)
+shadow_size = 12
+
+[sub_resource type="SystemFont" id="SystemFont_bold"]
+font_names = PackedStringArray("Consolas", "Cascadia Mono", "Menlo", "DejaVu Sans Mono", "Courier New", "monospace")
+font_weight = 700
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxFlat" id="SB_board"]
+bg_color = Color(0.035, 0.09, 0.15, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.5, 0.78, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.2, 0.6, 1, 0.22)
+shadow_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gyg2"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.04, 0.09, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22, 0.66, 1, 0.45)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7g0k"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.07, 0.17, 0.27, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.22, 0.66, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.22, 0.66, 1, 0.45)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0nad"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.04, 0.09, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.9, 0.55, 0.95)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.3, 0.9, 0.55, 0.45)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o3h6b"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.04, 0.09, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22, 0.66, 1, 0.45)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sckj4"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.07, 0.17, 0.27, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.22, 0.66, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.22, 0.66, 1, 0.45)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1mem"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.04, 0.09, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.9, 0.55, 0.95)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.3, 0.9, 0.55, 0.45)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_to76j"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.04, 0.09, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22, 0.66, 1, 0.45)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oegn8"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.07, 0.17, 0.27, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.22, 0.66, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.22, 0.66, 1, 0.45)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vde2i"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.04, 0.09, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.9, 0.55, 0.95)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.3, 0.9, 0.55, 0.45)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="SB_tray"]
+content_margin_left = 14.0
+content_margin_top = 14.0
+content_margin_right = 14.0
+content_margin_bottom = 14.0
+bg_color = Color(0.025, 0.06, 0.11, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.16, 0.34, 0.5, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5vn7"]
+bg_color = Color(0.055, 0.12, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.9, 0.55, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bj1d"]
+bg_color = Color(0.055, 0.12, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35, 0.75, 1, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gr0ad"]
+bg_color = Color(0.055, 0.12, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.75, 0.3, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_csinw"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.04, 0.09, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22, 0.66, 1, 0.45)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwcxm"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.07, 0.17, 0.27, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.22, 0.66, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.22, 0.66, 1, 0.45)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycpea"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.04, 0.09, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.9, 0.55, 0.95)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.3, 0.9, 0.55, 0.45)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80ega"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.04, 0.09, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22, 0.66, 1, 0.45)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1eon"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.07, 0.17, 0.27, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.22, 0.66, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.22, 0.66, 1, 0.45)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6c2x"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.04, 0.09, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.9, 0.55, 0.95)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.3, 0.9, 0.55, 0.45)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2tgg"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.04, 0.09, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22, 0.66, 1, 0.45)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_miqyi"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.07, 0.17, 0.27, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.22, 0.66, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.22, 0.66, 1, 0.45)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmrwa"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.04, 0.09, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.9, 0.55, 0.95)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.3, 0.9, 0.55, 0.45)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yticw"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.04, 0.09, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22, 0.66, 1, 0.45)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83of3"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.07, 0.17, 0.27, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.22, 0.66, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.22, 0.66, 1, 0.45)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hejsk"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.04, 0.09, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.9, 0.55, 0.95)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.3, 0.9, 0.55, 0.45)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yryau"]
+bg_color = Color(0.055, 0.12, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.72, 0.58, 1, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r7eq5"]
+bg_color = Color(0.055, 0.12, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.55, 0.3, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbbm7"]
+bg_color = Color(0.055, 0.12, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25, 0.9, 0.85, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axn12"]
+bg_color = Color(0.055, 0.12, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.45, 0.7, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="SB_power_normal"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.05, 0.22, 0.32, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.85, 1, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.3, 0.85, 1, 0.4)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="SB_power_pressed"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25, 0.9, 0.54, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7, 1, 0.85, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.3, 1, 0.6, 0.6)
+shadow_size = 18
+
+[sub_resource type="StyleBoxFlat" id="SB_power_hover"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.08, 0.32, 0.45, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.95, 1, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.4, 0.9, 1, 0.6)
+shadow_size = 18
+
+[sub_resource type="StyleBoxFlat" id="SB_power_disabled"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.05, 0.09, 0.13, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.16, 0.24, 0.32, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="SB_monitor"]
+bg_color = Color(0.09, 0.12, 0.17, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.24, 0.32, 0.42, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="SB_status"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.03, 0.07, 0.12, 0.96)
+border_width_left = 4
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.45, 0.7, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.2, 0.6, 1, 0.15)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="SB_next_normal"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.05, 0.25, 0.17, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.28, 0.95, 0.58, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.28, 0.95, 0.58, 0.4)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="SB_next_hover"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.08, 0.36, 0.24, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 1, 0.8, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.3, 1, 0.6, 0.6)
+shadow_size = 18
 
 [sub_resource type="Animation" id="Animation_pbhcl"]
 resource_name = "BootOverlay"
@@ -339,7 +776,39 @@ _data = {
 &"RESET": SubResource("Animation_w6lij")
 }
 
-[node name="CPUFactory" type="Control"]
+[sub_resource type="StyleBoxFlat" id="SB_back"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.04, 0.08, 0.13, 0.85)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.3, 0.42, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="SB_back_hover"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.08, 0.15, 0.24, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.65, 0.95, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="CPUFactory" type="Control" unique_id=1358896522]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -349,7 +818,7 @@ grow_vertical = 2
 theme = SubResource("Theme_main")
 script = ExtResource("1_pbhcl")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=610093008]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -359,7 +828,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.024, 0.051, 0.102, 1)
 
-[node name="BackgroundArt" type="Control" parent="Background"]
+[node name="BackgroundArt" type="Control" parent="Background" unique_id=1426803881]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -372,23 +841,21 @@ mode = 2
 seed_value = 21
 trace_count = 40
 
-[node name="HeaderBar" type="Panel" parent="."]
+[node name="HeaderBar" type="Panel" parent="." unique_id=1724987547]
 layout_mode = 0
-offset_left = 0
-offset_top = 0
-offset_right = 1280
-offset_bottom = 64
+offset_right = 1280.0
+offset_bottom = 64.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("SB_header")
 
-[node name="Header" type="HBoxContainer" parent="."]
+[node name="Header" type="HBoxContainer" parent="." unique_id=1792336804]
 layout_mode = 0
-offset_left = 32
-offset_top = 10
-offset_right = 1248
-offset_bottom = 54
+offset_left = 32.0
+offset_top = 10.0
+offset_right = 1248.0
+offset_bottom = 54.0
 
-[node name="Title" type="Label" parent="Header"]
+[node name="Title" type="Label" parent="Header" unique_id=181425416]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.4, 0.82, 1, 1)
@@ -397,7 +864,7 @@ theme_override_font_sizes/font_size = 24
 text = "▣ CPU FACTORY"
 vertical_alignment = 1
 
-[node name="PhaseLabel" type="Label" parent="Header"]
+[node name="PhaseLabel" type="Label" parent="Header" unique_id=1241676734]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -407,7 +874,7 @@ text = "FASE 1/2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScoreLabel" type="Label" parent="Header"]
+[node name="ScoreLabel" type="Label" parent="Header" unique_id=1880831377]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -418,25 +885,25 @@ text = "PONTOS: 1000"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2078962396]
 layout_mode = 0
-offset_left = 32
-offset_top = 84
-offset_right = 792
-offset_bottom = 604
+offset_left = 32.0
+offset_top = 84.0
+offset_right = 792.0
+offset_bottom = 604.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("SB_board")
 
-[node name="Phase1" type="Control" parent="."]
+[node name="Phase1" type="Control" parent="." unique_id=538945899]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 32
-offset_top = 84
-offset_right = 792
-offset_bottom = 604
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 84.0
+offset_right = 792.0
+offset_bottom = 604.0
 mouse_filter = 2
 
-[node name="Art" type="Control" parent="Phase1"]
+[node name="Art" type="Control" parent="Phase1" unique_id=900756311]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -445,9 +912,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("5_art")
-seed_value = 7
 
-[node name="Heading" type="Label" parent="Phase1"]
+[node name="Heading" type="Label" parent="Phase1" unique_id=1354014761]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 16.0
@@ -458,46 +924,58 @@ theme_override_font_sizes/font_size = 15
 text = "▌PLACA-MÃE  //  MONTAGEM DO SISTEMA"
 vertical_alignment = 1
 
-[node name="Board" type="HBoxContainer" parent="Phase1"]
+[node name="Board" type="HBoxContainer" parent="Phase1" unique_id=1126166064]
 layout_mode = 0
-offset_left = 40
-offset_top = 56
-offset_right = 720
-offset_bottom = 216
+offset_left = 40.0
+offset_top = 56.0
+offset_right = 720.0
+offset_bottom = 216.0
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="MemorySlot" parent="Phase1/Board" instance=ExtResource("2_slot")]
+[node name="MemorySlot" parent="Phase1/Board" unique_id=1742728003 instance=ExtResource("2_slot")]
 custom_minimum_size = Vector2(200, 160)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4gyg2")
 expected_component = "memory"
 slot_label = "SLOT 01"
+normal_style = SubResource("StyleBoxFlat_4gyg2")
+hover_style = SubResource("StyleBoxFlat_k7g0k")
+filled_style = SubResource("StyleBoxFlat_j0nad")
 
-[node name="ProcessorSlot" parent="Phase1/Board" instance=ExtResource("2_slot")]
+[node name="ProcessorSlot" parent="Phase1/Board" unique_id=1096947304 instance=ExtResource("2_slot")]
 custom_minimum_size = Vector2(200, 160)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_o3h6b")
 expected_component = "processor"
 slot_label = "SLOT 02"
+normal_style = SubResource("StyleBoxFlat_o3h6b")
+hover_style = SubResource("StyleBoxFlat_sckj4")
+filled_style = SubResource("StyleBoxFlat_p1mem")
 
-[node name="PeripheralSlot" parent="Phase1/Board" instance=ExtResource("2_slot")]
+[node name="PeripheralSlot" parent="Phase1/Board" unique_id=1576030895 instance=ExtResource("2_slot")]
 custom_minimum_size = Vector2(200, 160)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_to76j")
 expected_component = "peripherals"
 slot_label = "SLOT 03"
+normal_style = SubResource("StyleBoxFlat_to76j")
+hover_style = SubResource("StyleBoxFlat_oegn8")
+filled_style = SubResource("StyleBoxFlat_vde2i")
 
-[node name="Bus" type="Control" parent="Phase1"]
-layout_mode = 0
-offset_left = 40
-offset_top = 216
-offset_right = 720
-offset_bottom = 296
+[node name="Bus" type="Control" parent="Phase1" unique_id=1396214176]
+anchors_preset = 0
+offset_left = 40.0
+offset_top = 216.0
+offset_right = 720.0
+offset_bottom = 296.0
 mouse_filter = 2
 script = ExtResource("6_bus")
 
-[node name="TrayLabel" type="Label" parent="Phase1"]
+[node name="TrayLabel" type="Label" parent="Phase1" unique_id=356240767]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 300.0
@@ -508,60 +986,66 @@ theme_override_font_sizes/font_size = 12
 text = "COMPONENTES DISPONÍVEIS  ▸  arraste até o encaixe correto"
 vertical_alignment = 1
 
-[node name="Tray" type="PanelContainer" parent="Phase1"]
+[node name="Tray" type="PanelContainer" parent="Phase1" unique_id=1626830391]
 layout_mode = 0
-offset_left = 40
-offset_top = 324
-offset_right = 720
-offset_bottom = 490
+offset_left = 40.0
+offset_top = 324.0
+offset_right = 720.0
+offset_bottom = 490.0
 theme_override_styles/panel = SubResource("SB_tray")
 
-[node name="Pieces" type="HBoxContainer" parent="Phase1/Tray"]
+[node name="Pieces" type="HBoxContainer" parent="Phase1/Tray" unique_id=1517992688]
 layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="MemoryPiece" parent="Phase1/Tray/Pieces" instance=ExtResource("3_piece")]
+[node name="MemoryPiece" parent="Phase1/Tray/Pieces" unique_id=1464929728 instance=ExtResource("3_piece")]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a5vn7")
 component_id = "memory"
 display_name = "Memória RAM"
 title_text = "MEMÓRIA"
 detail_text = "RAM"
 accent_color = Color(0.3, 0.9, 0.55, 1)
 
-[node name="ProcessorPiece" parent="Phase1/Tray/Pieces" instance=ExtResource("3_piece")]
+[node name="ProcessorPiece" parent="Phase1/Tray/Pieces" unique_id=1469641580 instance=ExtResource("3_piece")]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5bj1d")
 component_id = "processor"
 display_name = "Processador"
 title_text = "PROCESSADOR"
 detail_text = "CPU"
 accent_color = Color(0.35, 0.75, 1, 1)
 
-[node name="PeripheralPiece" parent="Phase1/Tray/Pieces" instance=ExtResource("3_piece")]
+[node name="PeripheralPiece" parent="Phase1/Tray/Pieces" unique_id=1768003141 instance=ExtResource("3_piece")]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gr0ad")
 component_id = "peripherals"
 display_name = "Periféricos"
 title_text = "PERIFÉRICOS"
 detail_text = "E/S"
 accent_color = Color(1, 0.75, 0.3, 1)
 
-[node name="Phase2" type="Control" parent="."]
+[node name="Phase2" type="Control" parent="." unique_id=318448011]
 unique_name_in_owner = true
 visible = false
-layout_mode = 0
-offset_left = 32
-offset_top = 84
-offset_right = 792
-offset_bottom = 604
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 84.0
+offset_right = 792.0
+offset_bottom = 604.0
 mouse_filter = 2
 
-[node name="Art" type="Control" parent="Phase2"]
+[node name="Art" type="Control" parent="Phase2" unique_id=1072751411]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -574,7 +1058,7 @@ mode = 1
 seed_value = 13
 trace_count = 26
 
-[node name="Heading" type="Label" parent="Phase2"]
+[node name="Heading" type="Label" parent="Phase2" unique_id=507402498]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 8.0
@@ -585,49 +1069,65 @@ theme_override_font_sizes/font_size = 15
 text = "▌INTERIOR DA CPU  //  MONTAGEM DO NÚCLEO"
 vertical_alignment = 1
 
-[node name="CPUBoard" type="GridContainer" parent="Phase2"]
+[node name="CPUBoard" type="GridContainer" parent="Phase2" unique_id=1583405797]
 layout_mode = 0
-offset_left = 162
-offset_top = 80
-offset_right = 598
-offset_bottom = 284
+offset_left = 162.0
+offset_top = 80.0
+offset_right = 598.0
+offset_bottom = 284.0
 theme_override_constants/h_separation = 48
 theme_override_constants/v_separation = 24
 columns = 2
 
-[node name="ControlSlot" parent="Phase2/CPUBoard" instance=ExtResource("2_slot")]
+[node name="ControlSlot" parent="Phase2/CPUBoard" unique_id=1082582542 instance=ExtResource("2_slot")]
 custom_minimum_size = Vector2(194, 90)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_csinw")
 expected_component = "control"
 slot_label = "NÚCLEO · A"
+normal_style = SubResource("StyleBoxFlat_csinw")
+hover_style = SubResource("StyleBoxFlat_rwcxm")
+filled_style = SubResource("StyleBoxFlat_ycpea")
 
-[node name="ALUSlot" parent="Phase2/CPUBoard" instance=ExtResource("2_slot")]
+[node name="ALUSlot" parent="Phase2/CPUBoard" unique_id=1952946586 instance=ExtResource("2_slot")]
 custom_minimum_size = Vector2(194, 90)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_80ega")
 expected_component = "alu"
 slot_label = "NÚCLEO · B"
+normal_style = SubResource("StyleBoxFlat_80ega")
+hover_style = SubResource("StyleBoxFlat_y1eon")
+filled_style = SubResource("StyleBoxFlat_k6c2x")
 
-[node name="RegistersSlot" parent="Phase2/CPUBoard" instance=ExtResource("2_slot")]
+[node name="RegistersSlot" parent="Phase2/CPUBoard" unique_id=176380152 instance=ExtResource("2_slot")]
 custom_minimum_size = Vector2(194, 90)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_d2tgg")
 expected_component = "registers"
 slot_label = "NÚCLEO · C"
+normal_style = SubResource("StyleBoxFlat_d2tgg")
+hover_style = SubResource("StyleBoxFlat_miqyi")
+filled_style = SubResource("StyleBoxFlat_mmrwa")
 
-[node name="CacheSlot" parent="Phase2/CPUBoard" instance=ExtResource("2_slot")]
+[node name="CacheSlot" parent="Phase2/CPUBoard" unique_id=552618601 instance=ExtResource("2_slot")]
 custom_minimum_size = Vector2(194, 90)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_yticw")
 expected_component = "cache"
 slot_label = "NÚCLEO · D"
+normal_style = SubResource("StyleBoxFlat_yticw")
+hover_style = SubResource("StyleBoxFlat_83of3")
+filled_style = SubResource("StyleBoxFlat_hejsk")
 
-[node name="TrayLabel" type="Label" parent="Phase2"]
+[node name="TrayLabel" type="Label" parent="Phase2" unique_id=1361162495]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 334.0
@@ -638,84 +1138,92 @@ theme_override_font_sizes/font_size = 12
 text = "COMPONENTES DISPONÍVEIS  ▸  arraste até o encaixe correto"
 vertical_alignment = 1
 
-[node name="Tray" type="PanelContainer" parent="Phase2"]
+[node name="Tray" type="PanelContainer" parent="Phase2" unique_id=1936752554]
 layout_mode = 0
-offset_left = 40
-offset_top = 358
-offset_right = 720
-offset_bottom = 504
+offset_left = 40.0
+offset_top = 358.0
+offset_right = 720.0
+offset_bottom = 504.0
 theme_override_styles/panel = SubResource("SB_tray")
 
-[node name="Pieces" type="HBoxContainer" parent="Phase2/Tray"]
+[node name="Pieces" type="HBoxContainer" parent="Phase2/Tray" unique_id=1564618447]
 layout_mode = 2
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="ControlPiece" parent="Phase2/Tray/Pieces" instance=ExtResource("3_piece")]
+[node name="ControlPiece" parent="Phase2/Tray/Pieces" unique_id=1645979292 instance=ExtResource("3_piece")]
 custom_minimum_size = Vector2(152, 100)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yryau")
 component_id = "control"
 display_name = "Unidade de Controle"
 title_text = "CONTROLE"
 detail_text = "UC"
 accent_color = Color(0.72, 0.58, 1, 1)
 
-[node name="ALUPiece" parent="Phase2/Tray/Pieces" instance=ExtResource("3_piece")]
+[node name="ALUPiece" parent="Phase2/Tray/Pieces" unique_id=1753622124 instance=ExtResource("3_piece")]
 custom_minimum_size = Vector2(152, 100)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r7eq5")
 component_id = "alu"
 display_name = "ULA"
 title_text = "ULA"
 detail_text = "ALU"
 accent_color = Color(1, 0.55, 0.3, 1)
 
-[node name="RegistersPiece" parent="Phase2/Tray/Pieces" instance=ExtResource("3_piece")]
+[node name="RegistersPiece" parent="Phase2/Tray/Pieces" unique_id=29769023 instance=ExtResource("3_piece")]
 custom_minimum_size = Vector2(152, 100)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nbbm7")
 component_id = "registers"
 display_name = "Registradores"
 title_text = "REGISTRADORES"
 detail_text = "REG"
 accent_color = Color(0.25, 0.9, 0.85, 1)
 
-[node name="CachePiece" parent="Phase2/Tray/Pieces" instance=ExtResource("3_piece")]
+[node name="CachePiece" parent="Phase2/Tray/Pieces" unique_id=346066691 instance=ExtResource("3_piece")]
 custom_minimum_size = Vector2(152, 100)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_axn12")
 component_id = "cache"
 display_name = "Memória Cache"
 title_text = "CACHE"
 detail_text = "L1"
 accent_color = Color(1, 0.45, 0.7, 1)
 
-[node name="PowerButton" type="Button" parent="."]
+[node name="PowerButton" type="Button" parent="." unique_id=1803656688]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 60)
 layout_mode = 0
-offset_left = 262
-offset_top = 620
-offset_right = 562
-offset_bottom = 680
+offset_left = 262.0
+offset_top = 620.0
+offset_right = 562.0
+offset_bottom = 680.0
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("SB_power_normal")
-theme_override_styles/hover = SubResource("SB_power_hover")
 theme_override_styles/pressed = SubResource("SB_power_pressed")
+theme_override_styles/hover = SubResource("SB_power_hover")
 theme_override_styles/disabled = SubResource("SB_power_disabled")
 text = "⚡ LIGAR"
 
-[node name="MonitorFrame" type="Panel" parent="."]
+[node name="MonitorFrame" type="Panel" parent="." unique_id=1467169601]
 layout_mode = 0
-offset_left = 816
-offset_top = 84
-offset_right = 1248
-offset_bottom = 354
+offset_left = 816.0
+offset_top = 84.0
+offset_right = 1248.0
+offset_bottom = 354.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("SB_monitor")
 
-[node name="Screen" type="ColorRect" parent="MonitorFrame"]
+[node name="Screen" type="ColorRect" parent="MonitorFrame" unique_id=1747453310]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -729,7 +1237,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.01, 0.045, 0.04, 1)
 
-[node name="Standby" type="Label" parent="MonitorFrame/Screen"]
+[node name="Standby" type="Label" parent="MonitorFrame/Screen" unique_id=550413833]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -744,7 +1252,7 @@ placa desligada"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BootOverlay" type="ColorRect" parent="MonitorFrame/Screen"]
+[node name="BootOverlay" type="ColorRect" parent="MonitorFrame/Screen" unique_id=549904496]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -756,7 +1264,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.01, 0.05, 0.04, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="MonitorFrame/Screen/BootOverlay"]
+[node name="CenterContainer" type="CenterContainer" parent="MonitorFrame/Screen/BootOverlay" unique_id=1059908860]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -764,72 +1272,72 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MonitorFrame/Screen/BootOverlay/CenterContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MonitorFrame/Screen/BootOverlay/CenterContainer" unique_id=1253149073]
 layout_mode = 2
 theme_override_styles/panel = SubResource("SB_empty")
 
-[node name="MarginContainer" type="MarginContainer" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer" unique_id=1228860686]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer" unique_id=1537467007]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="BootTitle" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="BootTitle" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1461489113]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4, 1, 0.6, 1)
 theme_override_fonts/font = SubResource("SystemFont_bold")
 theme_override_font_sizes/font_size = 16
 text = "AOC-1 BIOS v1.0"
 
-[node name="BootStatus" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="BootStatus" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1490402852]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.25, 0.65, 0.4, 1)
 theme_override_font_sizes/font_size = 11
 text = "POWER-ON SELF TEST"
 
-[node name="ProgressBar" type="ProgressBar" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=561265797]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 12)
 layout_mode = 2
 show_percentage = false
 
-[node name="CheckCPU" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="CheckCPU" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=906320935]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4, 1, 0.6, 1)
 theme_override_font_sizes/font_size = 13
 
-[node name="CheckMemory" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="CheckMemory" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2118711395]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4, 1, 0.6, 1)
 theme_override_font_sizes/font_size = 13
 
-[node name="CheckBus" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="CheckBus" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=616344744]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4, 1, 0.6, 1)
 theme_override_font_sizes/font_size = 13
 
-[node name="CheckIO" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="CheckIO" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1359497867]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4, 1, 0.6, 1)
 theme_override_font_sizes/font_size = 13
 
-[node name="FinalStatus" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="FinalStatus" type="Label" parent="MonitorFrame/Screen/BootOverlay/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=726702300]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4, 1, 0.6, 1)
 theme_override_fonts/font = SubResource("SystemFont_bold")
 theme_override_font_sizes/font_size = 15
 
-[node name="Scanlines" type="Control" parent="MonitorFrame/Screen"]
+[node name="Scanlines" type="Control" parent="MonitorFrame/Screen" unique_id=1927490421]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -839,20 +1347,20 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("7_scan")
 
-[node name="StatusPanel" type="PanelContainer" parent="."]
+[node name="StatusPanel" type="PanelContainer" parent="." unique_id=611476134]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 816
-offset_top = 370
-offset_right = 1248
-offset_bottom = 604
+offset_left = 816.0
+offset_top = 370.0
+offset_right = 1248.0
+offset_bottom = 604.0
 theme_override_styles/panel = SubResource("SB_status")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="StatusPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="StatusPanel" unique_id=1130420532]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="StatusTitle" type="Label" parent="StatusPanel/VBoxContainer"]
+[node name="StatusTitle" type="Label" parent="StatusPanel/VBoxContainer" unique_id=2038991195]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4, 0.82, 1, 1)
@@ -860,10 +1368,10 @@ theme_override_fonts/font = SubResource("SystemFont_bold")
 theme_override_font_sizes/font_size = 17
 text = "▮ TERMINAL DO SISTEMA"
 
-[node name="HSeparator" type="HSeparator" parent="StatusPanel/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="StatusPanel/VBoxContainer" unique_id=715354224]
 layout_mode = 2
 
-[node name="StatusMessage" type="Label" parent="StatusPanel/VBoxContainer"]
+[node name="StatusMessage" type="Label" parent="StatusPanel/VBoxContainer" unique_id=1961456394]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
@@ -872,23 +1380,23 @@ theme_override_font_sizes/font_size = 14
 text = "Arraste os componentes até os encaixes da placa e pressione LIGAR."
 autowrap_mode = 3
 
-[node name="NextButton" type="Button" parent="."]
+[node name="NextButton" type="Button" parent="." unique_id=558912605]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 816
-offset_top = 620
-offset_right = 1248
-offset_bottom = 680
+offset_left = 816.0
+offset_top = 620.0
+offset_right = 1248.0
+offset_bottom = 680.0
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("SB_next_normal")
-theme_override_styles/hover = SubResource("SB_next_hover")
 theme_override_styles/pressed = SubResource("SB_btn_pressed")
+theme_override_styles/hover = SubResource("SB_next_hover")
 text = "PRÓXIMA FASE"
 
-[node name="CPU_Ride" type="AnimationPlayer" parent="."]
+[node name="CPU_Ride" type="AnimationPlayer" parent="." unique_id=1833565683]
 libraries/ = SubResource("AnimationLibrary_k67ak")
 
-[node name="BotaoVoltar" type="Button" parent="."]
+[node name="BotaoVoltar" type="Button" parent="." unique_id=225571732]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0

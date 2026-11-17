@@ -2153,7 +2153,7 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_aoedp")
 
-[node name="Primeiro_andar" type="Node2D" unique_id=1738111007]
+[node name="Primeiro_andar" type="Node2D" unique_id=1738111007 groups=["com_hud_missao"]]
 script = ExtResource("1_8llw3")
 
 [node name="Textura" type="Sprite2D" parent="." unique_id=769427580]
