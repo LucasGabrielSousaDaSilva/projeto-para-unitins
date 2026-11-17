@@ -1,0 +1,339 @@
+[gd_scene format=3 uid="uid://bk21pmc8pwfe3"]
+
+[ext_resource type="Script" uid="uid://b11rg050skrwh" path="res://Scripts/algoritmo/calculadora_2.gd" id="1_a031l"]
+[ext_resource type="Texture2D" uid="uid://h1t3q4ydnvpf" path="res://desktop-computer-pc-mockup2.png" id="2_v3da4"]
+[ext_resource type="AudioStream" uid="uid://688hl17m3m2q" path="res://Effects/shotgun-metal-slug-_-sound-effects-exe-online-audio-converter.mp3" id="3_xx6xm"]
+
+[node name="Control" type="Control" unique_id=1348629116]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a031l")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=955821544]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.03, 0.1, 0.06, 0.92)
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=884185244]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 9.0
+mouse_filter = 2
+texture = ExtResource("2_v3da4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=22858619]
+stream = ExtResource("3_xx6xm")
+
+[node name="Conteudo" type="MarginContainer" parent="." unique_id=408872853]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 36
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 36
+
+[node name="Coluna" type="VBoxContainer" parent="Conteudo" unique_id=1875293242]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Cabecalho" type="HBoxContainer" parent="Conteudo/Coluna" unique_id=1663463785]
+layout_mode = 2
+
+[node name="Titulo" type="Label" parent="Conteudo/Coluna/Cabecalho" unique_id=1064238184]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Calculadora"
+vertical_alignment = 1
+
+[node name="BotaoVoltar" type="Button" parent="Conteudo/Coluna/Cabecalho" unique_id=130062841]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "VOLTAR AO LABORATÓRIO"
+
+[node name="Corpo" type="HBoxContainer" parent="Conteudo/Coluna" unique_id=1426477689]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 28
+
+[node name="PainelCodigo" type="VBoxContainer" parent="Conteudo/Coluna/Corpo" unique_id=748098200]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.35
+theme_override_constants/separation = 10
+
+[node name="RotuloEditor" type="Label" parent="Conteudo/Coluna/Corpo/PainelCodigo" unique_id=1424416659]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Editor de código (Java)"
+
+[node name="CodeEdit" type="CodeEdit" parent="Conteudo/Coluna/Corpo/PainelCodigo" unique_id=247035470]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "public class Calculadora {
+    public static void main(String[] args) {
+
+        if (comando.matches(\"[0-9]\")) {
+            adicionarNumero(comando);
+        }
+        else if (comando.equals(\"+\") || comando.equals(\"-\") || comando.equals(\"*\") || comando.equals(\"/\")) {
+            definirOperador(comando);
+        }
+        else if (comando.equals(\"=\")) {
+            calcular();
+        }
+        else if (comando.equals(\"C\")) {
+            limpar();
+        }
+
+    }
+}"
+gutters_draw_line_numbers = true
+
+[node name="LinhaEnviar" type="HBoxContainer" parent="Conteudo/Coluna/Corpo/PainelCodigo" unique_id=415597394]
+layout_mode = 2
+alignment = 1
+
+[node name="BotaoEnviar" type="Button" parent="Conteudo/Coluna/Corpo/PainelCodigo/LinhaEnviar" unique_id=1018840115]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 46)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Enviar"
+
+[node name="PainelCalculadora" type="VBoxContainer" parent="Conteudo/Coluna/Corpo" unique_id=1537020038]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 14
+
+[node name="Cartao" type="PanelContainer" parent="Conteudo/Coluna/Corpo/PainelCalculadora" unique_id=1476564343]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MargemCartao" type="MarginContainer" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao" unique_id=1667696010]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
+
+[node name="ConteudoCartao" type="VBoxContainer" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao" unique_id=2064636591]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PainelVisorOperacao" type="PanelContainer" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao" unique_id=1361553930]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+
+[node name="VisorOperacao" type="Label" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/PainelVisorOperacao" unique_id=516138584]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+clip_text = true
+
+[node name="PainelVisorResultado" type="PanelContainer" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao" unique_id=1657438327]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="VisorResultado" type="Label" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/PainelVisorResultado" unique_id=1531213283]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+clip_text = true
+
+[node name="GridBotoes" type="GridContainer" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao" unique_id=76177766]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="Btn7" type="Button" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/GridBotoes" unique_id=1540279324]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "7"
+
+[node name="Btn8" type="Button" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/GridBotoes" unique_id=1211109730]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "8"
+
+[node name="Btn9" type="Button" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/GridBotoes" unique_id=1522598151]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "9"
+
+[node name="BtnDividir" type="Button" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/GridBotoes" unique_id=532475965]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "/"
+
+[node name="Btn4" type="Button" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/GridBotoes" unique_id=1265729384]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "4"
+
+[node name="Btn5" type="Button" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/GridBotoes" unique_id=507827179]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "5"
+
+[node name="Btn6" type="Button" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/GridBotoes" unique_id=116579799]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "6"
+
+[node name="BtnMultiplicar" type="Button" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/GridBotoes" unique_id=1880174457]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "*"
+
+[node name="Btn1" type="Button" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/GridBotoes" unique_id=1049512073]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "1"
+
+[node name="Btn2" type="Button" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/GridBotoes" unique_id=1694454696]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "2"
+
+[node name="Btn3" type="Button" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/GridBotoes" unique_id=506242254]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "3"
+
+[node name="BtnSubtrair" type="Button" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/GridBotoes" unique_id=558378662]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "-"
+
+[node name="BtnLimpar" type="Button" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/GridBotoes" unique_id=1486613739]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "C"
+
+[node name="Btn0" type="Button" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/GridBotoes" unique_id=448109187]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "0"
+
+[node name="BtnIgual" type="Button" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/GridBotoes" unique_id=8555523]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "="
+
+[node name="BtnSomar" type="Button" parent="Conteudo/Coluna/Corpo/PainelCalculadora/Cartao/MargemCartao/ConteudoCartao/GridBotoes" unique_id=1911530274]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "+"
+
+[node name="PainelStatus" type="PanelContainer" parent="Conteudo/Coluna/Corpo/PainelCalculadora" unique_id=1606527340]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="MargemStatus" type="MarginContainer" parent="Conteudo/Coluna/Corpo/PainelCalculadora/PainelStatus" unique_id=1167622402]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 10
+
+[node name="Conclusao" type="RichTextLabel" parent="Conteudo/Coluna/Corpo/PainelCalculadora/PainelStatus/MargemStatus" unique_id=1822616620]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+
+[connection signal="pressed" from="Conteudo/Coluna/Cabecalho/BotaoVoltar" to="." method="_on_botao_voltar_pressed"]

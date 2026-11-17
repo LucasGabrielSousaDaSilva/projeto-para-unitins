@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccijdvka40vj5"]
 
-[ext_resource type="Script" uid="uid://bccxhqfjhup7s" path="res://Scripts/algoritmo/calculadora_2.gd" id="1_nbt82"]
+[ext_resource type="Script" uid="uid://bccxhqfjhup7s" path="res://Scripts/algoritmo/calculadora.gd" id="1_rrrmw"]
 [ext_resource type="Texture2D" uid="uid://h1t3q4ydnvpf" path="res://desktop-computer-pc-mockup2.png" id="2_v3da4"]
 [ext_resource type="AudioStream" uid="uid://688hl17m3m2q" path="res://Effects/shotgun-metal-slug-_-sound-effects-exe-online-audio-converter.mp3" id="3_xx6xm"]
 
@@ -11,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_nbt82")
+script = ExtResource("1_rrrmw")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=189214005]
 layout_mode = 0

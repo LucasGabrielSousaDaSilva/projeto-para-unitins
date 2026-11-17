@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://b8ocr6hgedg1m" path="res://Prefabs/transition.tscn" id="5_y00hg"]
 [ext_resource type="PackedScene" uid="uid://2x1ag28gos2k" path="res://Prefabs/interect.tscn" id="6_442ki"]
 [ext_resource type="PackedScene" uid="uid://deh7a3vxnnyol" path="res://Prefabs/pause.tscn" id="6_lutpe"]
-[ext_resource type="PackedScene" uid="uid://bhxghfgnf7pn7" path="res://Prefabs/helloworld.tscn" id="7_y71cq"]
-[ext_resource type="PackedScene" uid="uid://c6fc0nls0e670" path="res://Prefabs/atribuicao_dados.tscn" id="8_qeaaa"]
-[ext_resource type="PackedScene" uid="uid://ccijdvka40vj5" path="res://Prefabs/calculadora2.tscn" id="9_ym5wp"]
-[ext_resource type="PackedScene" uid="uid://cva4ncrbvc3pf" path="res://Prefabs/bloco_de_comando.tscn" id="10_12a1s"]
+[ext_resource type="PackedScene" uid="uid://bhxghfgnf7pn7" path="res://Prefabs/Algoritmo/helloworld.tscn" id="7_y71cq"]
+[ext_resource type="PackedScene" uid="uid://c6fc0nls0e670" path="res://Prefabs/Algoritmo/atribuicao_dados.tscn" id="8_qeaaa"]
+[ext_resource type="PackedScene" uid="uid://cva4ncrbvc3pf" path="res://Prefabs/Algoritmo/bloco_de_comando.tscn" id="10_12a1s"]
+[ext_resource type="PackedScene" uid="uid://bk21pmc8pwfe3" path="res://Prefabs/Algoritmo/calculadora2.tscn" id="10_gah65"]
 [ext_resource type="PackedScene" uid="uid://bws0kiyemp7kc" path="res://Prefabs/AOC1/Game02_CPU_Factory/cpu_factory.tscn" id="11_8vjf3"]
 [ext_resource type="PackedScene" uid="uid://df7ovw6gq2xk1" path="res://Prefabs/AOC1/Game01_BinaryRunner/BinaryHub.tscn" id="11_g5ghl"]
 [ext_resource type="PackedScene" uid="uid://djlafmshi5vdu" path="res://Prefabs/AOC1/Game03_CacheRush/cache_rush.tscn" id="12_g5ghl"]
@@ -2272,7 +2272,7 @@ cena_jogo = ExtResource("8_qeaaa")
 [node name="calculadora" parent="ComputadoresAlg" unique_id=2104675860 instance=ExtResource("6_442ki")]
 position = Vector2(875, 518)
 nome_jogo = "Calculadora"
-cena_jogo = ExtResource("9_ym5wp")
+cena_jogo = ExtResource("10_gah65")
 
 [node name="comando" parent="ComputadoresAlg" unique_id=322013414 instance=ExtResource("6_442ki")]
 position = Vector2(876, 455)
