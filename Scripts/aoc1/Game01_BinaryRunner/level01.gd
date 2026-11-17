@@ -62,10 +62,10 @@ func _on_gate_reached() -> void:
 	var code: String = selected_bits[0] + selected_bits[1] + selected_bits[2] + selected_bits[3]
 	if code == TARGET_CODE:
 		gate.call("show_success")
-		_finish(true, "Muito bem! 1010₂ = 8 + 4 + 0 + 1 = 10₁₀. Você dominou os bits!")
+		_finish(true, "Muito bem! 1010₂ = 8 + 0 + 2 + 0 = 10₁₀. Você dominou os bits!")
 	else:
 		gate.call("show_failure")
-		_finish(false, "Acesso negado: você formou %s. A resposta é 1010, pois 10 = 8 + 4 + 1." % code)
+		_finish(false, "Acesso negado: você formou %s. A resposta é 1010, pois 10 = 8 + 2." % code)
 
 func _finish(won: bool, description: String) -> void:
 	game_finished = true

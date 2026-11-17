@@ -73,10 +73,10 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Control" unique_id=749976307]
 layout_mode = 0
-offset_left = 876.0
-offset_top = 524.0
-offset_right = 1082.0
-offset_bottom = 585.0
+offset_left = 871.0
+offset_top = 584.0
+offset_right = 1077.0
+offset_bottom = 645.0
 text = "Enviar"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1282814057]
@@ -84,7 +84,7 @@ layout_mode = 0
 offset_left = 816.0
 offset_top = 315.0
 offset_right = 1149.0
-offset_bottom = 481.0
+offset_bottom = 545.0
 theme_override_colors/selection_color = Color(0.1, 0.1, 1, 0.8)
 
 [node name="LineEdit" type="LineEdit" parent="Control" unique_id=1464026894]

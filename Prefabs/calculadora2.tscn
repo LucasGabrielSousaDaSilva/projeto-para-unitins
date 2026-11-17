@@ -178,7 +178,7 @@ placeholder_text = "public class Calculadora {
         }
 
         // 4. Tratar o botão de Limpar
-        else if (comando.equals(\"AC\")) {
+        else if (comando.equals(\"C\")) {
             limpar();
         }
 

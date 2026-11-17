@@ -1,0 +1,311 @@
+[gd_scene format=3 uid="uid://bvmdg01ps2qyd"]
+
+[ext_resource type="Script" uid="uid://dwd03eq2pkbm3" path="res://Scripts/causa_ambiente/estacao_informativa_adaptada.gd" id="1_o7c5a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_raio"]
+radius = 110.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_placa"]
+bg_color = Color(0.047, 0.1, 0.18, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.19, 0.74, 0.95, 0.9)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0.02, 0.67, 0.96, 0.3)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emblema"]
+bg_color = Color(0.055, 0.43, 0.66, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.46, 0.92, 1, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_indicador"]
+bg_color = Color(0.02, 0.055, 0.11, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45, 0.81, 1, 0.95)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_popup"]
+bg_color = Color(0.045, 0.074, 0.137, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.26, 0.71, 0.96, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.54)
+shadow_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fechar"]
+bg_color = Color(0.11, 0.19, 0.29, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_botao_hover"]
+bg_color = Color(0.16, 0.67, 0.86, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jogar"]
+bg_color = Color(0.06, 0.53, 0.69, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="PCInformativo" type="Area2D" unique_id=1971050309]
+scale = Vector2(0.23727565, 0.20166165)
+collision_layer = 0
+script = ExtResource("1_o7c5a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2121999631]
+shape = SubResource("CircleShape2D_raio")
+
+[node name="Placa" type="PanelContainer" parent="." unique_id=193041177]
+custom_minimum_size = Vector2(284, 102)
+offset_left = -142.0
+offset_top = -176.0
+offset_right = 142.0
+offset_bottom = -74.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_placa")
+
+[node name="Margem" type="MarginContainer" parent="Placa" unique_id=1041572330]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Coluna" type="VBoxContainer" parent="Placa/Margem" unique_id=554101882]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 7
+
+[node name="Cabecalho" type="HBoxContainer" parent="Placa/Margem/Coluna" unique_id=42620632]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="Emblema" type="PanelContainer" parent="Placa/Margem/Coluna/Cabecalho" unique_id=1219941686]
+custom_minimum_size = Vector2(47, 47)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_emblema")
+
+[node name="Icone" type="Label" parent="Placa/Margem/Coluna/Cabecalho/Emblema" unique_id=926422328]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.98, 1, 1)
+theme_override_font_sizes/font_size = 29
+text = "i"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Titulos" type="VBoxContainer" parent="Placa/Margem/Coluna/Cabecalho" unique_id=558967531]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="Nome" type="Label" parent="Placa/Margem/Coluna/Cabecalho/Titulos" unique_id=285674333]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.99, 1, 1)
+theme_override_font_sizes/font_size = 21
+text = "Minijogo"
+clip_text = true
+
+[node name="Tipo" type="Label" parent="Placa/Margem/Coluna/Cabecalho/Titulos" unique_id=1526294356]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49, 0.86, 1, 1)
+theme_override_font_sizes/font_size = 10
+text = "ESTAÇÃO DE APRENDIZADO"
+clip_text = true
+
+[node name="LinhaInferior" type="Label" parent="Placa/Margem/Coluna" unique_id=606297546]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.75, 0.85, 1)
+theme_override_font_sizes/font_size = 11
+text = "●  TERMINAL DE INFORMAÇÕES  /  ONLINE"
+horizontal_alignment = 1
+
+[node name="Indicador" type="PanelContainer" parent="." unique_id=761184068]
+visible = false
+custom_minimum_size = Vector2(270, 45)
+offset_left = -135.0
+offset_top = -60.0
+offset_right = 135.0
+offset_bottom = -15.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_indicador")
+
+[node name="Texto" type="Label" parent="Indicador" unique_id=1695251230]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.89, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "[ I ] INSPECIONAR    •    [ E ] JOGAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=2004130193]
+layer = 20
+
+[node name="Tela" type="Control" parent="Interface" unique_id=318853876]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sombra" type="ColorRect" parent="Interface/Tela" unique_id=1106164876]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.008, 0.02, 0.05, 0.8)
+
+[node name="Cartao" type="PanelContainer" parent="Interface/Tela" unique_id=991173679]
+custom_minimum_size = Vector2(620, 490)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -245.0
+offset_right = 310.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_popup")
+
+[node name="Margem" type="MarginContainer" parent="Interface/Tela/Cartao" unique_id=1870578405]
+layout_mode = 2
+theme_override_constants/margin_left = 27
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 27
+theme_override_constants/margin_bottom = 24
+
+[node name="Conteudo" type="VBoxContainer" parent="Interface/Tela/Cartao/Margem" unique_id=1759061395]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Tag" type="Label" parent="Interface/Tela/Cartao/Margem/Conteudo" unique_id=1717384303]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.36, 0.84, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "◉  TERMINAL / PRÉ-MISSÃO"
+
+[node name="Titulo" type="Label" parent="Interface/Tela/Cartao/Margem/Conteudo" unique_id=924153155]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.97, 0.99, 1, 1)
+theme_override_font_sizes/font_size = 27
+text = "Minijogo"
+
+[node name="Descricao" type="Label" parent="Interface/Tela/Cartao/Margem/Conteudo" unique_id=1470395003]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.82, 0.89, 1)
+theme_override_font_sizes/font_size = 14
+text = "Descrição breve do desafio."
+autowrap_mode = 3
+
+[node name="Divisor" type="HSeparator" parent="Interface/Tela/Cartao/Margem/Conteudo" unique_id=455168501]
+layout_mode = 2
+
+[node name="ObjetivoTitulo" type="Label" parent="Interface/Tela/Cartao/Margem/Conteudo" unique_id=297137351]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.39, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "ALVO DA MISSÃO"
+
+[node name="Objetivo" type="Label" parent="Interface/Tela/Cartao/Margem/Conteudo" unique_id=675097359]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "Conclua o desafio."
+autowrap_mode = 3
+
+[node name="InstrucoesTitulo" type="Label" parent="Interface/Tela/Cartao/Margem/Conteudo" unique_id=285359328]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.39, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "COMO JOGAR"
+
+[node name="Instrucoes" type="Label" parent="Interface/Tela/Cartao/Margem/Conteudo" unique_id=1129344005]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "1. Leia a missão.
+2. Realize o desafio.
+3. Conclua a atividade."
+autowrap_mode = 3
+
+[node name="DicaTitulo" type="Label" parent="Interface/Tela/Cartao/Margem/Conteudo" unique_id=2140710296]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.78, 0.36, 1)
+theme_override_font_sizes/font_size = 15
+text = "DICA DO SISTEMA"
+
+[node name="Dica" type="Label" parent="Interface/Tela/Cartao/Margem/Conteudo" unique_id=773934197]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.87, 0.72, 1)
+theme_override_font_sizes/font_size = 14
+text = "Observe as pistas antes de responder."
+autowrap_mode = 3
+
+[node name="Espaco" type="Control" parent="Interface/Tela/Cartao/Margem/Conteudo" unique_id=1806487463]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Acoes" type="HBoxContainer" parent="Interface/Tela/Cartao/Margem/Conteudo" unique_id=293589697]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Fechar" type="Button" parent="Interface/Tela/Cartao/Margem/Conteudo/Acoes" unique_id=786093557]
+custom_minimum_size = Vector2(160, 42)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_fechar")
+theme_override_styles/hover = SubResource("StyleBoxFlat_botao_hover")
+text = "FECHAR  [ESC]"
+
+[node name="Jogar" type="Button" parent="Interface/Tela/Cartao/Margem/Conteudo/Acoes" unique_id=1824970349]
+custom_minimum_size = Vector2(220, 42)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_jogar")
+theme_override_styles/hover = SubResource("StyleBoxFlat_botao_hover")
+text = "INICIAR MISSÃO  >"

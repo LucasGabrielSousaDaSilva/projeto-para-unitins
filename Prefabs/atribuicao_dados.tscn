@@ -88,14 +88,14 @@ placeholder_text = "public class Main {
 [node name="Button" type="Button" parent="." unique_id=1592372522]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.47000003
+anchor_left = 0.208
 anchor_top = 0.873
-anchor_right = 0.58900005
-anchor_bottom = 0.94900006
-offset_left = 0.5599365
-offset_top = 0.29595947
-offset_right = -0.5280762
-offset_bottom = 0.047973633
+anchor_right = 0.326
+anchor_bottom = 0.934
+offset_left = -0.23999023
+offset_top = -10.559998
+offset_right = -0.04800415
+offset_bottom = -0.00793457
 text = "Enviar"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1715770798]
@@ -103,12 +103,12 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.58900005
 anchor_top = 0.54200006
-anchor_right = 0.837
-anchor_bottom = 0.79800004
+anchor_right = 0.9480001
+anchor_bottom = 0.90400004
 offset_left = -0.5280762
 offset_top = -0.21603394
-offset_right = -0.22399902
-offset_bottom = -0.104003906
+offset_right = -0.44006348
+offset_bottom = 0.11999512
 
 [node name="BotaoVoltar" type="Button" parent="." unique_id=1309707793]
 layout_mode = 1

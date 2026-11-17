@@ -110,7 +110,7 @@ func _on_botao_calculadora_pressionado(comando: String):
 		if permite_limpar:
 			_limpar_tudo()
 		else:
-			_mostrar_erro("Erro: Lógica de LIMPAR (AC) não programada!")
+			_mostrar_erro("Erro: Lógica de LIMPAR (C) não programada!")
 
 func _mostrar_erro(mensagem: String):
 	if conclusao:

@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://djlafmshi5vdu" path="res://Prefabs/AOC1/Game03_CacheRush/cache_rush.tscn" id="12_g5ghl"]
 [ext_resource type="PackedScene" uid="uid://cjgitry5hwd0t" path="res://Prefabs/AOC1/Game04_ALUBattle/battle.tscn" id="13_t04dp"]
 [ext_resource type="PackedScene" uid="uid://dl48o0yrafckv" path="res://Prefabs/AOC1/Game03_CacheRush/CacheRushV2.tscn" id="14_g5ghl"]
+[ext_resource type="PackedScene" uid="uid://bvmdg01ps2qyd" path="res://Prefabs/EstacaoInformativa.tscn" id="17_gah65"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ffqs"]
 texture = ExtResource("2_y00hg")
@@ -2235,7 +2236,7 @@ tile_map_data = PackedByteArray("AAA/ACUAAAAXAA8AAGBAACUAAAAXAA8AAGA/ACQAAAAVAA4
 tile_set = SubResource("TileSet_bvfl5")
 
 [node name="Cadeiras" type="TileMapLayer" parent="Cenario" unique_id=2135573440]
-tile_map_data = PackedByteArray("AAA/ACUAAAAXAA8AAGBAACUAAAAXAA8AAGA/ACQAAAAVAA4AAGA/ACMAAAAOAA0AAAA/ACIAAAAXAA4AAGBAACQAAAAXAA4AAFBAACMAAAAWAA4AAFBAACIAAAAVAA4AAFAzACAAAAARABAAAFAzACEAAAASABAAAFAzABwAAAARABAAAFAzAB0AAAASABAAAFAzABgAAAARABAAAFAzABkAAAASABAAAFAzABQAAAARABAAAFAzABUAAAASABAAAFAzAAwAAAARABAAAFAzAA0AAAASABAAAFAzAAgAAAARABAAAFAzAAkAAAASABAAAFAqAAgAAAARABAAAFAqAAkAAAASABAAAFAqAAwAAAARABAAAFAqAA0AAAASABAAAFAqABQAAAARABAAAFAqABUAAAASABAAAFAqABgAAAARABAAAFAqABkAAAASABAAAFAqABwAAAARABAAAFAqAB0AAAASABAAAFAqACAAAAARABAAAFAqACEAAAASABAAAFAhAAgAAAARABAAAFAhAAkAAAASABAAAFAhAAwAAAARABAAAFAhAA0AAAASABAAAFAhABQAAAARABAAAFAhABUAAAASABAAAFAhABgAAAARABAAAFAhABkAAAASABAAAFAhABwAAAARABAAAFAhAB0AAAASABAAAFAhACAAAAARABAAAFAhACEAAAASABAAAFAYAAgAAAARABAAAFAYAAkAAAASABAAAFAYAAwAAAARABAAAFAYAA0AAAASABAAAFAYABQAAAARABAAAFAYABUAAAASABAAAFAYABgAAAARABAAAFAYABkAAAASABAAAFAYABwAAAARABAAAFAYAB0AAAASABAAAFAYACAAAAARABAAAFAYACEAAAASABAAAFAPAAgAAAARABAAAFAPAAkAAAASABAAAFAPAAwAAAARABAAAFAPAA0AAAASABAAAFAPABQAAAARABAAAFAPABUAAAASABAAAFAPABgAAAARABAAAFAPABkAAAASABAAAFAPABwAAAARABAAAFAPAB0AAAASABAAAFAPACAAAAARABAAAFAPACEAAAASABAAAFAGAAgAAAARABAAAFAGAAkAAAASABAAAFAGAAwAAAARABAAAFAGAA0AAAASABAAAFAGABQAAAARABAAAFAGABUAAAASABAAAFAGABgAAAARABAAAFAGABkAAAASABAAAFAGABwAAAARABAAAFAGAB0AAAASABAAAFAGACAAAAARABAAAFAGACEAAAASABAAAFA=")
+tile_map_data = PackedByteArray("AAA/ACUAAAAXAA8AAGBAACUAAAAXAA8AAGA/ACQAAAAVAA4AAGA/ACMAAAAOAA0AAAA/ACIAAAAXAA4AAGBAACQAAAAXAA4AAFBAACMAAAAWAA4AAFBAACIAAAAVAA4AAFAzAAwAAAARABAAAFAzAA0AAAASABAAAFAzAAgAAAARABAAAFAzAAkAAAASABAAAFAqAAgAAAARABAAAFAqAAkAAAASABAAAFAqAAwAAAARABAAAFAqAA0AAAASABAAAFAhAAgAAAARABAAAFAhAAkAAAASABAAAFAhAAwAAAARABAAAFAhAA0AAAASABAAAFAhABQAAAARABAAAFAhABUAAAASABAAAFAhABgAAAARABAAAFAhABkAAAASABAAAFAhABwAAAARABAAAFAhAB0AAAASABAAAFAhACAAAAARABAAAFAhACEAAAASABAAAFAYAAgAAAARABAAAFAYAAkAAAASABAAAFAYAAwAAAARABAAAFAYAA0AAAASABAAAFAYABQAAAARABAAAFAYABUAAAASABAAAFAYABgAAAARABAAAFAYABkAAAASABAAAFAYABwAAAARABAAAFAYAB0AAAASABAAAFAYACAAAAARABAAAFAYACEAAAASABAAAFAPAAgAAAARABAAAFAPAAkAAAASABAAAFAPAAwAAAARABAAAFAPAA0AAAASABAAAFAPABQAAAARABAAAFAPABUAAAASABAAAFAPABgAAAARABAAAFAPABkAAAASABAAAFAPABwAAAARABAAAFAPAB0AAAASABAAAFAPACAAAAARABAAAFAPACEAAAASABAAAFAGAAgAAAARABAAAFAGAAkAAAASABAAAFAGAAwAAAARABAAAFAGAA0AAAASABAAAFAGABQAAAARABAAAFAGABUAAAASABAAAFAGABgAAAARABAAAFAGABkAAAASABAAAFAGABwAAAARABAAAFAGAB0AAAASABAAAFAGACAAAAARABAAAFAGACEAAAASABAAAFApABQAAAARABAAAFApABUAAAASABAAAFApABgAAAARABAAAFApABkAAAASABAAAFApABwAAAARABAAAFApAB0AAAASABAAAFApACAAAAARABAAAFApACEAAAASABAAAFAyABQAAAARABAAAFAyABUAAAASABAAAFAyABgAAAARABAAAFAyABkAAAASABAAAFAyABwAAAARABAAAFAyAB0AAAASABAAAFAyACAAAAARABAAAFAyACEAAAASABAAAFA=")
 tile_set = SubResource("TileSet_bvfl5")
 
 [node name="Player" parent="." unique_id=1874414782 groups=["player"] instance=ExtResource("3_442ki")]
@@ -2264,7 +2265,7 @@ nome_jogo = "Hello World"
 cena_jogo = ExtResource("7_y71cq")
 
 [node name="Atribuicao" parent="ComputadoresAlg" unique_id=1172867994 instance=ExtResource("6_442ki")]
-position = Vector2(876, 396)
+position = Vector2(877, 391)
 nome_jogo = "Atribuição"
 cena_jogo = ExtResource("8_qeaaa")
 
@@ -2274,7 +2275,7 @@ nome_jogo = "Calculadora"
 cena_jogo = ExtResource("9_ym5wp")
 
 [node name="comando" parent="ComputadoresAlg" unique_id=322013414 instance=ExtResource("6_442ki")]
-position = Vector2(875, 457)
+position = Vector2(876, 455)
 nome_jogo = "Comando"
 cena_jogo = ExtResource("10_12a1s")
 
@@ -2307,3 +2308,55 @@ cena_jogo = ExtResource("13_t04dp")
 position = Vector2(721, 202)
 nome_jogo = "CacheV2"
 cena_jogo = ExtResource("14_g5ghl")
+
+[node name="TutorialAOC" type="Node2D" parent="." unique_id=1958627257]
+
+[node name="Binary Runner" parent="TutorialAOC" unique_id=1971050309 instance=ExtResource("17_gah65")]
+position = Vector2(672, 336)
+nome_jogo = "Binary Runner"
+
+[node name="CPU Factory" parent="TutorialAOC" unique_id=320443203 instance=ExtResource("17_gah65")]
+position = Vector2(672, 400)
+nome_jogo = "CPU Factory"
+categoria = "Laboratório de Montagem"
+descricao = "Construa um computador posicionando os componentes em seus locais corretos."
+objetivo = "Completar a arquitetura de um computador funcional."
+instrucoes = "Arraste os componentes para seus encaixes. Identifique CPU, memória, barramento e periféricos. Na etapa interna do processador, posicione ULA, Unidade de Controle, registradores e cache."
+dica = "A CPU é responsável pelo processamento e controle, enquanto os barramentos interligam os componentes."
+
+[node name="Cache Rush" parent="TutorialAOC" unique_id=1975827058 instance=ExtResource("17_gah65")]
+position = Vector2(672, 464)
+nome_jogo = "Cache Rush"
+categoria = "Corrida da Memória"
+descricao = "Percorra os níveis da hierarquia de memória para entregar informações ao processador."
+objetivo = "Realizar transferências utilizando corretamente registradores, caches, RAM e armazenamento."
+instrucoes = "Observe a solicitação de dados, identifique o nível de memória e complete a transferência seguindo as regras do desafio."
+dica = "Os registradores estão próximos da CPU; as caches L1, L2 e L3 ajudam a reduzir acessos à memória principal."
+
+[node name="ALU Battle" parent="TutorialAOC" unique_id=1663047801 instance=ExtResource("17_gah65")]
+position = Vector2(672, 528)
+nome_jogo = "ALU Battle"
+categoria = "Arena Binária"
+descricao = "Enfrente inimigos utilizando operações da Unidade Lógica e Aritmética."
+objetivo = "Derrotar os inimigos antes que seus pontos de vida cheguem a zero."
+instrucoes = "Analise a operação apresentada, escolha uma das quatro alternativas e acerte para causar dano. Respostas incorretas podem permitir que o inimigo ataque."
+dica = "Revise adição binária e complemento de 2. Lembre-se de que 1 + 1 = 10 em binário."
+
+[node name="TutorialAlg" type="Node2D" parent="." unique_id=1742861534]
+position = Vector2(148, -6)
+
+[node name="Hello" parent="TutorialAlg" unique_id=270601534 instance=ExtResource("17_gah65")]
+position = Vector2(672, 336)
+nome_jogo = "Hello World"
+
+[node name="Atrbuicao" parent="TutorialAlg" unique_id=1028527940 instance=ExtResource("17_gah65")]
+position = Vector2(672, 400)
+nome_jogo = "Atribuição de Dados"
+
+[node name="Comando" parent="TutorialAlg" unique_id=1668585111 instance=ExtResource("17_gah65")]
+position = Vector2(672, 464)
+nome_jogo = "Comando if/else"
+
+[node name="Calculadora" parent="TutorialAlg" unique_id=2107736231 instance=ExtResource("17_gah65")]
+position = Vector2(672, 528)
+nome_jogo = "Calculadora"
