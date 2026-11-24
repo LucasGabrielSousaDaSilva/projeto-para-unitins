@@ -2314,33 +2314,50 @@ cena_jogo = ExtResource("14_g5ghl")
 [node name="Binary Runner" parent="TutorialAOC" unique_id=1971050309 instance=ExtResource("17_gah65")]
 position = Vector2(672, 336)
 nome_jogo = "Binary Runner"
+descricao = "Explore o universo dos números binários e descubra como os computadores representam informações utilizando apenas 0 e 1."
+objetivo = "Converta corretamente os valores apresentados e avance pelos desafios binários."
+instrucoes = "1. Observe o valor apresentado na tela.
+2. Identifique sua representação correta.
+3. Escolha a resposta correspondente.
+4. Complete os desafios para vencer."
+dica = "Cada posição de um número binário representa uma potência de 2. Da direita para a esquerda: 1, 2, 4, 8, 16..."
 
 [node name="CPU Factory" parent="TutorialAOC" unique_id=320443203 instance=ExtResource("17_gah65")]
 position = Vector2(672, 400)
 nome_jogo = "CPU Factory"
 categoria = "Laboratório de Montagem"
-descricao = "Construa um computador posicionando os componentes em seus locais corretos."
-objetivo = "Completar a arquitetura de um computador funcional."
-instrucoes = "Arraste os componentes para seus encaixes. Identifique CPU, memória, barramento e periféricos. Na etapa interna do processador, posicione ULA, Unidade de Controle, registradores e cache."
-dica = "A CPU é responsável pelo processamento e controle, enquanto os barramentos interligam os componentes."
+descricao = "Assuma o papel de um engenheiro de hardware e reconstrua os principais componentes de um sistema computacional."
+objetivo = "Monte corretamente a estrutura do computador e os componentes internos do processador."
+instrucoes = "1. Observe os componentes disponíveis.
+2. Arraste cada peça até seu local correto.
+3. Complete a montagem do computador.
+4. Organize os componentes internos da CPU."
+dica = "A ULA realiza cálculos, a Unidade de Controle coordena operações e os registradores armazenam dados temporários."
 
 [node name="Cache Rush" parent="TutorialAOC" unique_id=1975827058 instance=ExtResource("17_gah65")]
 position = Vector2(672, 464)
 nome_jogo = "Cache Rush"
-categoria = "Corrida da Memória"
-descricao = "Percorra os níveis da hierarquia de memória para entregar informações ao processador."
-objetivo = "Realizar transferências utilizando corretamente registradores, caches, RAM e armazenamento."
-instrucoes = "Observe a solicitação de dados, identifique o nível de memória e complete a transferência seguindo as regras do desafio."
-dica = "Os registradores estão próximos da CPU; as caches L1, L2 e L3 ajudam a reduzir acessos à memória principal."
+categoria = "SIMULAÇÃO DE MEMÓRIA"
+descricao = "Viaje pela hierarquia de memórias de um computador e descubra como a velocidade de acesso influencia o processamento de dados."
+objetivo = "Localize os dados solicitados e entregue-os ao processador com a maior eficiência possível."
+instrucoes = "1. Observe a solicitação do processador.
+2. Percorra os diferentes níveis de memória.
+3. Localize e recupere o dado solicitado.
+4. Retorne à CPU para concluir a operação."
+dica = "As memórias mais próximas da CPU geralmente são mais rápidas, porém possuem menor capacidade de armazenamento."
 
 [node name="ALU Battle" parent="TutorialAOC" unique_id=1663047801 instance=ExtResource("17_gah65")]
 position = Vector2(672, 528)
 nome_jogo = "ALU Battle"
-categoria = "Arena Binária"
+categoria = "ARENA DE COMBATE DIGITAL"
 descricao = "Enfrente inimigos utilizando operações da Unidade Lógica e Aritmética."
 objetivo = "Derrotar os inimigos antes que seus pontos de vida cheguem a zero."
-instrucoes = "Analise a operação apresentada, escolha uma das quatro alternativas e acerte para causar dano. Respostas incorretas podem permitir que o inimigo ataque."
-dica = "Revise adição binária e complemento de 2. Lembre-se de que 1 + 1 = 10 em binário."
+instrucoes = "1. Analise a operação apresentada.
+2. Escolha uma das quatro respostas.
+3. Acerte para atacar o inimigo.
+4. Respostas incorretas causam dano à ULA.
+5. Derrote os inimigos para vencer."
+dica = "Na soma binária, 1 + 1 = 10. Para calcular o complemento de 2, inverta todos os bits e some 1."
 
 [node name="TutorialAlg" type="Node2D" parent="." unique_id=1742861534]
 position = Vector2(148, -6)
@@ -2348,15 +2365,47 @@ position = Vector2(148, -6)
 [node name="Hello" parent="TutorialAlg" unique_id=270601534 instance=ExtResource("17_gah65")]
 position = Vector2(672, 336)
 nome_jogo = "Hello World"
+categoria = "TERMINAL DE INICIALIZAÇÃO"
+descricao = "Inicie sua jornada na programação e descubra como transmitir suas primeiras instruções ao computador."
+objetivo = "Execute seu primeiro programa e exiba uma mensagem na tela."
+instrucoes = "1. Observe o desafio apresentado.
+2. Identifique o comando de saída.
+3. Organize a instrução corretamente.
+4. Execute o programa e confira o resultado."
+dica = "Os comandos de saída permitem exibir informações na tela. Lembre-se de colocar as mensagens de texto entre aspas."
 
 [node name="Atrbuicao" parent="TutorialAlg" unique_id=1028527940 instance=ExtResource("17_gah65")]
 position = Vector2(672, 400)
 nome_jogo = "Atribuição de Dados"
+categoria = "ESTAÇÃO DE MANIPULAÇÃO DE DADOS"
+descricao = "Aprenda a armazenar e modificar informações utilizando variáveis, um dos principais recursos da programação."
+objetivo = "Atribua corretamente os valores às variáveis para alcançar o resultado solicitado."
+instrucoes = "1. Observe as variáveis apresentadas.
+2. Identifique os valores solicitados.
+3. Realize as atribuições corretamente.
+4. Verifique o resultado da operação."
+dica = "Imagine uma variável como uma caixa identificada. Seu conteúdo pode ser substituído por um novo valor durante a execução do programa."
 
 [node name="Comando" parent="TutorialAlg" unique_id=1668585111 instance=ExtResource("17_gah65")]
 position = Vector2(672, 464)
 nome_jogo = "Comando if/else"
+categoria = "TERMINAL DE EXECUÇÃO LÓGICA"
+descricao = "Assuma o controle do sistema utilizando comandos e desenvolva seu raciocínio lógico para solucionar problemas."
+objetivo = "Utilize as instruções corretas para executar a tarefa solicitada pelo sistema."
+instrucoes = "1. Leia o problema apresentado.
+2. Analise os comandos disponíveis.
+3. Organize as instruções na ordem correta.
+4. Execute e verifique o resultado."
+dica = "Um algoritmo é uma sequência organizada de instruções para resolver um problema. A ordem dos comandos pode alterar o resultado."
 
 [node name="Calculadora" parent="TutorialAlg" unique_id=2107736231 instance=ExtResource("17_gah65")]
 position = Vector2(672, 528)
 nome_jogo = "Calculadora"
+descricao = "Explore os operadores aritméticos e descubra como a programação pode ser utilizada para realizar cálculos e processar valores numéricos."
+objetivo = "Utilize os operadores corretos para resolver os cálculos solicitados pelo sistema."
+instrucoes = "1. Observe os valores apresentados.
+2. Identifique a operação necessária.
+3. Utilize os operadores corretamente.
+4. Confira o resultado do cálculo.
+5. Complete os desafios propostos."
+dica = "Utilize + para somar, - para subtrair, * para multiplicar e / para dividir. Observe a prioridade das operações."

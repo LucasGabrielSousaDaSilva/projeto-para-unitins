@@ -162,7 +162,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2hs0m")
 }],
-"loop": true,
+"loop": 1,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -185,7 +185,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ivps1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -202,7 +202,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u1c27")
 }],
-"loop": true,
+"loop": 1,
 "name": &"down",
 "speed": 7.0
 }, {
@@ -225,7 +225,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7ahtn")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 7.0
 }, {
@@ -254,7 +254,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j5n4i")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run",
 "speed": 10.0
 }, {
@@ -277,7 +277,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ek41f")
 }],
-"loop": true,
+"loop": 1,
 "name": &"stop",
 "speed": 5.0
 }]
@@ -286,10 +286,10 @@ animations = [{
 radius = 3.9995072
 height = 18.029196
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=941676605]
 script = ExtResource("1_onrkg")
 
-[node name="Boy" type="Sprite2D" parent="."]
+[node name="Boy" type="Sprite2D" parent="." unique_id=163642869]
 visible = false
 position = Vector2(0, -4)
 scale = Vector2(1, 0.9963768)
@@ -297,20 +297,20 @@ texture = ExtResource("1_4flbx")
 hframes = 8
 vframes = 6
 
-[node name="Animated" type="AnimatedSprite2D" parent="."]
+[node name="Animated" type="AnimatedSprite2D" parent="." unique_id=1967890177]
 position = Vector2(-1.0000001, -3.0000002)
 scale = Vector2(1, 0.9782609)
 sprite_frames = SubResource("SpriteFrames_khis8")
 animation = &"idle"
 flip_h = true
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1356696082]
 position = Vector2(0, 8.000001)
 rotation = 1.5865043
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CapsuleShape2D_sh265")
 
-[node name="Visao" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+[node name="Visao" type="Camera2D" parent="." unique_id=1606040143]
+zoom = Vector2(4, 4)
 
-[node name="Inventory" parent="." instance=ExtResource("3_6t5aa")]
+[node name="Inventory" parent="." unique_id=1141084905 instance=ExtResource("3_6t5aa")]
